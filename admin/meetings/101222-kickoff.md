@@ -8,7 +8,7 @@ Team/Group Kickoff
 * Aedan Bailey
 * Yiju 'Ray' Li
 * Ann Luong
-* Cindy Wang
+* Xinyi(Cindy) Wang
 * 
 #### Meeting Location & Start Time:
 
