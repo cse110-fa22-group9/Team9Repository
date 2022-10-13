@@ -22,27 +22,27 @@
 
 # Getting to know us: 
 ## Aedan Bailey
-![AedanBailey](/admin/TeamPicture/AedanBailey.jpeg)
+![AedanBailey]()
   - Role: Team Lead
-  - Favourite quote: ""
-  - Self-introduction: 
+  - Favourite quote: "It’s a magical world Hobbes"
+  - Self-introduction: Hi! My name is Aedan and I’m one of the team leads for team 9. I love to snowboard and code!
   - [GitHub Page](https://github.com/B3DAN)
 ## Pranav Puttaparthi
 ![PranavPuttaparthi]()
   - Role: Team Lead
-  - Favourite quote: ""
+  - Favourite quote: "No matter how far you push your feelings down, they’ll always come back somehow. And what you do with those feelings that will be your truth"
   - Self-introduction: 
   - [GitHub Page](https://github.com/pranav-puttaparthi)
 ## Cindy Wang
 ![CindyWang](/admin/TeamPicture/Cindy%20Wang.jpg)
   - Role: Planner
-  - Favourite quote: ""
+  - Favourite quote: "Tomorrow is another day"
   - Self-introduction: 
   - [GitHub Page](https://github.com/xiw013)
 ## Ruihan Zeng
 ![RuihanZeng]()
   - Role: Desinger
-  - Favourite quote: ""
+  - Favourite quote: "There are no bugs, just complementary features"
   - Self-introduction: 
   - [GitHub Page](https://github.com/r3zeng)
 ## Chenfei Yan
@@ -54,24 +54,24 @@
 ## Jackie Sun
 ![Jackie Sun]()
   - Role: Developer
-  - Favourite quote: ""
+  - Favourite quote: "Krusty Krab is unfair"
   - Self-introduction: 
   - [GitHub Page](https://github.com/JackieJSun)
 ## Yiju(Ray) Li
 ![Yiju(Ray)Li]()
   - Role: Developer
-  - Favourite quote: ""
+  - Favourite quote: "To infinity and beyond"
   - Self-introduction: 
   - [GitHub Page](https://github.com/OrangeTrashBin)
 ## Anish Rajeshkumar
 ![AnishRajeshkumar]()
   - Role: Developer
-  - Favourite quote: ""
+  - Favourite quote: "Play more, work less"
   - Self-introduction: 
   - [GitHub Page](https://github.com/anishrajeshkumar2002) 
 ## Ann Luong
 ![AnnLuong](/admin/TeamPicture/AnnLuong.jpg)
   - Role: Developer
-  - Favourite quote: ""
-  - Self-introduction: 
+  - Favourite quote: "No thoughts, head empty, just vibes"
+  - Self-introduction: Hi! My name's Ann Luong. I'm one of the developers for Team 9. I'm a 4th year CS major. I like to watch TV, sleep, and play games.
   - [GitHub Page](https://github.com/hoangann23)
