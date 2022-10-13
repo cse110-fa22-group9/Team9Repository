@@ -22,7 +22,7 @@
 
 # Getting to know us: 
 ## Aedan Bailey
-![AedanBailey]()
+![AedanBailey](/admin/TeamPicture/AedanBailey.jpg)
   - Role: Team Lead
   - Favourite quote: "It’s a magical world Hobbes"
   - Self-introduction: Hi! My name is Aedan and I’m one of the team leads for team 9. I love to snowboard and code!
