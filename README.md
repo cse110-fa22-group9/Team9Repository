@@ -1,1 +1,1 @@
-[Our team pag](admin/team.md)
+[Our team page](admin/team.md)
