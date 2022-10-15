@@ -1,4 +1,4 @@
-# Welocome to our team page!
+# Welcome to our team page!
 ## We are Team Nine (T9) !!!
 ![TeamBrand]()
 - Hi, welcome to team 9, Since there are nine people in our group and we are group number 9 for CSE 110. So our team called T9!
@@ -67,7 +67,7 @@
 ![AnishRajeshkumar]()
   - Role: Developer
   - Favourite quote: "Play more, work less"
-  - Self-introduction: 
+  - Self-introduction: Hello my name is Anish Rajeshkumar and I am a driven and fun individual who seeks to learn new things. In my free time I like playing the video game Super Smash bros. and I like to hike.
   - [GitHub Page](https://github.com/anishrajeshkumar2002) 
 ## Ann Luong
 ![AnnLuong](/admin/TeamPicture/AnnLuong.jpg)
