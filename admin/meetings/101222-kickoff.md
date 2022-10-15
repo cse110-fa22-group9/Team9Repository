@@ -36,7 +36,7 @@ Geisel Library First Floor West - 6:05 PM PST
   8) Chenfei Yan
   9) Jackie Sun
 * Aedan proposed the idea of making our team video in the style of The Office to introduce ourselves in a humorous way, which we all agreed to move forth with unanimously. The resulting footage came out very nicely.
-* Cindy was nominated to design the logo for Team 9, due to her experience in drawing. Ruihan stepped up to compile all the acquited information into the team page.
+* Cindy was nominated to design the logo for Team 9, due to her experience in drawing. Chenfei stepped up to compile all the acquited information into the team page.
 * Communication became one of the major themes that our group really came to emphasize in our group contract. We all shared similar experiences of being ghosted on group assignments, and we wanted to make sure situations like that, as well as other situations pertaining to miscommunication or lack of proper communication, were proprerly noted down in the contract so that everyone would be held accountable.
 #### Meeting End Time:
 8:05 PM PST
