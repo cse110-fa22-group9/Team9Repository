@@ -61,7 +61,7 @@
 ![Yiju(Ray)Li]()
   - Role: Developer
   - Favourite quote: "To infinity and beyond"
-  - Self-introduction: 
+  - Self-introduction: Hi, I'm Jackie Sun and I like meta humor, Oxford commas, and lists that come in groups of three!
   - [GitHub Page](https://github.com/OrangeTrashBin)
 ## Anish Rajeshkumar
 ![AnishRajeshkumar]()
