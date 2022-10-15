@@ -41,7 +41,7 @@
   - [GitHub Page](https://github.com/xiw013)
 ## Ruihan Zeng
 ![RuihanZeng]()
-  - Role: Desinger
+  - Role: Designer
   - Favourite quote: "There are no bugs, just complementary features"
   - Self-introduction: 
   - [GitHub Page](https://github.com/r3zeng)
