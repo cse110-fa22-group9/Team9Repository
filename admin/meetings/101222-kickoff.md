@@ -19,7 +19,8 @@ Geisel Library First Floor West - 6:05 PM PST
 
 ## Meeting Agenda:
 * First, attendants went over the meeting minute assignments, to decide the order of which the person doing the meeting minutes would be assigned and rotated. This took around ten minutes of the meeting duration.
-* Next, we went over the group contract, discussing our group values for the 
+* Next, we went over the group contract, discussing our group values as well as how to hold each other accountable when those values are violated in some form
+* After that, we broke up the work for the team site, discussing how the site building would be handled as well as who in particular would handle it. We took a group photo for the team page and noted down each of our individual quotes.
 
 ## Meeting Decisions:
 * The meeting minutes are going to be done by a different person each meeting. The assignment of the meeting minutes will be done in this order:
