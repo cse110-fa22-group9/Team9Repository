@@ -33,4 +33,5 @@ Geisel Library First Floor West - 6:05 PM PST
   8) Chenfei Yan
   9) Jackie Sun
 * 
-#### Meeting End Time: 
+#### Meeting End Time:
+8:05 PM PST
