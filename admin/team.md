@@ -57,12 +57,6 @@
   - Favourite quote: "Krusty Krab is unfair"
   - Self-introduction: 
   - [GitHub Page](https://github.com/JackieJSun)
-## Yiju(Ray) Li
-![Yiju(Ray)Li]()
-  - Role: Developer
-  - Favourite quote: "To infinity and beyond"
-  - Self-introduction: Hi, I'm Jackie Sun and I like meta humor, Oxford commas, and lists that come in groups of three!
-  - [GitHub Page](https://github.com/OrangeTrashBin)
 ## Anish Rajeshkumar
 ![AnishRajeshkumar]()
   - Role: Developer
