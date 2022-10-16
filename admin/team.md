@@ -7,7 +7,7 @@
 - Founded: 2022
 - History: 2022 - present
 - Based in [UCSD](https://ucsd.edu/)
-- Our team value: On time! Be respected! Be actively! Get A!
+- Our team values: Be on time! Be respectful! Be active! Get an A!
 - Our team member: 
   - Team lead: [Aedan Bailey](#aedan-bailey)
   - Team lead: [Pranav Puttaparthi](#pranav-puttaparthi)
