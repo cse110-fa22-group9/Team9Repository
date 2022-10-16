@@ -52,7 +52,7 @@
   - Self-introduction: Hi, I am from China, Shanghai. I am a third year student major in CS at UCSD. I like plaing vido game, swimming and coding. My favourite game is League of Legends and Apex.
   - [GitHub Page](https://github.com/Lanmei0914)
 ## Jackie Sun
-![Jackie Sun]()
+![Jackie Sun](/admin/TeamPicture/JackieSun.jpg)
   - Role: Developer
   - Favourite quote: "Krusty Krab is unfair"
   - Self-introduction: 
