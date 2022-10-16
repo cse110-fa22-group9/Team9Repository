@@ -1,4 +1,4 @@
-[Our team page](admin/team.md)
+[Our team page](admin/team.md) <br>
 [Team Video](https://youtu.be/fRwaFzbmdpQ)
 
 PRELIMINARY PROJECT IDEA: 
