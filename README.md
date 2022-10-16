@@ -1,5 +1,5 @@
 [Our team page](admin/team.md) <br>
-[Team Video](https://youtu.be/fRwaFzbmdpQ)
+[Team Video](https://youtu.be/sez--7q8XT4)
 
 PRELIMINARY PROJECT IDEA: 
 Team 9 will be developing a website where you can track your progress on all the TV shows and movies you watch. You will be able to add new titles to your collection,
