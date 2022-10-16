@@ -1,6 +1,6 @@
 # Welcome to our team page!
 ## We are Team Nine (T9) !!!
-![TeamBrand]()
+![TeamBrand](/admin/Branding/Team%209%20logo.jpg)
 - Hi, welcome to team 9, Since there are nine people in our group and we are group number 9 for CSE 110. So our team called T9!
 ![TeamPicture](/admin/TeamPicture/teamPicture.jpg)
 - Team Name: T9
@@ -28,10 +28,10 @@
   - Self-introduction: Hi! My name is Aedan and I’m one of the team leads for team 9. I love to snowboard and code!
   - [GitHub Page](https://github.com/B3DAN)
 ## Pranav Puttaparthi
-![PranavPuttaparthi]()
+![PranavPuttaparthi](/admin/TeamPicture/PranavPuttaparthi_ID.jpg)
   - Role: Team Lead
   - Favourite quote: "No matter how far you push your feelings down, they’ll always come back somehow. And what you do with those feelings that will be your truth"
-  - Self-introduction: 
+  - Self-introduction: Hi, my name is Pranav Puttaparthi! I'm an aspiring novelist with an immense fanaticism for stories, chicken sandwiches, and gaming of all genres!
   - [GitHub Page](https://github.com/pranav-puttaparthi)
 ## Cindy Wang
 ![CindyWang](/admin/TeamPicture/Cindy%20Wang.jpg)
@@ -40,10 +40,10 @@
   - Self-introduction: 
   - [GitHub Page](https://github.com/xiw013)
 ## Ruihan Zeng
-![RuihanZeng]()
+![RuihanZeng](/admin/TeamPicture/RuihanZeng.png)
   - Role: Designer
   - Favourite quote: "There are no bugs, just complementary features"
-  - Self-introduction: 
+  - Self-introduction: Hi my name is Ruihan.  You can find me sleeping in the library from time to time.  When I'm not sleeping, you can find me desperately trying to complete my homework or cramming for a midterm.
   - [GitHub Page](https://github.com/r3zeng)
 ## Chenfei Yan
 ![ChenfeiYan](/admin/TeamPicture/Chenfei.jpg)
@@ -61,7 +61,7 @@
 ![Yiju(Ray)Li]()
   - Role: Developer
   - Favourite quote: "To infinity and beyond"
-  - Self-introduction: 
+  - Self-introduction: Hi, I'm Jackie Sun and I like meta humor, Oxford commas, and lists that come in groups of three!
   - [GitHub Page](https://github.com/OrangeTrashBin)
 ## Anish Rajeshkumar
 ![AnishRajeshkumar]()
