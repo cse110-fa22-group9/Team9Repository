@@ -58,7 +58,7 @@
   - Self-introduction: 
   - [GitHub Page](https://github.com/JackieJSun)
 ## Anish Rajeshkumar
-![AnishRajeshkumar]()
+![AnishRajeshkumar](/admin/TeamPicture/AnishRajeshkumar.jpg)
   - Role: Developer
   - Favourite quote: "Play more, work less"
   - Self-introduction: Hello my name is Anish Rajeshkumar and I am a driven and fun individual who seeks to learn new things. In my free time I like playing the video game Super Smash bros. and I like to hike.
