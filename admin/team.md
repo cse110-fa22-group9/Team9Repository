@@ -37,7 +37,7 @@
 ![CindyWang](/admin/TeamPicture/Cindy%20Wang.jpg)
   - Role: Planner
   - Favourite quote: "Tomorrow is another day"
-  - Self-introduction: 
+  - Self-introduction: Hi I am Cindy, and I am a third year math-cs student. I love painting, reading, and hiking. 
   - [GitHub Page](https://github.com/xiw013)
 ## Ruihan Zeng
 ![RuihanZeng](/admin/TeamPicture/RuihanZeng.png)
