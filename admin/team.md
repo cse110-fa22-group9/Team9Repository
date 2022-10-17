@@ -71,6 +71,7 @@
   - [GitHub Page](https://github.com/hoangann23)
 ## Yiju(Ray) Li
 <img src="/admin/TeamPicture/ray-li.jpg" width=25% height=25%>
+
   - Role: Developer
   - Favourite quote: "To Infinity and Beyond!"
   - Self-introduction: Hi, I am Yiju Li. A third year CE student specialized in differential geometry. 
