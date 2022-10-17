@@ -70,8 +70,8 @@
   - Self-introduction: Hi! My name's Ann Luong. I'm one of the developers for Team 9. I'm a 4th year CS major. I like to watch TV, sleep, and play games.
   - [GitHub Page](https://github.com/hoangann23)
 ## Yiju(Ray) Li
-![Ray Li](/admin/TeamPicture/ray-li.jpg)
+![Ray Li](/admin/TeamPicture/ray-li.jpg){width=250}
   - Role: Developer
   - Favourite quote: "To Infinity and Beyond!"
   - Self-introduction: Hi, I am Yiju Li. A third year CE student specialized in differential geometry. 
-  - [GitHub Page](https://github.com/Ray-Li-official))
+  - [GitHub Page](https://github.com/Ray-Li-official)
