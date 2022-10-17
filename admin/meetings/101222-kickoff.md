@@ -1,4 +1,4 @@
-# Team 9 Meeting Minutes #1
+# Team 9 (T9) Meeting Minutes #1
 
 #### Meeting Type:
 Team/Group Kickoff
