@@ -69,7 +69,7 @@
   - Favourite quote: "No thoughts, head empty, just vibes"
   - Self-introduction: Hi! My name's Ann Luong. I'm one of the developers for Team 9. I'm a 4th year CS major. I like to watch TV, sleep, and play games.
   - [GitHub Page](https://github.com/hoangann23)
-## Yiju 'Ray' Li
+## Yiju(Ray) Li
 ![Ray Li](/admin/TeamPicture/ray-li.jpg)
   - Role: Developer
   - Favourite quote: "To Infinity and Beyond!"
