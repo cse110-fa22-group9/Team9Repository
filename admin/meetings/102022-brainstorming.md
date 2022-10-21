@@ -27,6 +27,8 @@
   - mindfulness, meditation
 - Keep track of mental health
 - Still concerns over local-first but seems more feasible
+- Face rating system, graph feelings over time
+- Search system (search by faces, search by notes)
 
 ## Game library
 - View games you bought but haven't played, games you have played, etc.
