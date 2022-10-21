@@ -8,6 +8,7 @@
 - Jackie Sun
 - Ruihan Zeng
 - Ann Luong 
+- Yiju "Ray" Li
 
 # Proposals
 
