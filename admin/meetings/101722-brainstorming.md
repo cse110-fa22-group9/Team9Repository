@@ -1,7 +1,7 @@
 #### Meeting Type:
-Team/Group Kickoff
+Brainstorming
 
-# Attendence
+# Attendance
 
 * Aedan Bailey
 * Ann Luong
@@ -9,7 +9,12 @@ Team/Group Kickoff
 * Chenfei Yan
 * Jackie Sun
 
-# Proposals
+#### Meeting Location & Start Time:
+Geisel Library - October 19, 2022 at 6:00 PM
+
+# Meeting Agenda
+
+Multiple proposals were made on what our project is going to be. The proposals themselves and their details are listed below:
 
 ## MOVIE/TV SHOW BINGE WATCHING TRACKER
 - proposal 
@@ -30,3 +35,9 @@ Team/Group Kickoff
 - calander
 - private / public setting
 - add pictures
+
+# Meeting Decisions
+No notable decisions were made during this meeting
+
+#### Meeting End Time:
+7:00 PM
