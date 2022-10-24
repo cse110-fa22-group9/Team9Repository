@@ -1,3 +1,5 @@
+# Team 9 (T9) Meeting Minutes #2
+
 #### Meeting Type:
 Brainstorming
 
@@ -18,10 +20,10 @@ Multiple proposals were made on what our project is going to be. The proposals t
 
 ## MOVIE/TV SHOW BINGE WATCHING TRACKER
 - proposal 
-- keeps track of shows and current wathc progress
+- keeps track of shows and current watch progress
 - progress bar for episodes watched 
 - almost all data such title, image, number of episodes manually entered at least in first iteration build
-- seems like prefered idea so far
+- seems like preferred idea so far
 - many ideas for secondary features such as adding genre tags, rewatch counters
 
 ## Digitized Clothes Inventory Website
