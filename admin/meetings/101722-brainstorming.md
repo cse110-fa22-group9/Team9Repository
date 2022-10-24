@@ -39,7 +39,7 @@ Multiple proposals were made on what our project is going to be. The proposals t
 - add pictures
 
 # Meeting Decisions
-No notable decisions were made during this meeting
+- Make the Slack channel for standup reports public
 
 #### Meeting End Time:
 7:00 PM PST
