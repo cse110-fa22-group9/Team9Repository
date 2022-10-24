@@ -12,7 +12,7 @@ Brainstorming
 * Jackie Sun
 
 #### Meeting Location & Start Time:
-Geisel Library - October 19, 2022 at 6:00 PM
+Geisel Library - October 19, 2022 at 6:00 PM PST
 
 # Meeting Agenda
 
@@ -42,4 +42,4 @@ Multiple proposals were made on what our project is going to be. The proposals t
 No notable decisions were made during this meeting
 
 #### Meeting End Time:
-7:00 PM
+7:00 PM PST
