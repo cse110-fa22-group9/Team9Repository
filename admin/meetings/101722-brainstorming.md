@@ -1,3 +1,6 @@
+#### Meeting Type:
+Team/Group Kickoff
+
 # Attendence
 
 * Aedan Bailey
