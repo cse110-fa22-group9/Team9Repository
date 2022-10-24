@@ -1,3 +1,5 @@
+#### Meeting Type:
+Brainstorming
 
 # Attendance
 - Pranav Puttaparthi
@@ -9,6 +11,9 @@
 - Ruihan Zeng
 - Ann Luong 
 - Yiju "Ray" Li
+
+#### Meeting Location:
+Remote
 
 # Proposals
 
