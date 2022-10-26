@@ -36,3 +36,4 @@ Multiple proposals were made on what our project is going to be. The proposals t
 - ppt or docuement for Pitch (PPT)
 
 #### Meeting End Time:
+9:30 pm 
