@@ -44,5 +44,5 @@ For David The Movie Guy:
 - add more visuals
 
 #### Meeting End Time:
-8:35 pm for big group meeting
-8:35 - 9:00 For breakout rooms
+- 8:35 pm for big group meeting
+- 8:35 - 9:00 For breakout rooms
