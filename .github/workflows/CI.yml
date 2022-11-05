@@ -35,7 +35,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-
+      - name: Run Lint
+        run: |
+          npm run lint
+      
       - name: HTMLProofer
         # You may pin to the exact commit or the version.
         # uses: chabad360/htmlproofer@c2750eb7eb937599ac859517e7dd23a29f1b3ed7
