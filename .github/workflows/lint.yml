@@ -16,7 +16,7 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches-ignore: [master, main]
+    # branches-ignore: [master, main]
     # Remove the line above to run when pushing to master
   pull_request:
     branches: [master, main]
@@ -55,3 +55,4 @@ jobs:
           # Change to 'master' if your main branch differs
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          auto_fix: ${{ github.event_name == 'pull_request' }}
