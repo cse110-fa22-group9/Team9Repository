@@ -42,3 +42,9 @@ jobs:
         with:
           # The directory to scan
           directory: source
+          
+      - name: Run ESLint
+        run: npm run lint
+        
+      - name: Run ESLint
+        run: npm run lint -- --fix
