@@ -42,10 +42,6 @@ jobs:
         with:
           # The directory to scan
           directory: source
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
-        with:
-          directory: source
+          
+      - name: Super-Linter
+         uses:github/super-linter@v4.9.7
