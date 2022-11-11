@@ -8,7 +8,7 @@ Weekly Meeting on Wednesday
 * Ann Luong
 * Cindy Wang
 * Chenfei Yan
-* Jackie Sun
+* Jackie Sun 
 
 #### Meeting Location & Start Time:
 Virtual - 8:00 PM PST
