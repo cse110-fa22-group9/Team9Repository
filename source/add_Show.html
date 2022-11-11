@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Move From</title>
+  <title>Add Show From</title>
 </head>
 <body>
 
-  <form id="new-movie">
+  <form id="new-Show">
     <fieldset>
-      <legend>What movie you are watching?</legend>
-      <label for="movie-name">
-        Movie name:
-        <input type="text" id="movieName" name="movieName" required>
+      <legend>What show you are watching?</legend>
+      <label for="show-name">
+        Show name:
+        <input type="text" id="showName" name="showName" required>
     </fieldset>
     <fieldset>
-      <legend>Movie image:</legend>
+      <legend>Show image:</legend>
       <label for="image-src">
         Source:
         <input type="text" id="imgSrc" name="imgSrc" required>
@@ -23,16 +23,17 @@
       </label>
     </fieldset>
     <fieldset>
-      <legend>Movie Time Information:</legend>
-      <label for="movie-Time">How long is the movie (in minuts)?:
-        <input type="number" id="movieTime" name="movieTime" required>
+      <legend>Show episodes Information:</legend>
+      <label for="total-Episodes">Total number of episodes in the show:
+        <input type="number" id="totalEpisodes" name="totalEpisodes" required>
       </label>
-      <label for="movie-far">How far you are into the movie (in minuts)?:
-        <input type="number" id="movieFar" name="movieFar" required>
+      <br>
+      <label for="episodes-Right-Now">How many episodes of the show you've been:
+        <input type="number" id="episodesRightNow" name="episodesRightNow" required>
       </label>
     </fieldset>
       <fieldset>
-        <legend>Movie Rating</legend>
+        <legend>Show Rating</legend>
         <label for="rating-0">
           0<input type="radio" id="rating-0" value="0" name="rating">
         </label>
@@ -63,8 +64,8 @@
           required></textarea>
       </label>
     </fieldset>
-    <button type="submit">Add Movie to watch list</button>
-    <button type="button" class="danger">Delete this movie from watch list</button>
+    <button type="submit">Add Show to watch list</button>
+    <button type="button" class="danger">Delete this Show from watch list</button>
   </form>
 </body>
 </html>
