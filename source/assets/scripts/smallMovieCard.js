@@ -9,6 +9,7 @@
  * Class Header: smallMovieCard
  * 
  * A small movie card that previews information about movies on the user's watch list
+ * Displays the movie title, image, and progress made with the movie
  * 
  * data() - sets the movie card data with the information provided from the data object
  */
@@ -23,7 +24,7 @@ class smallMovieCard extends HTMLElement {
         let article = document.createElement('article');
         let style = document.createElement('style');
 
-        // style.textContent = ``  -- decide on style later
+        // style.textContent = ``  -- TODO: decide on style later
         shadow.append(article);
         shadow.append(style);
     }
@@ -54,6 +55,8 @@ class smallMovieCard extends HTMLElement {
 
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
+
+        // TODO: Implement a progress bar (probably implemented as a slider for movies?)
 
         article.innerHTML = `<p class="title">${data.movieTitle}</p>
                              <img src=${data.imgSrc} alt=${data.imgAlt}>
