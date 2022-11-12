@@ -57,7 +57,7 @@ class smallShowCard extends HTMLElement {
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
 
-        // TODO: add js for checkmark-style progress bar
+        // TODO: add js for a progress bar
 
         article.innerHTML = `<p class="title">${data.showTitle}</p>
                              <img src=${data.imgSrc} alt=${data.imgAlt}>
