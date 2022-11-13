@@ -58,10 +58,12 @@ class smallMovieCard extends HTMLElement {
 
         // TODO: Implement a progress bar (probably implemented as a slider for movies?)
 
-        article.innerHTML = `<p class="title">${data.movieTitle}</p>
+        article.innerHTML = `<h2 class="title">${data.movieTitle}</h2>
                              <img src=${data.imgSrc} alt=${data.imgAlt}>
-                             <time class="duration">${data.movieDuration}</time>
-                             <time class="progress">${data.progressMade}</time>`;
+                             <p class="amount watched>
+                                <time class="progress">${data.progressMade}</time> of <time class="duration">${data.movieDuration}</time>
+                             </p>
+                             <p>TODO: add a progress bar</p>`;
     }
 }
 

@@ -59,9 +59,10 @@ class smallShowCard extends HTMLElement {
 
         // TODO: add js for a progress bar
 
-        article.innerHTML = `<p class="title">${data.showTitle}</p>
+        article.innerHTML = `<h2 class="title">${data.showTitle}</h2>
                              <img src=${data.imgSrc} alt=${data.imgAlt}>
-                             <p class="watched">${data.episodesWatched}/${data.numEpisodes}</p>`;
+                             <p class="watched">Watched: ${data.episodesWatched}/${data.numEpisodes}</p>
+                             <p>TODO: add a progress bar</p>`;
     }
 }
 
