@@ -31,4 +31,4 @@ Retrospective:
 - Another pairing will work on how the information in the card should be formatted (CSS and HTML), as well as any and all of the rest of the JavaScript for the cards
 
 #### Meeting End Time:
-10:19 PM
+10:19 PM PST
