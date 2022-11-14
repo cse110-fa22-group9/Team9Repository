@@ -52,6 +52,13 @@ function addCardsToDocument(cards) {
         let cardElement = document.createElement('expanded-show-card');
     }
     */
+    let cardElement;
+    if(cards[i]["showTitle"] != null) { //if show
+      cardElement = document.createElement('expanded-show-card');
+    }
+    else { //movie
+      cardElement = document.createElement('expanded-movie-card');
+    }
     cardElement.data = cards[i];
     mainElement.append(cardElement);
   }
@@ -120,7 +127,21 @@ function initFormHandler() {
         let newCard = document.createElement('expanded-show-card');
      }
    */
-
+    let newCard;
+    let testObject = {
+      "showTitle": "Star Trek",
+      "imgSrc": "https://i.pinimg.com/originals/21/e0/6f/21e06f75f820b6eea65f02c254c1b0cc.png",
+      "imgAlt": "https://i.postimg.cc/NfRt443h/bt.png",
+      "episodeArray": [[true, true, false, true],[true, false, true]],
+      "rating": 5,
+      "comments": "very good would watch again",
+    };
+    if(testObject["showTitle"] != null) { //if show
+      newCard = document.createElement('expanded-show-card');
+    }
+    else { //movie
+      newCard = document.createElement('expanded-movie-card');
+    }
   // B7. TODO - Add the cardObject data to the card element using element.data
     newCard.data = testObject;
 
@@ -130,22 +151,15 @@ function initFormHandler() {
   // B9. TODO - Get the cards array from localStorage, add this new card to it, and
   //            then save the cards array back to localStorage
     let cardsArray = getCardsFromStorage();
-    cardsArray.push(cardObject);
+    cardsArray.push(testObject);
 
-    saveCardsToStorage(cardsArray);
+    //saveCardsToStorage(cardsArray);
   //});
 
-  let testObject = {
-    "showTitle": "Star Trek",
-    "imgSrc": "https://m.media-amazon.com/images/M/MV5BNDRkMTNiNjgtZDIyOC00NmE1LTlkZjEtMGZiNTcyZDQ0NjcxXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_.jpg",
-    "imgAlt": "https://i.postimg.cc/NfRt443h/bt.png",
-    "episodeArray": [[true, true, false, true],[true, false, true]],
-    "rating": 5,
-    "comments": "very good would watch again",
-  };
 
-  cardsArray.push(cardObject);
-  console.log(cardArray);
+
+  cardsArray.push(testObject);
+  console.log(cardsArray);
   // B10. TODO - Get a reference to the "Clear Local Storage" button
   let clearButton = document.getElementById("clear");
   // B11. TODO - Add a click event listener to clear local storage button

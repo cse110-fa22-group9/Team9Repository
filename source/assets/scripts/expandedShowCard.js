@@ -62,20 +62,51 @@
         // TODO: add js for a progress bar
         // TODO: Figure out how to implement the "season" indicator, or if we're even going to do it
 
-        article.innerHTML = `<p class="title">${data.showTitle}</p>
-                             <img src=${data.imgSrc} alt=${data.imgAlt}>
-                             <p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)}</p>
-                             <p class="rating">${data.rating}/5</p>
-                             <p class="comments">${data.comments}</p>`;
+        article.innerHTML = `   
+                            <div> 
+                                <h4 id="tvshowheader">TV Show</h4>
+                                <button> + </button>
+                                <h4>Add show</h4>
+                            </div>
+                            <img src=${data.imgSrc} alt=${data.imgAlt}>
+                            <div> 
+                                <p class="title">Name: ${data.showTitle}</p>
+                                <button>Edit </button>
+                                <button>trash </button>
+                            </div>
+                            <p class="rating">Rating: ${data.rating}/5</p>
+                            <p class="comments">Comments: ${data.comments}</p>
+                            <h2 id="progressheader">Progress: </h2>` +
+                            generateSeasonsHTML(data.episodeArray)
+                            + `<p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched</p>`;
     }
 
 }
 
-    //Example 
-    //Season 1: we watched epsiodes 1, 2, 4. Four total episodes.
-    //Season 2: we watched episodes 1, 3. Three total episodes. 
-    //episodes = [[true, true, false, true],[true, false, true]]
-    
+// Example of an "episode array"
+// Season 1: we watched epsiodes 1, 2, 4. Four total episodes.
+// Season 2: we watched episodes 1, 3. Three total episodes. 
+// episodes = [[true, true, false, true],[true, false, true]]
+
+/**
+ * Parameter is an episode array
+ * Returns a string of HTML that generates multiple "progress bars" for each season
+ * You can click through the top labels, each labeled "Season X", to switch between progress bars
+ * Each bit of progress is marked by an image.
+ */
+function generateSeasonsHTML(episodes){
+    let s = `<div>`;
+    for(var i = 0; i < episodes.length; i++){
+        s += `<button id="season_` + (i+1) + `_button">Season ` + (i+1) + `</button>`;
+    }
+    s += `</div>`;
+    return s;
+}
+
+
+/** 
+ * Returns the total number of episodes for the show, given an episode array
+*/
 function TotalEpisodes(episodes) {
     let count = 0;
     for(let i = 0; i < episodes.length; i++){
@@ -84,6 +115,10 @@ function TotalEpisodes(episodes) {
     return count;
 }
 
+/** 
+ * Returns the total number of episodes for the show that have been 
+ * WATCHED (marked true), given an episode array
+*/
 function WatchedEpisodes(episodes){
     let count = 0;
     for(let i = 0; i < episodes.length; i++){
