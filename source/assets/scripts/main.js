@@ -79,14 +79,14 @@ function saveCardsToStorage(cards) {
 function initFormHandler() {
 
   // B2. TODO - Get a reference to the <form> element
-  let formElement = document.getElementById('new-card');
+  //let formElement = document.getElementById('new-card');
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
   //            submit button is clicked
-  let submitButton = document.querySelector('[type="submit"]');
-  submitButton.addEventListener('click', (event) => {
+  //let submitButton = document.getElementById("submit");
+  //submitButton.addEventListener('click', (event) => {
   // Steps B4-B9 will occur inside the event listener from step B3
   // B4. TODO - Create a new FormData object from the <form> element reference above
-    let formData = new FormData(formElement);
+    //let formData = new FormData(formElement);
 
   // B5. TODO: Create an empty object, and based on whether we are
   // adding a show or a move, extract the keys and corresponding
@@ -102,7 +102,7 @@ function initFormHandler() {
             "rating": formData.get("rating"),
             "comments": formData.get("comments"),
         }
-
+        // cardObject["showTitle"] -> null/undefined
         let newCard = document.createElement('expanded-movie-card');
         
    * }
@@ -112,8 +112,7 @@ function initFormHandler() {
    *        "showTitle": formData.get("showTitle"),
             "imgSrc": formData.get("imgSrc"),
             "imgAlt": formData.get("imgAlt"),
-            "numEpisodes": formData.get("numEpisodes"),
-            "episodesWatched": formData.get("episodesWatched"),
+            "episodeArray": formData.get("numEpisodes"),
             "rating": formData.get("rating"),
             "comments": formData.get("comments"),
         }
@@ -123,7 +122,7 @@ function initFormHandler() {
    */
 
   // B7. TODO - Add the cardObject data to the card element using element.data
-    newCard.data = cardObject;
+    newCard.data = testObject;
 
   // B8. TODO - Append this new card element to <main>
     document.querySelector('main').append(newCard);
@@ -132,12 +131,23 @@ function initFormHandler() {
   //            then save the cards array back to localStorage
     let cardsArray = getCardsFromStorage();
     cardsArray.push(cardObject);
+
     saveCardsToStorage(cardsArray);
-  });
+  //});
 
+  let testObject = {
+    "showTitle": "Star Trek",
+    "imgSrc": "https://m.media-amazon.com/images/M/MV5BNDRkMTNiNjgtZDIyOC00NmE1LTlkZjEtMGZiNTcyZDQ0NjcxXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_.jpg",
+    "imgAlt": "https://i.postimg.cc/NfRt443h/bt.png",
+    "episodeArray": [[true, true, false, true],[true, false, true]],
+    "rating": 5,
+    "comments": "very good would watch again",
+  };
 
+  cardsArray.push(cardObject);
+  console.log(cardArray);
   // B10. TODO - Get a reference to the "Clear Local Storage" button
-  let clearButton = document.querySelector(".danger");
+  let clearButton = document.getElementById("clear");
   // B11. TODO - Add a click event listener to clear local storage button
   clearButton.addEventListener('click', (event) => {
   // Steps B12 & B13 will occur inside the event listener from step B11

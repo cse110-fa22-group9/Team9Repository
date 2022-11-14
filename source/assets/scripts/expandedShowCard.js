@@ -64,10 +64,36 @@
 
         article.innerHTML = `<p class="title">${data.showTitle}</p>
                              <img src=${data.imgSrc} alt=${data.imgAlt}>
-                             <p class="watched">${data.episodesWatched}/${data.numEpisodes}</p>
+                             <p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)}</p>
                              <p class="rating">${data.rating}/5</p>
                              <p class="comments">${data.comments}</p>`;
     }
+
+}
+
+    //Example 
+    //Season 1: we watched epsiodes 1, 2, 4. Four total episodes.
+    //Season 2: we watched episodes 1, 3. Three total episodes. 
+    //episodes = [[true, true, false, true],[true, false, true]]
+    
+function TotalEpisodes(episodes) {
+    let count = 0;
+    for(let i = 0; i < episodes.length; i++){
+        count += episodes[i].length;
+    }
+    return count;
+}
+
+function WatchedEpisodes(episodes){
+    let count = 0;
+    for(let i = 0; i < episodes.length; i++){
+        for(let j = 0; j < episodes[i].length; j++){
+            if(episodes[i][j]){
+                count++;
+            }
+        }
+    }
+    return count;
 }
 
 customElements.define("expanded-show-card", expandedShowCard);
