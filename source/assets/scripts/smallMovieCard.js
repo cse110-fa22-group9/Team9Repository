@@ -45,8 +45,6 @@ class smallMovieCard extends HTMLElement {
      *                            "imgAlt" : "string"
      *                            "movieDuration" : "string"
      *                            "progressMade" : "string"
-     *                            "rating" : number
-     *                            "comments" : "string"
      *                        }
      */
     set data(data) {

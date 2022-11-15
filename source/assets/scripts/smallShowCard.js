@@ -46,8 +46,6 @@ class smallShowCard extends HTMLElement {
      *                            "imgAlt" : "string"
      *                            "numEpisodes" : number
      *                            "episodesWatched" : number
-     *                            "rating" : number
-     *                            "comments" : "string"
      *                        }
      */
     set data(data) {
