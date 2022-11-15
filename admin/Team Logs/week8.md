@@ -3,7 +3,28 @@
 
 This is a guidence document of what we need to implement and test for week8, written by Ray. To reduce the complexity, the comments and thoughts are put at the end of this document.
 
+The structure of this document is not perfectly organized and I apologize for that.
+
+## File-Tree
+```
+- src/
+  - scripts/
+    - tools.js
+    - main.js
+    - form.js(optional)
+    - detail.js(optional)
+  - pages/
+    - watch-list.html
+    - detail.html(optional)
+    - form.html(optional)
+- assets/
+  - img/
+- index.html
+```
+
 ## Data Storage
+All functions should be written in `tools.js`.
+
 All the movie information are stored as value of key `shows` in localstorage. The following functions are required for data operations:
 ### Getter: `getShowsFromStorage()`
 - Input: None;
@@ -29,6 +50,9 @@ We define the element in the the array contains all movie information that are s
 We assume all the attributes are valid for each `show`. Validation check should be formed before adding new `show`. 
 
 ## Main Page: `index.html`
+Files that are modified: `main.js`, `index.html`, 
+
+Optional: `form.html`, `form.js`, `detail.html`, `detail.js`
 ![Mainpage_Picture](img/week8_p1.png)
 ### Navigate Bar
 - Design and implement the navigate bar with following links:
