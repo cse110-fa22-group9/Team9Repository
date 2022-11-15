@@ -110,21 +110,21 @@ TODO.
 
 
 ## Comments
-### Change of the key used in localstorage
+### Change of the key used in localstorage(Ray)
 The current key used in localstorage is called `cards`. I changed it to `shows` as the data in localstorage are actually some attributes the show and has nothing to do with the cards so `shows` would be more self-explained.
 
-### Combining `showCard` and `movieCard`
+### Combining `showCard` and `movieCard`(Ray)
 The current implementation of either small cards or expanded cards seperate `movieCard` from `showCard`. Such design has increased the complexity of the system and has no obvious benefit. Therefore, integrate `movieCard` into `showCard` seems like a great idea. Such change could making the initialization of cards simpler. 
 
-### Modification of key-pair used in `show`
+### Modification of key-pair used in `show`(Ray)
 Changed few names of keys in `show` so the name is more self-explained. Also changed some data structure of values. The changes include:
 - add of `movie`. So we know whether this `show` is a movie or not. 
 - `numEpisodes` to `showNumEpisodes`: adding `show` in front of the name to seprate it from movie.
 - `episodesWatched` to `showEpisodesWatched`: adding `show` in front of the name to seprate it from movie; Changing the value from `Integer` to `Array`.
 
 ## Thinking
-### We need to get `shows` from local storage everytime, better ways?
+### We need to get `shows` from local storage everytime, better ways?(Ray)
 In the above implementation, `shows` only exist inside of the function scope and each time we need to call `getShowsFromStorage()`. Seems not effecient enough. Might be helpful to think about a better way so we could repeatly use the same data. 
 
-### Optimazation
+### Optimazation(Ray)
 There are a lot of parts in our code that could be optimized. But we need to finish the implementation first and then improve the code.
