@@ -14,4 +14,5 @@ All the movie information are stored as value of key `shows` in localstorage. Th
 - Output: None;
 - Modification: update the localstorage.
 
-##
+## Main Page
+[Mainpage_Picture](img/week8_p1.png)
