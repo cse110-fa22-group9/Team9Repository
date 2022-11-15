@@ -44,7 +44,8 @@ The current key used in localstorage is called `cards`. I changed it to `shows` 
 ### Combining `showCard` and `movieCard`
 The current implementation of either small cards or expanded cards seperate `movieCard` from `showCard`. Such design has increased the complexity of the system and has no obvious benefit. Therefore, integrate `movieCard` into `showCard` seems like a great idea. Such change could making the initialization of cards simpler. 
 
-### Modification of key used in `show`
-Changed few names of keys in `show` so the name is more self-explained. The changes include:
+### Modification of key-pair used in `show`
+Changed few names of keys in `show` so the name is more self-explained. Also changed some data structure of values. The changes include:
 - add of `movie`. So we know whether this `show` is a movie or not. 
 - `numEpisodes` to `showNumEpisodes`: adding `show` in front of the name to seprate it from movie.
+- `episodesWatched` to `showEpisodesWatched`: adding `show` in front of the name to seprate it from movie; Changing the value from `Integer` to `Array`. 
