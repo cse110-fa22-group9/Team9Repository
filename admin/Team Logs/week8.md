@@ -15,4 +15,4 @@ All the movie information are stored as value of key `shows` in localstorage. Th
 - Modification: update the localstorage.
 
 ## Main Page
-[Mainpage_Picture](img/week8_p1.png)
+![Mainpage_Picture](img/week8_p1.png)
