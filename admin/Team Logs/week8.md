@@ -5,6 +5,8 @@ This is a guidence document of what we need to implement and test for week8, wri
 
 The structure of this document is not perfectly organized and I apologize for that. lease take a look at this guide and leave your comments/questions at the end of the document or slack.
 
+Lastly, this guidence is not complete and may contains conflicts.
+
 ## File-Tree
 ```
 - src/
