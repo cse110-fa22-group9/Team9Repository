@@ -13,7 +13,7 @@ All the movie information are stored as value of key `shows` in localstorage. Th
 - Input: An array contains all movie information that want to be stored as value of key `shows` in localstorage;
 - Output: None;
 - Modification: update the localstorage.
-### Sturecuture of `show`
+### Structure of `show`
 We define the element in the the array contains all movie information that are stored as value of key `shows` in localstorage as `show`. Each show should have following key-value pairs:
 - "title": `String`
 - "imgSrc": `String`
@@ -25,6 +25,7 @@ We define the element in the the array contains all movie information that are s
 - "showEpisodesWatched": `Array of Integer`: `[1,10]` means the episodes 1 and 10 has been watched.
 - "rating": `Integer`; 
 - "comments": `String`
+
 We assume all the attributes are valid for each `show`. Validation check should be formed before adding new `show`. 
 
 ## Main Page: `index.html`
