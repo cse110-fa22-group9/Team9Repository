@@ -3,7 +3,7 @@
 
 This is a guidence document of what we need to implement and test for week8, written by Ray. To reduce the complexity, the comments and thoughts are put at the end of this document.
 
-The structure of this document is not perfectly organized and I apologize for that.
+The structure of this document is not perfectly organized and I apologize for that. lease take a look at this guide and leave your comments/questions at the end of the document or slack.
 
 ## File-Tree
 ```
