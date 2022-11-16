@@ -10,30 +10,95 @@
     <!-- <script src="assets/scripts/RecipeCard.js" type="module"></script> -->
 
     <!-- Main Stylesheets & Scripts -->
-    <!-- <link rel="stylesheet" href="assets/styles/main.css" />
-    <script src="assets/scripts/main.js" type="module"></script> -->
+    <!-- <link rel="stylesheet" href="source/assets/styles/main.css" /> -->
+    <!-- <script src="assets/scripts/main.js" type="module"></script> -->
+    <style>
+        .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: lightblue;
+        overflow-x: hidden;
+        transition: 0.2s;
+        padding-top: 60px;
+        }
+    
+        .sidebar div {
+        padding: 6px 6px 6px 10px;
+        font-size: 20px;
+        display: block;
+        transition: 0.5s;
+        cursor: pointer;
+        }
+        
+        .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        }
+        
+        .openbtn {
+        font-size: 24px;
+        cursor: pointer;
+        background-color: lightblue;
+        }
+        
+        #main {
+        transition: margin-left .5s;
+        }
 
-    <title>Watch List</title>
+        .links .addmovies{
+            font-size: 24px;
+        }
+
+
+    </style>
 </head>
 <body>
-    
     <!-- Binge Tracker's sidebar to return to the Watch List Page -->
-    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-        <h3 class="bit-sidebar-heading">Binge Tracker</h3>
-        <a href="watchlist.html" class="bit-sidebar-btn">Watch List</a>
-    </div>
 
-    <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
-    <main>
-         <!-- Add Recipes Here -->
-    </main>
-    <div class="links">
-        <form action="add-movie.html">
+    <!-- when the sidebar is closed -->
+    <div id="sidebar" class="sidebar">
+        <div class="closebtn" onclick="closeNav()">×</div>
+        <!-- <div>Watch Lists</div> -->
+        <form action="index.html">
             <button class="add_movies">Add Movies</button>
         </form>
-        <form action="add_show.html">
-            <button class="add-shows">Add Shows</button>
-        </form>
     </div>
+    <!-- when the sidebar is open -->
+    <div id="open_sidebar">
+        <button class="openbtn" onclick="openNav()">Menu</button> 
+        <h1> Binge Tracker </h1>
+    
+        <!-- Access to the add movie and add show pages -->
+        <div class="links">
+            <form action="add-movie.html">
+                <button class="add_movies">Add Movies</button>
+            </form>
+            <form action="add_show.html">
+                <button class="add-shows">Add Shows</button>
+            </form>
+        </div>
+
+         <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
+        <main>
+            <!-- Add all movie cards here -->
+        </main>
+    </div>
+
+    <script>
+        function openNav() {
+        document.getElementById("sidebar").style.width = "250px";
+        document.getElementById("open_sidebar").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("open_sidebar").style.marginLeft= "0";
+        }
+    </script>
 
 </body>
