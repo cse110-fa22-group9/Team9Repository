@@ -21,10 +21,6 @@ function init() {
  * @returns {Array<Object>} An array of cards found in localStorage
  */
 function getCardsFromStorage() {
-  // A9. TODO - Complete the functionality as described in this function
-  //           header. It is possible in only a single line, but should
-  //           be no more than a few lines.
-  
   return JSON.parse(localStorage.getItem('cards')) || [];
 }
 
@@ -36,12 +32,7 @@ function getCardsFromStorage() {
  * @param {Array<Object>} cards An array of cards
  */
 function addCardsToDocument(cards) {
-  // A10. TODO - Get a reference to the <main> element
   let mainElement = document.querySelector('main');
-  // A11. TODO - Loop through each of the cards in the passed in array,
-  //            create a card element for each one, and populate
-  //            each card with that card data using element.data = ...
-  //            Append each element to <main>
   for(var i = 0; i < cards.length; i++) {
     //TODO: FIGURE OUT HOW TO DIFFERENTIATE BETWEEN MOVIE AND SHOW CARDS
     /*
@@ -72,10 +63,6 @@ function addCardsToDocument(cards) {
  * @param {Array<Object>} cards An array of cards
  */
 function saveCardsToStorage(cards) {
-  // EXPLORE - START (All explore numbers start with B)
-  // B1. TODO - Complete the functionality as described in this function
-  //            header. It is possible in only a single line, but should
-  //            be no more than a few lines.
   localStorage.setItem('cards',JSON.stringify(cards));
 }
 
@@ -84,20 +71,6 @@ function saveCardsToStorage(cards) {
  * <button>.
  */
 function initFormHandler() {
-
-  // B2. TODO - Get a reference to the <form> element
-  //let formElement = document.getElementById('new-card');
-  // B3. TODO - Add an event listener for the 'submit' event, which fires when the
-  //            submit button is clicked
-  //let submitButton = document.getElementById("submit");
-  //submitButton.addEventListener('click', (event) => {
-  // Steps B4-B9 will occur inside the event listener from step B3
-  // B4. TODO - Create a new FormData object from the <form> element reference above
-    //let formData = new FormData(formElement);
-
-  // B5. TODO: Create an empty object, and based on whether we are
-  // adding a show or a move, extract the keys and corresponding
-  // values from the FormData object and insert them into the object
   /**
    * if(WE ARE ADDING A MOVIE) {
    *    let cardObject = {
@@ -142,32 +115,20 @@ function initFormHandler() {
     else { //movie
       newCard = document.createElement('expanded-movie-card');
     }
-  // B7. TODO - Add the cardObject data to the card element using element.data
     newCard.data = testObject;
 
-  // B8. TODO - Append this new card element to <main>
     document.querySelector('main').append(newCard);
 
-  // B9. TODO - Get the cards array from localStorage, add this new card to it, and
-  //            then save the cards array back to localStorage
     let cardsArray = getCardsFromStorage();
     cardsArray.push(testObject);
-
-    //saveCardsToStorage(cardsArray);
-  //});
 
 
 
   cardsArray.push(testObject);
   console.log(cardsArray);
-  // B10. TODO - Get a reference to the "Clear Local Storage" button
   let clearButton = document.getElementById("clear");
-  // B11. TODO - Add a click event listener to clear local storage button
   clearButton.addEventListener('click', (event) => {
-  // Steps B12 & B13 will occur inside the event listener from step B11
-  // B12. TODO - Clear the local storage
     localStorage.clear();
-  // B13. TODO - Delete the contents of <main>
     let mainElement = document.querySelector('main');
     mainElement.innerHTML = '';
   });
