@@ -1,24 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expanded Cards</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binge Tracker</title>
 
-  <!-- Card Custom Element -->
-  <script src="source/assets/scripts/expandedMovieCard.js" type="module"></script>
-  <script src="source/assets/scripts/expandedShowCard.js" type="module"></script>
+    <!-- Recipe Card Custom Element -->
+    <!-- <script src="assets/scripts/RecipeCard.js" type="module"></script> -->
 
-  <!-- Main Stylesheets & Scripts <link rel="stylesheet" href="assets/styles/main.css" />-->
-  <script src="source/assets/scripts/movie-show-subpage.js" type="module"></script>
+    <!-- Main Stylesheets & Scripts -->
+    <!-- <link rel="stylesheet" href="source/assets/styles/main.css" /> -->
+    <!-- <script src="assets/scripts/main.js" type="module"></script> -->
+    <style>
+        .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgb(67, 107, 120);
+        overflow-x: hidden;
+        transition: 0.1s;
+        padding-top: 50px;
+        }
+    
+        .sidebar div {
+        padding: 10px 10px 10px 10px;
+        font-size: 20px;
+        display: block;
+        transition: 0.5s;
+        cursor: pointer;
+        }
+        
+        .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        font-size: 36px;
+        }
+        
+        .openbtn {
+        font-size: 18px;
+        cursor: pointer;
+        background-color: rgb(67, 107, 120);
+        }
+        
+        #main {
+        transition: margin-left .5s;
+        }
+
+    </style>
 </head>
 <body>
-  <main>
-    <!-- Add Recipes Here -->
-  </main>
-  <button id="submit">Add Card</button>
-  <button id="clear">Clear Local Storage</button>
-  <!-- For the Explore section - Remove "hidden" class before beginning -->
+    <!-- Binge Tracker's sidebar to return to the Watch List Page -->
+
+    <!-- when the sidebar is closed -->
+    <div id="sidebar" class="sidebar">
+        <div class="closebtn" onclick="closeNav()">×</div>
+        <!-- <div>Watch Lists</div> -->
+        <a href="index.html"></a>
+        <div> Watch List</div>
+    </div>
+    <!-- when the sidebar is open -->
+    <div id="open_sidebar">
+        <button class="openbtn" onclick="openNav()">Menu</button> 
+        <h1> Binge Tracker </h1>
+    
+        <!-- Access to the add movie and add show pages -->
+        <div class="links">
+            <form action="add-movie.html">
+                <button class="add_movies">Add Movies</button>
+            </form>
+            <form action="add-show.html">
+                <button class="add-shows">Add Shows</button>
+            </form>
+        </div>
+
+         <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
+        <main>
+            <!-- Add all movie cards here -->
+        </main>
+    </div>
+
+    <script>
+        function openNav() {
+        document.getElementById("sidebar").style.width = "250px";
+        document.getElementById("open_sidebar").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("open_sidebar").style.marginLeft= "0";
+        }
+    </script>
+
 </body>
-</html>
