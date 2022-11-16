@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Show From</title>
+  <title>Add Move From</title>
 </head>
 <body>
   <!-- Binge Tracker's sidebar to return to the Watch List Page -->
@@ -11,19 +11,15 @@
      <h3 class="bit-sidebar-heading">Binge Tracker</h3>
      <a href="watchlist.html" class="bit-sidebar-btn">Watch List</a>
   </div>
-<<<<<<< HEAD:source/add_Movie.html
   <form id="new-movie">
-=======
-  <form id="new-Show">
->>>>>>> origin/HTML-for-show-Add/Modification-Page:source/add_Show.html
     <fieldset>
-      <legend>What show you are watching?</legend>
-      <label for="show-name">
-        Show name:
-        <input type="text" id="showName" name="showName" required>
+      <legend>What movie you are watching?</legend>
+      <label for="movie-name">
+        Movie name:
+        <input type="text" id="movieName" name="movieName" required>
     </fieldset>
     <fieldset>
-      <legend>Show image:</legend>
+      <legend>Movie image:</legend>
       <label for="image-src">
         Source:
         <input type="text" id="imgSrc" name="imgSrc" required>
@@ -31,17 +27,16 @@
       </label>
     </fieldset>
     <fieldset>
-      <legend>Show episodes Information:</legend>
-      <label for="total-Episodes">Total number of episodes in the show:
-        <input type="number" id="totalEpisodes" name="totalEpisodes" required>
+      <legend>Movie Time Information:</legend>
+      <label for="movie-Time">How long is the movie (in minuts)?:
+        <input type="number" id="movieTime" name="movieTime" required>
       </label>
-      <br>
-      <label for="episodes-Right-Now">How many episodes of the show you've been:
-        <input type="number" id="episodesRightNow" name="episodesRightNow" required>
+      <label for="movie-far">How far you are into the movie (in minuts)?:
+        <input type="number" id="movieFar" name="movieFar" required>
       </label>
     </fieldset>
       <fieldset>
-        <legend>Show Rating</legend>
+        <legend>Movie Rating</legend>
         <label for="rating-0">
           0<input type="radio" id="rating-0" value="0" name="rating">
         </label>
@@ -72,8 +67,8 @@
           required></textarea>
       </label>
     </fieldset>
-    <button type="submit">Add Show to watch list</button>
-    <button type="button" class="danger">Delete this Show from watch list</button>
+    <button type="submit">Add Movie to watch list</button>
+    <button type="button" class="danger">Delete this movie from watch list</button>
   </form>
 </body>
 </html>
