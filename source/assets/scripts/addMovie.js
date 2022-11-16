@@ -1,6 +1,6 @@
 //importing functions from tools.js
-import {getMoviesFromStorage} from './tools.js';
-import {saveMoviesToStorage} from './tools.js';
+import {getShowsFromStorage} from './tools.js';
+import {saveShowsToStorage} from './tools.js';
 
 
 // Binding initialization function to document listener
@@ -22,15 +22,14 @@ function initFormHandler() {
     const submitSelector = document.querySelector("[type='submit']");
     submitSelector.addEventListener("click", insertMovie);
     function insertMovie() {
-        console.log("su");
         const formData = new FormData(formSelector);
         let movieObject = {};
         for (const [key, value] of formData) {
         movieObject[key] = value;
-        } 
-        let movies = getMoviesFromStorage();
+        }
+        movieObject["movie"] = true; 
+        let movies = getShowsFromStorage();
         movies.push(movieObject);
-        saveMoviesToStorage(movies);
+        saveShowsToStorage(movies);
     }
-
 }

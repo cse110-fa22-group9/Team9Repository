@@ -26,7 +26,8 @@ function initFormHandler() {
         let showObject = {};
         for (const [key, value] of formData) {
             showObject[key] = value;
-        } 
+        }
+        showObject["Movie"] = false;
         let shows = getShowsFromStorage();
         shows.push(showObject);
         saveShowsToStorage(shows);
