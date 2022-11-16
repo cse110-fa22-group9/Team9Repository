@@ -6,4 +6,10 @@ function saveShowsToStorage(shows){
     localStorage.setItem('shows',JSON.stringify(shows));
 }
 
+function getMoviesFromStorage() {
+    return JSON.parse(localStorage.getItem('movies')) || [];
+}
 
+function saveMoviesToStorage(movies){
+    localStorage.setItem('movies',JSON.stringify(movies));
+}
