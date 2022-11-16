@@ -28,8 +28,10 @@ function initFormHandler() {
         movieObject[key] = value;
         }
         movieObject["movie"] = true; 
+        //movieObject["id"] = getIDFromStorage();
         let movies = getShowsFromStorage();
         movies.push(movieObject);
         saveShowsToStorage(movies);
+        console.log(1);
     }
 }

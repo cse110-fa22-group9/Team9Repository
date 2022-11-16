@@ -1,6 +1,7 @@
 //importing functions from tools.js
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
+import {getIDFromStorage} from './tools.js';
 
 
 // Binding initialization function to document listener
@@ -18,6 +19,7 @@ function init() {
 // output: None
 // Operation: when the user click the submit button, insert new show into local storage
 function initFormHandler() {
+    console.log("su");
     const formSelector = document.getElementById('new-show');
     const submitSelector = document.querySelector("[type='submit']");
     submitSelector.addEventListener("click", insertShow);
@@ -27,7 +29,8 @@ function initFormHandler() {
         for (const [key, value] of formData) {
             showObject[key] = value;
         }
-        showObject["Movie"] = false;
+        showObject["movie"] = false;
+        //showObject["id"] = getIDFromStorage();
         let shows = getShowsFromStorage();
         shows.push(showObject);
         saveShowsToStorage(shows);
