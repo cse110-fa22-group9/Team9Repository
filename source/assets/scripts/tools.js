@@ -13,3 +13,8 @@ function getMoviesFromStorage() {
 function saveMoviesToStorage(movies){
     localStorage.setItem('movies',JSON.stringify(movies));
 }
+
+export {getShowsFromStorage};
+export {saveShowsToStorage};
+export {getMoviesFromStorage};
+export {saveMoviesToStorage};

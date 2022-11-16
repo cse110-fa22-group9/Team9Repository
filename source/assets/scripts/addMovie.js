@@ -1,3 +1,8 @@
+//importing functions from tools.js
+import {getMoviesFromStorage} from './tools.js';
+import {saveMoviesToStorage} from './tools.js';
+
+
 // Binding initialization function to document listener
 window.addEventListener('DOMContentLoaded', init);
 
@@ -6,29 +11,26 @@ window.addEventListener('DOMContentLoaded', init);
 // Operations: when the user click the submit button, insert new movie into local storage
 // by calling initFormHandler()
 function init() {
-    let movies = getMoviesFromStorage();
     initFormHandler();
 }
 
-// input
+// input: None
+// output: None
+// Operation: when the user click the submit button, insert new movie into local storage
 function initFormHandler() {
     const formSelector = document.getElementById('new-movie');
     const submitSelector = document.querySelector("[type='submit']");
-    submitSelector.addEventListener("click", createRecipe);
-    function createRecipe() {
-      const formData = new FormData(formSelector);
-      let recipeObject = {};
-      for (const [key, value] of formData) {
-        recipeObject[key] = value;
-      }
-      const mainSelector = document.querySelector("main");
-      let newRecipe = document.createElement('recipe-card');
-      newRecipe.data = recipeObject;
-      mainSelector.append(newRecipe);
-  
-      let recipes = getRecipesFromStorage();
-      recipes.push(recipeObject);
-      saveRecipesToStorage(recipes);
+    submitSelector.addEventListener("click", insertMovie);
+    function insertMovie() {
+        console.log("su");
+        const formData = new FormData(formSelector);
+        let movieObject = {};
+        for (const [key, value] of formData) {
+        movieObject[key] = value;
+        } 
+        let movies = getMoviesFromStorage();
+        movies.push(movieObject);
+        saveMoviesToStorage(movies);
     }
 
 }
