@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 // input: None
 // Output: None
-// Operations: when the user click the submit button, insert new movie into local storage
+// Operations: when the user click the submit button, insert new show into local storage
 // by calling initFormHandler()
 function init() {
     initFormHandler();
@@ -16,20 +16,21 @@ function init() {
 
 // input: None
 // output: None
-// Operation: when the user click the submit button, insert new movie into local storage
+// Operation: when the user click the submit button, insert new show into local storage
 function initFormHandler() {
-    const formSelector = document.getElementById('new-movie');
+    const formSelector = document.getElementById('new-show');
     const submitSelector = document.querySelector("[type='submit']");
-    submitSelector.addEventListener("click", insertMovie);
-    function insertMovie() {
+    submitSelector.addEventListener("click", insertShow);
+    function insertShow() {
         const formData = new FormData(formSelector);
-        let movieObject = {};
+        let showObject = {};
         for (const [key, value] of formData) {
-        movieObject[key] = value;
+            showObject[key] = value;
         }
-        movieObject["movie"] = true; 
-        let movies = getShowsFromStorage();
-        movies.push(movieObject);
-        saveShowsToStorage(movies);
+        showObject["Movie"] = false;
+        let shows = getShowsFromStorage();
+        shows.push(showObject);
+        saveShowsToStorage(shows);
     }
+
 }
