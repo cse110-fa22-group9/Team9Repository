@@ -47,6 +47,9 @@ function editFormHandler(ind) {
         const imgSrc = document.getElementById('imgSrc-Show');
         imgSrc.value = `${card[ind]['imgSrc']}`;
         // recreate episodes bar
+        const totalSeasons = document.getElementById('totalSeasons');
+        totalSeasons.value = `${card[ind]['episodeArray'].length}`;
+
         for(let i = 0; i< card[ind]['episodeArray'].length;  i++){
             episodeField.innerHTML += `<label for="season${i+1}Episodes"> Episodes in season ${i+1}:
                                     <input type="number" id="season${i+1}Episodes" name = "episodes" required>

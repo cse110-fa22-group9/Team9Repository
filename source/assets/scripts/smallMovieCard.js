@@ -138,7 +138,7 @@ class smallMovieCard extends HTMLElement {
         article.innerHTML =`<img src="${data['imgSrc']}"
                                 alt="movieSrc">
                             <p class="title">
-                                <a href="http://127.0.0.1:5501/source/assets/pages/movie-show-subpage.html?ind=${data['id']}">
+                                <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
                                     ${data['movieName']}
                                 </a>
                             </p>
@@ -149,7 +149,7 @@ class smallMovieCard extends HTMLElement {
                             <p class="review">
                                 ${data['review']}
                             </p>
-                            <a href="http://127.0.0.1:5501/source/assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>`;
+                            <a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>`;
     }
 }
 
