@@ -13,6 +13,7 @@ function init() {
   let queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const ind = urlParams.get('ind')
+  console.log(ind);
   generateCard(ind);
 }
 

@@ -19,8 +19,8 @@
   <select name="content" id="contentSelection">
     <!-- Add empty default?-->
     <option disabled selected hidden>Choose Content</option>
-    <option value="movie">Movie</option>
-    <option value="show">Show</option>
+    <option value="movie" id = "selectMovie">Movie</option>
+    <option value="show" id = "selectShow">Show</option>
   </select>
 
   <form id="new-movie" hidden>
@@ -34,7 +34,7 @@
       <legend>Movie image:</legend>
       <label for="image-src">
         Source:
-        <input type="text" id="imgSrc" name="imgSrc" required>
+        <input type="text" id="imgSrc-Movie" name="imgSrc" required>
       </label>
       </label>
     </fieldset>
@@ -50,28 +50,28 @@
       <fieldset>
         <legend>Movie Rating</legend>
         <label for="rating-0">
-          0<input type="radio" id="rating-0" value="0" name="rating">
+          Haven't Watch Yet<input type="radio" id="rating-0-Movie" value="0" name="rating">
         </label>
         <label for="rating-1">
-          1<input type="radio" id="rating-1" value="1" name="rating">
+          1<input type="radio" id="rating-1-Movie" value="1" name="rating">
         </label>
         <label for="rating-2">
-          2<input type="radio" id="rating-2" value="2" name="rating">
+          2<input type="radio" id="rating-2-Movie" value="2" name="rating">
         </label>
         <label for="rating-3">
-          3<input type="radio" id="rating-3" value="3" name="rating">
+          3<input type="radio" id="rating-3-Movie" value="3" name="rating">
         </label>
         <label for="rating-4">
-          4<input type="radio" id="rating-4" value="4" name="rating">
+          4<input type="radio" id="rating-4-Movie" value="4" name="rating">
         </label>
         <label for="rating-5">
-          5<input type="radio" id="rating-5" value="5" name="rating">
+          5<input type="radio" id="rating-5-Movie" value="5" name="rating">
         </label>
       </fieldset>
     <fieldset>
       <legend>Reviews:</legend>
       <label for="review">
-        <textarea name="review" id="review" cols="38" rows="5"
+        <textarea name="review" id="review-Movie" cols="38" rows="5"
           required></textarea>
       </label>
     </fieldset>
@@ -92,7 +92,7 @@
       <legend>Show image:</legend>
       <label for="image-src">
         Source:
-        <input type="text" id="imgSrc" name="imgSrc" required>
+        <input type="text" id="imgSrc-Show" name="imgSrc" required>
       </label>
       </label>
     </fieldset>
@@ -116,22 +116,22 @@
       <fieldset>
         <legend>Show Rating</legend>
         <label for="rating-0">
-          0<input type="radio" id="rating-0" value="0" name="rating">
+          Haven't Watch Yet<input type="radio" id="rating-0-Show" value="0" name="rating">
         </label>
         <label for="rating-1">
-          1<input type="radio" id="rating-1" value="1" name="rating">
+          1<input type="radio" id="rating-1-Show" value="1" name="rating">
         </label>
         <label for="rating-2">
-          2<input type="radio" id="rating-2" value="2" name="rating">
+          2<input type="radio" id="rating-2-Show" value="2" name="rating">
         </label>
         <label for="rating-3">
-          3<input type="radio" id="rating-3" value="3" name="rating">
+          3<input type="radio" id="rating-3-Show" value="3" name="rating">
         </label>
         <label for="rating-4">
-          4<input type="radio" id="rating-4" value="4" name="rating">
+          4<input type="radio" id="rating-4-Show" value="4" name="rating">
         </label>
         <label for="rating-5">
-          5<input type="radio" id="rating-5" value="5" name="rating">
+          5<input type="radio" id="rating-5-Show" value="5" name="rating">
         </label>
       </fieldset>
     <fieldset>

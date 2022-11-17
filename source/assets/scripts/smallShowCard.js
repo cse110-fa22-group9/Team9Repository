@@ -152,13 +152,13 @@ class smallShowCard extends HTMLElement {
                                 </a>
                             </p>
                             <div class="rating">
-                                <span>${data['rating']}</span>
                                 <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                             </div>
                             <time>${data['episodesRightNow']} / ${data['totalEpisodes']} </time>
                             <p class="review">
                                 ${data['review']}
-                            </p>`;
+                            </p>
+                            <a href="http://127.0.0.1:5501/source/assets/pages/add-content.html?ind=${index}">Edit Show</a>`;
     }
 }
 
