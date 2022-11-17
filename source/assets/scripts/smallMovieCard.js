@@ -34,64 +34,77 @@ class smallMovieCard extends HTMLElement {
           font-family: sans-serif;
           margin: 0;
           padding: 0;
+          background:#FFFFFF;
         }
       
         a {
+          top: 10px;
+          text-align: center;
+          color: black;
+          font-size: 22px;
           text-decoration: none;
         }
       
         a:hover {
-          text-decoration: underline;
+          color: blue;
         }
       
         article {
-          align-items: center;
+          /* align-items: start; */
+          /*background-color: transparent;*/
           border: 1px solid rgb(223, 225, 229);
-          border-radius: 8px;
-          display: grid;
+          border-radius: 5px;
+          display: flex;
           grid-template-rows: 118px 56px 14px 18px 15px 36px;
-          height: auto;
-          row-gap: 5px;
-          padding: 0 16px 16px 16px;
-          width: 178px;
+          justify-content: space-between;
+          height: 150px;
+          width: 500px;
+          margin: 0px 0px 0px 0px;
+          position:static;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        article:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
       
         div.rating {
-          align-items: center;
+          text-align: right;
           column-gap: 5px;
           display: flex;
         }
       
         div.rating>img {
-          height: auto;
+          height: 100%;
           display: inline-block;
           object-fit: scale-down;
           width: 78px;
         }
+
+        div.modification {
+          padding-right: 5px;
+        }
       
         article>img {
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-          height: 118px;
-          object-fit: cover;
-          margin-left: -16px;
-          width: calc(100% + 32px);
+          object-fit: contain;
+          background: #adadad;
+          height: auto;
+          width: 50%;
+          flex: 1;
         }
-      
-        p.ingredients {
-          height: 32px;
-          line-height: 16px;
-          padding-top: 4px;
-          overflow: hidden;
+
+        .movie-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          margin-right: 0px;
+          padding-left: 10px;
+          flex: 2;
         }
-      
-        p.organization {
-          color: black !important;
-        }
-      
+
         p.title {
           display: -webkit-box;
-          font-size: 16px;
+          font-size: 20px;
           height: 36px;
           line-height: 18px;
           overflow: hidden;
@@ -102,9 +115,19 @@ class smallMovieCard extends HTMLElement {
         p:not(.title),
         span,
         time {
+          flex: 1;
           color: #70757A;
           font-size: 12px;
-        }`;
+        }
+
+        progress[value]::-webkit-progress-bar {
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+          width: 100%;
+          height: 8px;
+        }
+
+        `;
+        
         shadow.append(article);
         shadow.append(style);
     }
@@ -137,19 +160,30 @@ class smallMovieCard extends HTMLElement {
 
         article.innerHTML =`<img src="${data['imgSrc']}"
                                 alt="movieSrc">
-                            <p class="title">
-                                <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
-                                    ${data['movieName']}
-                                </a>
-                            </p>
-                            <div class="rating">
-                                <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
+                            <div class="movie-info">
+                              <p class="title">
+                                  <br>
+                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
+                                      ${data['movieName']}
+                                  </a>
+                              </p>
+                              <div class="rating">
+                                  <br><br>
+                                  <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
+                              </div>
+                              <br>
+                              <label for="progress"></label>
+                              <progress id="progress" value="${data['movieFar']}" max="${data['movieTime']}"> 32% </progress>
+                              <time>${data['movieFar']} min / ${data['movieTime']} min</time>
+                              <!--<p class="review">
+                                  Review: ${data['review']}
+                              </p>-->
+                              <!--<a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>-->
                             </div>
-                            <time>${data['movieFar']} min / ${data['movieTime']} min</time>
-                            <p class="review">
-                                Review: ${data['review']}
-                            </p>
-                            <a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>`;
+                            <div class="modification">
+                              <a href="./assets/pages/add-content.html?ind=${data['id']}"><i style='font-size:24px' class='fas'>&#xf044;</i></i></a>
+                            </div>
+                            `;
     }
 }
 

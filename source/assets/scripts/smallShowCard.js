@@ -28,32 +28,42 @@ class smallShowCard extends HTMLElement {
         let article = document.createElement('article');
         let style = document.createElement('style');
 
-        //style.textContent = `` -- TODO: decide on style later
         style.textContent = `
         * {
           font-family: sans-serif;
-          margin: 0;
-          padding: 0;
+          margin: 0px;
+          padding: 0px;
         }
       
         a {
+          top: 10px;
+          text-align: center;
+          color: black;
+          font-size: 22px;
           text-decoration: none;
         }
       
         a:hover {
-          text-decoration: underline;
+          color: blue;
         }
       
         article {
-          align-items: center;
           border: 1px solid rgb(223, 225, 229);
-          border-radius: 8px;
-          display: grid;
+          border-radius: 5px;
+          display: flex;
           grid-template-rows: 118px 56px 14px 18px 15px 36px;
-          height: auto;
-          row-gap: 5px;
-          padding: 0 16px 16px 16px;
-          width: 178px;
+          justify-content: space-between;
+          height: 150px;
+          width: 500px;
+          /*margin: 0px 0px 0px 0px;*/
+          margin-top: 20px !important;
+          justify-content: flex-end;
+          position:static;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        article:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
       
         div.rating {
@@ -70,25 +80,28 @@ class smallShowCard extends HTMLElement {
         }
       
         article>img {
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-          height: 118px;
-          object-fit: cover;
-          margin-left: -16px;
-          width: calc(100% + 32px);
+          background: #adadad;
+          height: 50%;
+          width: auto;
+          margin-top: auto;
+          margin-bottom:auto;
+          flex: 1;
         }
-      
-        p.ingredients {
-          height: 32px;
-          line-height: 16px;
-          padding-top: 4px;
-          overflow: hidden;
+
+        .show-info {
+          display: flex;
+          flex-direction: column;
+          margin-right: 0px;
+          padding-left: 10px;
+          padding-top: 20px;
+          justify-content:flex-start;
+          flex: 2;
         }
-      
-        p.organization {
-          color: black !important;
+
+        div.modification {
+          padding-right: 5px;
         }
-      
+
         p.title {
           display: -webkit-box;
           font-size: 16px;
@@ -101,7 +114,7 @@ class smallShowCard extends HTMLElement {
       
         p:not(.title),
         span,
-        time {
+        .seasons {
           color: #70757A;
           font-size: 12px;
         }`;
@@ -138,20 +151,24 @@ class smallShowCard extends HTMLElement {
         // TODO: add js for a progress bar
 
         article.innerHTML =`<img src="${data['imgSrc']}"
-                                alt="showSrc">
-                            <p class="title">
-                                <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
-                                    ${data['showTitle']}
-                                </a>
-                            </p>
-                            <div class="rating">
-                                <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
+                                  alt="showSrc">
+                            <div class="show-info">
+                              <p class="title">
+                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
+                                      ${data['showTitle']}
+                                  </a>
+                              </p>
+                              <div class="rating">
+                                  <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
+                              </div>
+                              <p class="season"> ${data['episodeArray'].length} Season(s) Total </p>
+                              <!--<p class="review">
+                                  Review: ${data['review']}
+                              </p>-->
                             </div>
-                            <time> ${data['episodeArray'].length} Season(s) Total </time>
-                            <p class="review">
-                                Review: ${data['review']}
-                            </p>
-                            <a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Show</a>`;
+                            <div class="modification">
+                              <a href="./assets/pages/add-content.html?ind=${data['id']}"><i style='font-size:24px' class='fas'>&#xf044;</i></i></a>
+                            </div>`;
     }
 }
 
