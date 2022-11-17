@@ -5,6 +5,11 @@
  * **mostly copied over from lab 6 recipeCard.js**
  */
 
+//importing functions from tools.js
+import {getShowsFromStorage} from './tools.js';
+import {saveShowsToStorage} from './tools.js';
+
+
 /**
  * Class Header: smallMovieCard
  * 
@@ -24,7 +29,82 @@ class smallMovieCard extends HTMLElement {
         let article = document.createElement('article');
         let style = document.createElement('style');
 
-        // style.textContent = ``  -- TODO: decide on style later
+        style.textContent = `
+        * {
+          font-family: sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+      
+        a {
+          text-decoration: none;
+        }
+      
+        a:hover {
+          text-decoration: underline;
+        }
+      
+        article {
+          align-items: center;
+          border: 1px solid rgb(223, 225, 229);
+          border-radius: 8px;
+          display: grid;
+          grid-template-rows: 118px 56px 14px 18px 15px 36px;
+          height: auto;
+          row-gap: 5px;
+          padding: 0 16px 16px 16px;
+          width: 178px;
+        }
+      
+        div.rating {
+          align-items: center;
+          column-gap: 5px;
+          display: flex;
+        }
+      
+        div.rating>img {
+          height: auto;
+          display: inline-block;
+          object-fit: scale-down;
+          width: 78px;
+        }
+      
+        article>img {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          height: 118px;
+          object-fit: cover;
+          margin-left: -16px;
+          width: calc(100% + 32px);
+        }
+      
+        p.ingredients {
+          height: 32px;
+          line-height: 16px;
+          padding-top: 4px;
+          overflow: hidden;
+        }
+      
+        p.organization {
+          color: black !important;
+        }
+      
+        p.title {
+          display: -webkit-box;
+          font-size: 16px;
+          height: 36px;
+          line-height: 18px;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      
+        p:not(.title),
+        span,
+        time {
+          color: #70757A;
+          font-size: 12px;
+        }`;
         shadow.append(article);
         shadow.append(style);
     }
@@ -48,21 +128,36 @@ class smallMovieCard extends HTMLElement {
      *                        }
      */
     set data(data) {
-        // If no data, return
         if (!data) return;
 
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
 
         // TODO: Implement a progress bar (probably implemented as a slider for movies?)
+        let card = getShowsFromStorage();
+        let index = 0;
+        for (let i = 0; i < card.length; i++) {
+            if (card[i]['movie'] && data['movieName'] == card[i]['movieName']) {
+                index = i;
+            }
+        }
 
-        article.innerHTML = `<h2 class="title">${data.movieTitle}</h2>
-                             <img src=${data.imgSrc} alt=${data.imgAlt}>
-                             <p class="amount watched>
-                                <time class="progress">${data.progressMade}</time> of <time class="duration">${data.movieDuration}</time>
-                             </p>
-                             <p>TODO: add a progress bar</p>`;
+        article.innerHTML =`<img src="${data['imgSrc']}"
+                                alt="movieSrc">
+                            <p class="title">
+                                <a href="http://127.0.0.1:5501/source/assets/pages/movie-show-subpage.html?ind=${index}">
+                                    ${data['movieName']}
+                                </a>
+                            </p>
+                            <div class="rating">
+                                <span>${data['rating']}</span>
+                                <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
+                            </div>
+                            <time>${data['movieFar']} min / ${data['movieTime']} min</time>
+                            <p class="review">
+                                ${data['review']}
+                            </p>`;
     }
 }
 
-customElements.define("small-movie-card", smallMovieCard);
+customElements.define('small-movie-card', smallMovieCard);
