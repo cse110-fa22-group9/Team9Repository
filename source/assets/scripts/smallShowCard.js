@@ -147,9 +147,9 @@ class smallShowCard extends HTMLElement {
                             <div class="rating">
                                 <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                             </div>
-                            <time>${data['episodesRightNow']} / ${data['totalEpisodes']} </time>
+                            <time> ${data['episodeArray'].length} Season(s) Total </time>
                             <p class="review">
-                                ${data['review']}
+                                Review: ${data['review']}
                             </p>
                             <a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Show</a>`;
     }

@@ -147,7 +147,7 @@ class smallMovieCard extends HTMLElement {
                             </div>
                             <time>${data['movieFar']} min / ${data['movieTime']} min</time>
                             <p class="review">
-                                ${data['review']}
+                                Review: ${data['review']}
                             </p>
                             <a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>`;
     }
