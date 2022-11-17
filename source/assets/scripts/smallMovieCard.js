@@ -134,18 +134,11 @@ class smallMovieCard extends HTMLElement {
         let article = shadowDom.querySelector('article');
 
         // TODO: Implement a progress bar (probably implemented as a slider for movies?)
-        let card = getShowsFromStorage();
-        let index = 0;
-        for (let i = 0; i < card.length; i++) {
-            if (card[i]['movie'] && data['movieName'] == card[i]['movieName']) {
-                index = i;
-            }
-        }
 
         article.innerHTML =`<img src="${data['imgSrc']}"
                                 alt="movieSrc">
                             <p class="title">
-                                <a href="http://127.0.0.1:5501/source/assets/pages/movie-show-subpage.html?ind=${index}">
+                                <a href="http://127.0.0.1:5501/source/assets/pages/movie-show-subpage.html?ind=${data['id']}">
                                     ${data['movieName']}
                                 </a>
                             </p>
@@ -156,7 +149,7 @@ class smallMovieCard extends HTMLElement {
                             <p class="review">
                                 ${data['review']}
                             </p>
-                            <a href="http://127.0.0.1:5501/source/assets/pages/add-content.html?ind=${index}">Edit Movie</a>`;
+                            <a href="http://127.0.0.1:5501/source/assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>`;
     }
 }
 

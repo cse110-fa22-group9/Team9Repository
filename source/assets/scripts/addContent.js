@@ -275,8 +275,8 @@ function initFormHandler() {
 
 
         movieObject["movie"] = true; 
-        //movieObject["id"] = getIDFromStorage();
         let movies = getShowsFromStorage();
+        movieObject["id"] = movies.length;
         movies.push(movieObject);
         saveShowsToStorage(movies);
     }
@@ -297,7 +297,7 @@ function initFormHandler() {
         const formData = new FormData(formSelectorShow);
         let episodeArray = [];
         let toPush = [];
-        let expandShowObject = {};
+        let showObject = {};
         //let smallShowObject = {};
         for (const [key, value] of formData) {
             console.log("key: " + key);
@@ -314,23 +314,17 @@ function initFormHandler() {
                 toPush = []
                 continue;
             }
-            expandShowObject[key] = value;
+            showObject[key] = value;
         }
 
 
-        expandShowObject["imgAlt"] = expandShowObject["showTitle"];
-        expandShowObject["episodeArray"] = episodeArray;
-        /*expandShowObject["id"] = 
-        //showObject["movie"] = false;
-        //showObject["id"] = getIDFromStorage();
-        console.log(expandShowObject);
-
-        let expandedCard = document.createElement('expanded-show-card');
-        expandedCard.data = expandShowObject;*/   
-
+        showObject["imgAlt"] = showObject["showTitle"];
+        showObject["episodeArray"] = episodeArray;
+        showObject["movie"] = false;
 
         let shows = getShowsFromStorage();
-        shows.push(expandShowObject);
+        showObject["id"] = shows.length;
+        shows.push(showObject);
         saveShowsToStorage(shows);
 
         //window.location. = "http://127.0.0.1:5501/source/index.html";

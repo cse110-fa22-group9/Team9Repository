@@ -15,6 +15,11 @@
  * 
  * data() - sets the show card data with the information provided from the data object
  */
+
+//importing functions from tools.js
+import {getShowsFromStorage} from './tools.js';
+import {saveShowsToStorage} from './tools.js';
+
  class expandedShowCard extends HTMLElement {
     /**
      * Construct a expandedShowCard element
@@ -104,18 +109,16 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
         });
     }
 
-    
-    let currentCards = JSON.parse(localStorage.getItem('cards'));
-    console.log("id: " + data.id);
-
+    // get local storge
+    let cards = getShowsFromStorage();
 
     for(let i = 0; i < data.episodeArray[seasonNumber - 1].length; i++){
         let checkboxObject = shadowDom.getElementById(`season_${seasonNumber}_episode_${i+1}_checkbox`);
         checkboxObject.addEventListener('change', () => {
             data.episodeArray[seasonNumber - 1][i] =  !data.episodeArray[seasonNumber - 1][i];
-            currentCards[data.id] = data;
-            console.log("in card:" + currentCards);
-            localStorage.setItem('cards',JSON.stringify(currentCards));
+            cards[data.id] = data;
+            // update local storge
+            saveShowsToStorage(cards);
         })
     }
     
