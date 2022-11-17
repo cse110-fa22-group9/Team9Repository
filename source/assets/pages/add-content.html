@@ -4,16 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Link addMovie.js -->
-  <script src="../scripts/addMovie.js" type="module"></script>
+  <script src="../scripts/addContent.js" type="module"></script>
   <title>Add Move From</title>
 </head>
 <body>
   <!-- Binge Tracker's sidebar to return to the Watch List Page -->
   <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
      <h3 class="bit-sidebar-heading">Binge Tracker</h3>
-     <a href="watchlist.html" class="bit-sidebar-btn">Watch List</a>
+     <!--Changing to index.html from watchlist.html-->
+     <a href="../../index.html" class="bit-sidebar-btn">Watch List</a>
   </div>
-  <form id="new-movie">
+
+  <label for="content">What content are you adding?</label>
+  <select name="content" id="contentSelection">
+    <!-- Add empty default?-->
+    <option disabled selected hidden>Choose Content</option>
+    <option value="movie">Movie</option>
+    <option value="show">Show</option>
+  </select>
+
+  <form id="new-movie" hidden>
     <fieldset>
       <legend>What movie you are watching?</legend>
       <label for="movie-name">
@@ -30,10 +40,10 @@
     </fieldset>
     <fieldset>
       <legend>Movie Time Information:</legend>
-      <label for="movie-Time">How long is the movie (in minuts)?:
+      <label for="movie-Time">How long is the movie (in minutes)?:
         <input type="number" id="movieTime" name="movieTime" required>
       </label>
-      <label for="movie-far">How far you are into the movie (in minuts)?:
+      <label for="movie-far">How far you are into the movie (in minutes)?:
         <input type="number" id="movieFar" name="movieFar" required>
       </label>
     </fieldset>
@@ -57,9 +67,71 @@
         <label for="rating-5">
           5<input type="radio" id="rating-5" value="5" name="rating">
         </label>
-        <label for="numRatings">
-          Num Ratings:
-          <input type="number" id="numRatings" name="numRatings">
+      </fieldset>
+    <fieldset>
+      <legend>Reviews:</legend>
+      <label for="review">
+        <textarea name="review" id="review" cols="38" rows="5"
+          required></textarea>
+      </label>
+    </fieldset>
+    <button type="submit" id="movieSubmit">Add Movie to watch list</button>
+    <!--
+      <button type="button" class="danger">Delete this movie from watch list</button>
+    -->
+  </form>
+
+  <form id="new-show" hidden>
+    <fieldset>
+      <legend>What show you are watching?</legend>
+      <label for="show-name">
+        Show name:
+        <input type="text" id="showTitle" name="showTitle" required>
+    </fieldset>
+    <fieldset>
+      <legend>Show image:</legend>
+      <label for="image-src">
+        Source:
+        <input type="text" id="imgSrc" name="imgSrc" required>
+      </label>
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Show episodes Information:</legend>
+      <label for="totalSeasons">How many seasons in the show?
+        <input type="number" id="totalSeasons" name="totalSeasons" required>
+      </label>
+      <br>
+      
+      <!--
+      <label for="episodes-Right-Now">How many episodes of the show you've been:
+        <input type=" " id="episodesRightNow" name="episodesRightNow" required>
+      </label>
+      -->
+
+    </fieldset>
+    <fieldset id="episodeFill">
+    
+    </fieldset>
+      <fieldset>
+        <legend>Show Rating</legend>
+        <label for="rating-0">
+          0<input type="radio" id="rating-0" value="0" name="rating">
+        </label>
+        <label for="rating-1">
+          1<input type="radio" id="rating-1" value="1" name="rating">
+        </label>
+        <label for="rating-2">
+          2<input type="radio" id="rating-2" value="2" name="rating">
+        </label>
+        <label for="rating-3">
+          3<input type="radio" id="rating-3" value="3" name="rating">
+        </label>
+        <label for="rating-4">
+          4<input type="radio" id="rating-4" value="4" name="rating">
+        </label>
+        <label for="rating-5">
+          5<input type="radio" id="rating-5" value="5" name="rating">
         </label>
       </fieldset>
     <fieldset>
@@ -69,8 +141,10 @@
           required></textarea>
       </label>
     </fieldset>
-    <button type="submit">Add Movie to watch list</button>
-    <button type="button" class="danger">Delete this movie from watch list</button>
+    <button type="submit" id="showSubmit">Add Show to watch list</button>
+    <!--
+    <button type="button" class="danger">Delete this Show from watch list</button>
+    -->
   </form>
 </body>
 </html>

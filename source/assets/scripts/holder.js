@@ -11,11 +11,19 @@ window.addEventListener('DOMContentLoaded', init);
 // Starts the program, all function calls trace back here
 function init() {
   // Get the cards from localStorage
-  let shows = getShowsFromStorage();
+  let shows = getCardsFromStorage();
+  console.log(shows);
+  console.log(shows.length);
+  if (shows.length == 0){
+    initFormHandler();
+  }
+  else{
+    console.log("fired");
+    addCardsToDocument(shows);
+  }
   // Add each card to the <main> element
-  addCardsToDocument(cards);
   // Add the event listeners to the form elements
-  initFormHandler();
+  //initFormHandler();
 }
 
 /**
@@ -26,7 +34,13 @@ function init() {
  * @returns {Array<Object>} An array of cards found in localStorage
  */
 function getCardsFromStorage() {
-  return JSON.parse(localStorage.getItem('cards')) || [];
+  let cards = JSON.parse(localStorage.getItem('cards'));
+  console.log("cards: " + cards);
+  if(cards == null){
+    console.log("what?")
+    return [];
+  }
+  return cards;
 }
 
 /**
@@ -113,28 +127,22 @@ function initFormHandler() {
       "episodeArray": [[true, true, false, true],[true, false, true]],
       "rating": 5,
       "comments": "very good would watch again",
+      "id":0,
     };
-    if(testObject["showTitle"] != null) { //if show
-      newCard = document.createElement('expanded-show-card');
-    }
-    else { //movie
-      newCard = document.createElement('expanded-movie-card');
-    }
+    newCard = document.createElement('expanded-show-card');
     newCard.data = testObject;
 
     document.querySelector('main').append(newCard);
 
     let cardsArray = getCardsFromStorage();
     cardsArray.push(testObject);
-
-
-
-  cardsArray.push(testObject);
-  console.log(cardsArray);
-  let clearButton = document.getElementById("clear");
-  clearButton.addEventListener('click', (event) => {
+    console.log(cardsArray);
+    localStorage.setItem('cards',JSON.stringify(cardsArray));
+    let clearButton = document.getElementById("clear");
+    /** 
+    clearButton.addEventListener('click', (event) => {
     localStorage.clear();
     let mainElement = document.querySelector('main');
     mainElement.innerHTML = '';
-  });
+  });*/
 }
