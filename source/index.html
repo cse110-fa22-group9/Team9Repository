@@ -46,21 +46,23 @@
         }
         
         .openbtn {
-        width: 30px;
-        height: 3px;
-        /* font-size: 18px; */
+        /* width: 30px;
+        height: 3px; */
         cursor: pointer;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(27, 92, 96);
         }
         
-        #main {
+        main {
         transition: margin-left .5s;
+        display: flex;
+        flex-wrap: wrap;
         }
 
         h1{
         position: center;
         left: 40%;
         top:0px;
+
         }
 
         a {
@@ -70,6 +72,35 @@
         font-size: 20px;
         text-decoration: none;
         }
+
+        body {
+            background-color: rgb(27, 92, 96);
+        }
+
+        div.links a{
+          margin-left: 15px !important;
+          color: white;
+          font-size: 55px;
+          text-decoration: none;
+        }
+        
+        div.header {
+            display: flex;
+        }
+
+        div h1 {
+            margin-top: 0px;
+            margin-left: 15px;
+            color: white;
+        }
+
+        .menu {
+            margin-left: 15px !important;
+            height: 60%;
+            object-fit: contain;
+            width: 30px;
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(202deg) brightness(104%) contrast(104%);
+        }
     </style>
 </head>
 <body>
@@ -78,21 +109,20 @@
     <!-- when the sidebar is closed -->
     <div id="sidebar" class="sidebar">
         <div class="closebtn" onclick="closeNav()">x</div>
-        <!-- <div>Watch Lists</div> -->
         <a href="index.html">Watch List</a>
     </div>
     <!-- when the sidebar is open -->
-    <div id="open_sidebar">
-        <div class="openbtn" onclick="openNav()">
-            <i style='font-size:30px' class='fas'>&#xf039;</i>
-        </div> 
-        <h1> Binge Tracker </h1>
-    
+    <div id="open_sidebar"> 
+        <div class="header">
+            <div class="openbtn" onclick="openNav()">
+                <!-- <i style='font-size:30px' class='fas'>&#xf039;</i> -->
+                <img src="./assets/img/icons/menu.svg" alt="edit" class="menu">
+            </div> 
+            <h1 style="color: white;">Watch List</h1>
+        </div>
         <!-- Access to the add movie and add show pages -->
         <div class="links">
-            <form action="./assets/pages/add-content.html">
-                <button class="add_conetnt">+</button>
-            </form>
+            <a href="./assets/pages/add-content.html">+</a>
         </div>
 
          <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->

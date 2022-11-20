@@ -38,7 +38,7 @@ class smallMovieCard extends HTMLElement {
         }
       
         a {
-          top: 10px;
+          top: 5px;
           text-align: center;
           color: black;
           font-size: 22px;
@@ -50,8 +50,6 @@ class smallMovieCard extends HTMLElement {
         }
       
         article {
-          /* align-items: start; */
-          /*background-color: transparent;*/
           border: 1px solid rgb(223, 225, 229);
           border-radius: 5px;
           display: flex;
@@ -59,18 +57,19 @@ class smallMovieCard extends HTMLElement {
           justify-content: space-between;
           height: 150px;
           width: 500px;
-          margin: 0px 0px 0px 0px;
+          margin-top: 20px !important;
+          margin-left: 20px !important;
           position:static;
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         }
 
         article:hover {
-          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
         }
       
         div.rating {
           text-align: right;
-          column-gap: 5px;
+          column-gap: 0px;
           display: flex;
         }
       
@@ -81,13 +80,19 @@ class smallMovieCard extends HTMLElement {
           width: 78px;
         }
 
-        div.modification {
-          padding-right: 5px;
+        .modification {
+          padding-right: 0px;
+          margin-top: 0px;
+        }
+
+        .modification img {
+          height: 10%;
+          object-fit: contain;
+          width: 25px;
         }
       
         article>img {
           object-fit: contain;
-          background: #adadad;
           height: auto;
           width: 50%;
           flex: 1;
@@ -163,25 +168,20 @@ class smallMovieCard extends HTMLElement {
                             <div class="movie-info">
                               <p class="title">
                                   <br>
-                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
-                                      ${data['movieName']}
-                                  </a>
+                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">${data['movieName']}</a>
                               </p>
                               <div class="rating">
-                                  <br><br>
                                   <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               </div>
                               <br>
                               <label for="progress"></label>
                               <progress id="progress" value="${data['movieFar']}" max="${data['movieTime']}"> 32% </progress>
                               <time>${data['movieFar']} min / ${data['movieTime']} min</time>
-                              <!--<p class="review">
-                                  Review: ${data['review']}
-                              </p>-->
-                              <!--<a href="./assets/pages/add-content.html?ind=${data['id']}">Edit Movie</a>-->
                             </div>
                             <div class="modification">
-                              <a href="./assets/pages/add-content.html?ind=${data['id']}"><i style='font-size:24px' class='fas'>&#xf044;</i></i></a>
+                              <a href="./assets/pages/add-content.html?ind=${data['id']}">
+                                  <img src="./assets/img/icons/Edit.svg" alt="edit">
+                              </a>
                             </div>
                             `;
     }

@@ -33,6 +33,7 @@ class smallShowCard extends HTMLElement {
           font-family: sans-serif;
           margin: 0px;
           padding: 0px;
+          background:#FFFFFF;
         }
       
         a {
@@ -57,13 +58,14 @@ class smallShowCard extends HTMLElement {
           width: 500px;
           /*margin: 0px 0px 0px 0px;*/
           margin-top: 20px !important;
+          margin-left: 20px !important;
           justify-content: flex-end;
           position:static;
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         }
 
         article:hover {
-          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
         }
       
         div.rating {
@@ -78,7 +80,18 @@ class smallShowCard extends HTMLElement {
           object-fit: scale-down;
           width: 78px;
         }
-      
+
+        .modification {
+          padding-right: 0px;
+          margin-top: 0px;
+        }
+
+        .modification img {
+          height: 10%;
+          object-fit: contain;
+          width: 25px;
+        }
+
         article>img {
           background: #adadad;
           height: 50%;
@@ -167,7 +180,9 @@ class smallShowCard extends HTMLElement {
                               </p>-->
                             </div>
                             <div class="modification">
-                              <a href="./assets/pages/add-content.html?ind=${data['id']}"><i style='font-size:24px' class='fas'>&#xf044;</i></i></a>
+                              <a href="./assets/pages/add-content.html?ind=${data['id']}">
+                                <img src="./assets/img/icons/Edit.svg" alt="edit">
+                              </a>
                             </div>`;
     }
 }
