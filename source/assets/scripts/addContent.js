@@ -198,14 +198,6 @@ function editFormHandler(ind) {
         card[ind]["imgAlt"] = card[ind]["showTitle"];
         card[ind]["episodeArray"] = episodeArray;
 
-        /*expandShowObject["id"] = 
-        //showObject["movie"] = false;
-        //showObject["id"] = getIDFromStorage();
-        console.log(expandShowObject);
-
-        let expandedCard = document.createElement('expanded-show-card');
-        expandedCard.data = expandShowObject;*/
-
         saveShowsToStorage(card);
 
         //window.location. = "http://127.0.0.1:5501/source/index.html";
@@ -270,7 +262,7 @@ function initFormHandler() {
      * submitted
      */
     function insertMovie() {
-        function checkMovieImage(url) {
+        /*function checkMovieImage(url) {
             try {
                 const res = fetch(url).then((response) => {
                     if (!response.ok) {
@@ -284,15 +276,15 @@ function initFormHandler() {
             catch (error) {
                 return null;
             }
-        }
+        }*/
         const formData = new FormData(formSelectorMovie);
         let movieObject = {};
         for (let [key, value] of formData) {
-            if (key == 'imgSrc') {
+            /*if (key == 'imgSrc') {
                 if (checkMovieImage(value) == null) {
                     value = './assets/img/icons/bingetracker_logo.png';
                 }
-            }
+            }*/
             movieObject[key] = value;
         }
         if(!(Object.keys(movieObject).includes('rating'))){
@@ -318,7 +310,7 @@ function initFormHandler() {
      * Once the objects are created, you are taken to the homepage
      */
     function insertShow() {
-        function checkShowImage(url) {
+        /*function checkShowImage(url) {
             try {
                 const res = fetch(url).then((response) => {
                     if (!response.ok) {
@@ -332,7 +324,7 @@ function initFormHandler() {
             catch (error) {
                 return null;
             }
-        }
+        }*/
         const formData = new FormData(formSelectorShow);
         let episodeArray = [];
         let toPush = [];
@@ -341,11 +333,11 @@ function initFormHandler() {
         for (let [key, value] of formData) {
             console.log("key: " + key);
             console.log("value: " + value);
-            if (key == 'imgSrc') {
+            /*if (key == 'imgSrc') {
                 if (checkShowImage(value) == null) {
                     value = './assets/img/icons/bingetracker_logo.png';
                 }
-            }
+            }*/
             if(key == "totalSeasons"){
                 continue;
             }
