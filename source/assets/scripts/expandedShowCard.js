@@ -205,6 +205,8 @@ import {saveShowsToStorage} from './tools.js';
      *                            "episodeArray": 2D array of booleans representing show and seasons
      *                            "rating" : number
      *                            "comments" : "string"
+     *                            "id" : num representing place in local storage
+     *
      *                        }
      */
     set data(data) {
