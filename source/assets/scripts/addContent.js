@@ -270,35 +270,12 @@ function initFormHandler() {
      * submitted
      */
     function insertMovie() {
-        function checkMovieImage(url) {
-            try {
-                const res = fetch(url).then((response) => {
-                    if (!response.ok) {
-                        return null;
-                    }
-                });
-                const buff = res.blob();
-
-                return buff.type.startsWith('image/');
-            }
-            catch (error) {
-                return null;
-            }
-        }
         const formData = new FormData(formSelectorMovie);
         let movieObject = {};
         for (const [key, value] of formData) {
-            if (key == 'imgSrc') {
-                if (checkMovieImage(value) == null) {
-                    value = './assets/img/icons/bingetracker_logo.png';
-                }
-            }
             movieObject[key] = value;
         }
 
-        if(!(Object.keys(movieObject).includes('rating'))){
-            movieObject['rating'] = 0;
-        }
 
         movieObject["movie"] = true; 
         let movies = getShowsFromStorage();
@@ -320,21 +297,6 @@ function initFormHandler() {
      * Once the objects are created, you are taken to the homepage
      */
     function insertShow() {
-        function checkShowImage(url) {
-            try {
-                const res = fetch(url).then((response) => {
-                    if (!response.ok) {
-                        return null;
-                    }
-                });
-                const buff = res.blob();
-
-                return buff.type.startsWith('image/');
-            }
-            catch (error) {
-                return null;
-            }
-        }
         const formData = new FormData(formSelectorShow);
         let episodeArray = [];
         let toPush = [];
@@ -343,13 +305,6 @@ function initFormHandler() {
         for (const [key, value] of formData) {
             console.log("key: " + key);
             console.log("value: " + value);
-
-            if (key == 'imgSrc') {
-                if (checkShowImage(value) == null) {
-                    value = './assets/img/icons/bingetracker_logo.png';
-                }
-            }
-
             if(key == "totalSeasons"){
                 continue;
             }
@@ -365,9 +320,6 @@ function initFormHandler() {
             showObject[key] = value;
         }
 
-        if(!(Object.keys(showObject).includes('rating'))){
-            showObject['rating'] = 0;
-        }
 
         showObject["imgAlt"] = showObject["showTitle"];
         showObject["episodeArray"] = episodeArray;
