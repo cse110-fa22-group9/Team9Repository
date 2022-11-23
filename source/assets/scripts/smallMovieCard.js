@@ -78,6 +78,7 @@ class smallMovieCard extends HTMLElement {
           display: inline-block;
           object-fit: scale-down;
           width: 78px;
+          margin-top: 10px;
         }
 
         .modification {

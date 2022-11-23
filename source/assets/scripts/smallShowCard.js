@@ -75,7 +75,7 @@ class smallShowCard extends HTMLElement {
         }
       
         div.rating>img {
-          height: auto;
+          height: 100%;
           display: inline-block;
           object-fit: scale-down;
           width: 78px;
@@ -89,17 +89,25 @@ class smallShowCard extends HTMLElement {
         .modification img {
           height: 10%;
           object-fit: contain;
-          width: 25px;
+          width: 15px;
+          margin-right: 0px;
         }
 
         article>img {
-          background: #adadad;
+          object-fit: contain;
           height: 50%;
           width: auto;
           margin-top: auto;
           margin-bottom:auto;
           flex: 1;
         }
+
+        /*article>img {
+          object-fit: contain;
+          height: auto;
+          width: 50%;
+          flex: 1;
+        }*/
 
         .show-info {
           display: flex;
@@ -174,10 +182,8 @@ class smallShowCard extends HTMLElement {
                               <div class="rating">
                                   <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               </div>
+                              <br>
                               <p class="season"> ${data['episodeArray'].length} Season(s) Total </p>
-                              <!--<p class="review">
-                                  Review: ${data['review']}
-                              </p>-->
                             </div>
                             <div class="modification">
                               <a href="./assets/pages/add-content.html?ind=${data['id']}">
