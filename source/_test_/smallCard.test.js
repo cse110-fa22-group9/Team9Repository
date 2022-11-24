@@ -143,14 +143,17 @@ describe('Test small show and movie card', () => {
         // Query select all of the <small-movie-card> elements
         const showCard = await page.$$('small-movie-card');
         for (let i = 0; i < showCard.length; i++) {
-            // Grab the .data property of <product-items> to grab all of the json data stored inside
+            // Grab the .data property of <small-movie-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
             // Convert that property to JSON
             plainValue = await data.jsonValue();
+            // check the showCard 
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
+            // get the value of expanedlink from shadow root
             let expandedLink = await shadowRoot.$('#expandedLink');
             let expandedLinkHref = await expandedLink.getProperty('href');
             //console.log(expandedLinkHref.toString());
+            // compare if the link is correct
             if (expandedLinkHref.toString() != 
                 `JSHandle:${url}/source/assets/pages/movie-show-subpage.html?ind=${plainValue.id}`) 
             {allAreLinked = false;}
@@ -168,17 +171,19 @@ describe('Test small show and movie card', () => {
         // Start as true, if any don't have data, swap to false
         let allAreLinked = true;
         let data, plainValue;
-        // Query select all of the <small-movie-card> elements
+        // Query select all of the <small-show-card> elements
         const showCard = await page.$$('small-show-card');
         for (let i = 0; i < showCard.length; i++) {
-            // Grab the .data property of <product-items> to grab all of the json data stored inside
+            // Grab the .data property of <small-show-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
             // Convert that property to JSON
             plainValue = await data.jsonValue();
+            // get the value of expanedlink from shadow root
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
             let expandedLink = await shadowRoot.$('#expandedLink');
             let expandedLinkHref = await expandedLink.getProperty('href');
             //console.log(expandedLinkHref.toString());
+            // compare if the link is correct
             if (expandedLinkHref.toString() != 
                 `JSHandle:${url}/source/assets/pages/movie-show-subpage.html?ind=${plainValue.id}`) 
             {allAreLinked = false;}
@@ -188,8 +193,8 @@ describe('Test small show and movie card', () => {
         expect(allAreLinked).toBe(true);
     }, 10000);
 
-    // Make sure all the <small-movie-card> elements have correct link to thier expandedMovie page
-    it('Make sure all the <small-movie-card> elements have correct link to thier expandedMovie page', 
+    // Make sure all the <small-movie-card> elements have correct link to thier edit page
+    it('Make sure all the <small-movie-card> elements have correct link to thier edit page', 
     async () => {
         console.log('Checking <small-movie-card> elements edit link are correct...');
         await page.reload();
@@ -199,15 +204,17 @@ describe('Test small show and movie card', () => {
         // Query select all of the <small-movie-card> elements
         const showCard = await page.$$('small-movie-card');
         for (let i = 0; i < showCard.length; i++) {
-            // Grab the .data property of <product-items> to grab all of the json data stored inside
+            // Grab the .data property of <small-movie-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
             // Convert that property to JSON
             plainValue = await data.jsonValue();
+            // get the value of editlink from shadow root
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
-            let expandedLink = await shadowRoot.$('#editLink');
-            let expandedLinkHref = await expandedLink.getProperty('href');
-            console.log(expandedLinkHref.toString());
-            if (expandedLinkHref.toString() != 
+            let editLink = await shadowRoot.$('#editLink');
+            let editLinkHref = await editLink.getProperty('href');
+            //console.log(editLinkHref.toString());
+            // compare if the link is correct
+            if (editLinkHref.toString() != 
                 `JSHandle:${url}/source/assets/pages/add-content.html?ind=${plainValue.id}`) 
             {allAreLinked = false;}
         }
@@ -224,18 +231,20 @@ describe('Test small show and movie card', () => {
         // Start as true, if any don't have data, swap to false
         let allAreLinked = true;
         let data, plainValue;
-        // Query select all of the <small-movie-card> elements
+        // Query select all of the <small-show-card> elements
         const showCard = await page.$$('small-show-card');
         for (let i = 0; i < showCard.length; i++) {
-            // Grab the .data property of <product-items> to grab all of the json data stored inside
+            // Grab the .data property of <small-show-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
             // Convert that property to JSON
             plainValue = await data.jsonValue();
+            // get the value of expanedlink from shadow root
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
-            let expandedLink = await shadowRoot.$('#editLink');
-            let expandedLinkHref = await expandedLink.getProperty('href');
-            console.log(expandedLinkHref.toString());
-            if (expandedLinkHref.toString() != 
+            let editLink = await shadowRoot.$('#editLink');
+            let editLinkHref = await editLink.getProperty('href');
+            //console.log(editLinkHref.toString());
+            // compare if the link is correct
+            if (editLinkHref.toString() != 
                 `JSHandle:${url}/source/assets/pages/add-content.html?ind=${plainValue.id}`) 
             {allAreLinked = false;}
         }
