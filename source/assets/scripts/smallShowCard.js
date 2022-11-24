@@ -166,6 +166,8 @@ class smallShowCard extends HTMLElement {
         // if no data, return
         if (!data) return;
 
+        this.json = data; // Store the data passed in for later
+
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
 
@@ -175,7 +177,7 @@ class smallShowCard extends HTMLElement {
                                   alt="showSrc">
                             <div class="show-info">
                               <p class="title">
-                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">
+                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}" id="expandedLink">
                                       ${data['showTitle']}
                                   </a>
                               </p>
@@ -186,10 +188,14 @@ class smallShowCard extends HTMLElement {
                               <p class="season"> ${data['episodeArray'].length} Season(s) Total </p>
                             </div>
                             <div class="modification">
-                              <a href="./assets/pages/add-content.html?ind=${data['id']}">
+                              <a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
                                 <img src="./assets/img/icons/Edit.svg" alt="edit">
                               </a>
                             </div>`;
+    }
+
+    get data() {
+      return this.json;
     }
 }
 

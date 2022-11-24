@@ -159,6 +159,8 @@ class smallMovieCard extends HTMLElement {
     set data(data) {
         if (!data) return;
 
+        this.json = data; // Store the data passed in for later
+
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
 
@@ -169,7 +171,8 @@ class smallMovieCard extends HTMLElement {
                             <div class="movie-info">
                               <p class="title">
                                   <br>
-                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}">${data['movieName']}</a>
+                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}" id="expandedLink">
+                                  ${data['movieName']}</a>
                               </p>
                               <div class="rating">
                                   <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
@@ -180,11 +183,15 @@ class smallMovieCard extends HTMLElement {
                               <time>${data['movieFar']} min / ${data['movieTime']} min</time>
                             </div>
                             <div class="modification">
-                              <a href="./assets/pages/add-content.html?ind=${data['id']}">
+                              <a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
                                   <img src="./assets/img/icons/Edit.svg" alt="edit">
                               </a>
                             </div>
                             `;
+    }
+
+    get data() {
+      return this.json;
     }
 }
 
