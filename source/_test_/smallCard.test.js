@@ -100,9 +100,9 @@ describe('Test small show and movie card', () => {
       expect(allArePopulated).toBe(true);
     }, 10000);
 
-    // Check to make sure that all <small-movie-card> elements have data in them
-    it('Make sure <small-movie-card> elements are populated', async () => {
-        console.log('Checking to make sure <small-movie-card> elements are populated...');
+    // Check to make sure that all <small-show-card> elements have data in them
+    it('Make sure <small-show-card> elements are populated', async () => {
+        console.log('Checking to make sure <small-show-card> elements are populated...');
         await page.reload();
         // Start as true, if any don't have data, swap to false
         let allArePopulated = true;
