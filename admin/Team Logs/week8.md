@@ -110,10 +110,11 @@ Instead of creating a new page, we could also simply insert the expanded card wr
 The anchoring between two website is base on the index.
 Inside the smallShowCard and smallMovieCard class it will link to it's corresponding subpage and editpage. The way to achive this is to use index add a parameter into link.
 
-# addContent.js example: 
+# addContent.html example: 
 if the link is ./assets/pages/add-content.html?ind=0 Then the index for the movie or show we want edit is 0. Then at addContent.js will use URLSearchParams(queryString) to get the parameter ind = 0 and know what it is calling from the the movie or show card index 0. 
 
-# addContent.js example: 
+# movie-show-subpage.html example: 
+if the link is ./assets/pages/movie-show-subpage.html?ind=0 Then the index for the movie or show we want edit is 0. Then at movie-show-subpage.js will use URLSearchParams(queryString) to get the parameter ind = 0 and know what it is calling from the the movie or show card index 0. Then it will generate the corresponding expandshow or expandmovie card to movie-show-subpage. 
 
 ## Other Pages
 TODO.
