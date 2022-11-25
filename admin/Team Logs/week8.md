@@ -106,6 +106,12 @@ Step3. Like what we did for `smallCards`, we insert a desired expanded card into
 #### Method 2: Stay in the same page.
 Instead of creating a new page, we could also simply insert the expanded card write below the small cards. 
 
+## Anchoring
+The anchoring between two website is base on the index.
+Inside the smallShowCard and smallMovieCard class it will link to it's corresponding subpage and editpage. The way to achive this is to use index add a parameter into link.
+
+For example: 
+
 ## Other Pages
 TODO.
  
