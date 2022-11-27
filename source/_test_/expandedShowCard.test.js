@@ -24,8 +24,8 @@ describe('Test expanded show and movie card', () => {
             review: "testing"}];*/
 
             const json = [
-                {id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
-                movie : false, episodeArray: [[false]], imgAlt: "showTest1", showTitle: "showTest1", rating: "0", 
+                {id: 3, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
+                movie : false, episodeArray: [[false,true,true,true,false],[true,true,false,true,false]], imgAlt: "showTest1", showTitle: "showTest1", rating: "0", 
                 review: "testing"}
             ]
         //Adding the movie to local storage
@@ -43,10 +43,10 @@ describe('Test expanded show and movie card', () => {
       let data, plainValue;
       // Query select all of the <expanded-movie-card> elements
       //console.log(document.querySelector('expanded-movie-card').shadowRoot.querySelector('.title').innerHTML)
-      const movieCard = await page.$$('expanded-movie-card');
-      for (let i = 0; i < movieCard.length; i++) {
+      const showCard = await page.$$('expanded-show-card');
+      for (let i = 0; i < showCard.length; i++) {
         // Grab the .data property of <product-items> to grab all of the json data stored inside
-        data = await movieCard[i].getProperty('data');
+        data = await showCard[i].getProperty('data');
         console.log(data);
         // Convert that property to JSON
         plainValue = await data.jsonValue();
@@ -80,14 +80,14 @@ describe('Test expanded show and movie card', () => {
         let allAreLinked = true;
         let data, plainValue;
         // Query select all of the <expanded-movie-card> elements
-        const movieCard = await page.$$('expanded-movie-card');
-        for (let i = 0; i < movieCard.length; i++) {
+        const showCard = await page.$$('expanded-show-card');
+        for (let i = 0; i < showCard.length; i++) {
             // Grab the .data property of <expanded-movie-card> to grab all of the json data stored inside
-            data = await movieCard[i].getProperty('data');
+            data = await showCard[i].getProperty('data');
             // Convert that property to JSON
             plainValue = await data.jsonValue();
             // check the showCard 
-            let shadowRoot = await movieCard[i].getProperty('shadowRoot');
+            let shadowRoot = await showCard[i].getProperty('shadowRoot');
             // get the value of expanedlink from shadow root
             let expandedLink = await shadowRoot.$('#homebutton');
             let expandedLinkHref = await expandedLink.parentElement.getProperty('href');
@@ -112,7 +112,7 @@ describe('Test expanded show and movie card', () => {
         let allAreLinked = true;
         let data, plainValue;
         // Query select all of the <expanded-movie-card> elements
-        const showCard = await page.$$('expanded-movie-card');
+        const showCard = await page.$$('expanded-show-card');
         for (let i = 0; i < showCard.length; i++) {
             // Grab the .data property of <small-movie-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
@@ -142,7 +142,7 @@ describe('Test expanded show and movie card', () => {
         let allAreLinked = true;
         let data, plainValue;
         // Query select all of the <small-show-card> elements
-        const showCard = await page.$$('expanded-movie-card');
+        const showCard = await page.$$('expanded-show-card');
         for (let i = 0; i < showCard.length; i++) {
             // Grab the .data property of <small-show-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
@@ -152,8 +152,6 @@ describe('Test expanded show and movie card', () => {
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
             let trashbutton = await shadowRoot.$('#trashbutton');
             await trashbutton.click();
-            //console.log(editLinkHref.toString());
-            // compare if the link is correc
         }
 
         await page.goto(`${url}/source/index.html`);
@@ -165,10 +163,28 @@ describe('Test expanded show and movie card', () => {
         })
 
         expect(length).toBe(0);
+    }, 10000);
 
-    
-    
-        // Expect allAreLinked to still be true
+    it('Clicking season button', 
+    async () => {
+        console.log('Checking <small-show-card> elements edit link are correct...');
+        await page.reload();
+
+        let data, plainValue;
+        // Query select all of the <small-show-card> elements
+        const showCard = await page.$$('expanded-show-card');
+
+        // Grab the .data property of <small-show-card> to grab all of the json data stored inside
+        data = await showCard[0].getProperty('data');
+        // Convert that property to JSON
+        plainValue = await data.jsonValue();
+        // get the value of expanedlink from shadow root
+        let shadowRoot = await showCard[0].getProperty('shadowRoot');
+        let season2button = await shadowRoot.$('#season_2_button');
+        await season2button.click();
+        let same = await shadowRoot.$('.currentSeasonButton') == await shadowRoot.$('#season_2_button');
+
+        expect(same).toBe(true);
     }, 10000);
 
     // clean the local storge after test is done
