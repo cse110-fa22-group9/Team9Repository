@@ -2,7 +2,6 @@
  * File Header: expandedMovieCard.js
  * 
  * Creates the class for the expanded movie card
- * **mostly copied over from lab 6 recipeCard.js**
  */
 
 /**
@@ -16,6 +15,7 @@
  class expandedMovieCard extends HTMLElement {
     /**
      * Construct a expandedMovieCard element
+     * @constructor
      */
     constructor() {
         super();
@@ -39,6 +39,7 @@
      * expandedMovieCard and smallMovieCard get data from same data object, smallMovieCard just uses part of the data
      * expandedMovieCard theoretically can just take a copy of the data object in the smallMovieCard
      * 
+     * @function
      * @param {Object} data - The data to pass into the <expanded-movie-card>, must be of the following format:
      *                        {
      *                            "movieTitle" : "string"

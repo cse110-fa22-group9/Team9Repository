@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: expandedShowCard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: expandedShowCard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * File Header: expandedShowCard.js
  * 
  * Creates the class for the expanded show card
@@ -206,7 +234,7 @@ class expandedShowCard extends HTMLElement {
      * expandedShowCard and smallShowCard get data from same data object, smallShowCard just uses part of the data
      * 
      * @function
-     * @param {Object} data - The data to pass into the <expanded-show-card>, must be of the following format:
+     * @param {Object} data - The data to pass into the &lt;expanded-show-card>, must be of the following format:
      *                        {
      *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
      *                            "id" : number
@@ -264,7 +292,7 @@ function update(data, seasonNumber, shadowDom){
  * 
  */
 function CreateActionListeners(data, seasonNumber, shadowDom){
-    for(let i = 0; i < data.episodeArray.length; i++){
+    for(let i = 0; i &lt; data.episodeArray.length; i++){
         let currNum = i + 1;
         let seasonObject = shadowDom.getElementById(`season_` + (currNum) + `_button`);
         seasonObject.addEventListener('click', () => {
@@ -275,7 +303,7 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
     // get local storge
     let cards = getShowsFromStorage();
 
-    for(let i = 0; i < data.episodeArray[seasonNumber - 1].length; i++){
+    for(let i = 0; i &lt; data.episodeArray[seasonNumber - 1].length; i++){
         let checkboxObject = shadowDom.getElementById(`season_${seasonNumber}_episode_${i+1}_checkbox`);
         checkboxObject.addEventListener('click', () => {
             data.episodeArray[seasonNumber - 1][i] =  !data.episodeArray[seasonNumber - 1][i];
@@ -313,7 +341,7 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             cards.splice(ind, 1);
 
             //after you splice the cards, you must update the ids for each
-            for(let i = 0; i < cards.length; i++) {
+            for(let i = 0; i &lt; cards.length; i++) {
                 cards[i].id = i;
             }
 
@@ -339,39 +367,39 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
  */
 function generatedInnerHTML(data, seasonNumber){
     let innerHTML =
-                `<div id="outerbox">
-                    <div class="toptvshowheader"> 
-                        <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
-                            <img height="35em" src="../img/icons/home.png"></img>
-                        </button></a></div>
-                    </div>
-                    <div id="innerbox">
-                        <div id="showandinfo">
-                            <img id="showimage" src=${data.imgSrc} alt=${data.imgAlt} height="240 em">
-                            <div id="info">
-                                <div id="titleandbuttons"> 
-                                    <p class="title">Name: ${data.showTitle}</p>
-                                    <div id="buttons">
-                                        <button id="editbutton">
-                                            <img height="27em" src="../img/icons/edit.png"></img>
-                                        </button>
-                                        <button id="trashbutton">
-                                            <img height="27em" src="../img/icons/trash.png">
-                                            </img>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.comments}</div>
-                            </div>
-                        </div>
-                        <h2 id="progressheader">Progress: </h2>` +
+                `&lt;div id="outerbox">
+                    &lt;div class="toptvshowheader"> 
+                        &lt;div class="half">&lt;h4 id="tvshowheader">TV Show&lt;/h4>&lt;/div>
+                        &lt;div class="half">&lt;a href="../../index.html">&lt;button id="homebutton">
+                            &lt;img height="35em" src="../img/icons/home.png">&lt;/img>
+                        &lt;/button>&lt;/a>&lt;/div>
+                    &lt;/div>
+                    &lt;div id="innerbox">
+                        &lt;div id="showandinfo">
+                            &lt;img id="showimage" src=${data.imgSrc} alt=${data.imgAlt} height="240 em">
+                            &lt;div id="info">
+                                &lt;div id="titleandbuttons"> 
+                                    &lt;p class="title">Name: ${data.showTitle}&lt;/p>
+                                    &lt;div id="buttons">
+                                        &lt;button id="editbutton">
+                                            &lt;img height="27em" src="../img/icons/edit.png">&lt;/img>
+                                        &lt;/button>
+                                        &lt;button id="trashbutton">
+                                            &lt;img height="27em" src="../img/icons/trash.png">
+                                            &lt;/img>
+                                        &lt;/button>
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div class="rating">Rating: ${data.rating}/5&lt;/div>
+                                &lt;div class="comments">Comments: ${data.comments}&lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;h2 id="progressheader">Progress: &lt;/h2>` +
                         generateSeasonsHTML(data.episodeArray, seasonNumber) + 
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
-                        `</div>
-                </div>`
-                //+ `<p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched</p>`;
+                        `&lt;/div>
+                &lt;/div>`
+                //+ `&lt;p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched&lt;/p>`;
                 return innerHTML;
 }
 
@@ -385,13 +413,13 @@ function generatedInnerHTML(data, seasonNumber){
  * @returns a HTML string used to generate the episodes section
  */
  function generateEpisodesForSeason(episodes, seasonNumber){
-    let s = `<div id="episodesDiv">`;
-    for(let i = 0; i < episodes.length; i++){
+    let s = `&lt;div id="episodesDiv">`;
+    for(let i = 0; i &lt; episodes.length; i++){
         let checked;
         episodes[i] ? checked= "showBoxChecked" : checked = "showBoxUnchecked";
-        s += `<button id="season_${seasonNumber}_episode_${i+1}_checkbox" class="${checked}"> ${i+1} </button>`;
+        s += `&lt;button id="season_${seasonNumber}_episode_${i+1}_checkbox" class="${checked}"> ${i+1} &lt;/button>`;
     }
-    s += `</div>`;
+    s += `&lt;/div>`;
     return s;
 }
 
@@ -412,12 +440,34 @@ function generatedInnerHTML(data, seasonNumber){
  * @return a string representing the HTML for progress bars for each season
  */
 function generateSeasonsHTML(episodes, seasonNumber){
-    let s = `<div id="seasonbuttons">`;
-    for(let i = 0; i < episodes.length; i++){
-        s += `<button id="season_` + (i+1) + `_button" class="${seasonNumber == (i+1) ? "currentSeasonButton" : "seasonButton"}">Season ` + (i+1) + `</button>`;
+    let s = `&lt;div id="seasonbuttons">`;
+    for(let i = 0; i &lt; episodes.length; i++){
+        s += `&lt;button id="season_` + (i+1) + `_button" class="${seasonNumber == (i+1) ? "currentSeasonButton" : "seasonButton"}">Season ` + (i+1) + `&lt;/button>`;
     }
-    s += `</div>`;
+    s += `&lt;/div>`;
     return s;
 }
 
-customElements.define("expanded-show-card", expandedShowCard);
+customElements.define("expanded-show-card", expandedShowCard);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="smallMovieCard.html">smallMovieCard</a></li><li><a href="smallShowCard.html">smallShowCard</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Nov 27 2022 13:23:16 GMT-0800 (Pacific Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
