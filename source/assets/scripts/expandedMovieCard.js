@@ -58,6 +58,8 @@ import {saveShowsToStorage} from './tools.js';/**
         // If no data, return
         if (!data) return;
 
+        this.json = data;
+
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
         let cards = getShowsFromStorage();
@@ -95,8 +97,11 @@ import {saveShowsToStorage} from './tools.js';/**
             saveShowsToStorage(cards);
             window.location.href="./../../index.html";
         });
-    }
 
+    }
+    get data(){
+        return this.json
+    }
 }
 
 customElements.define("expanded-movie-card", expandedMovieCard);

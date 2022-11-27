@@ -4,35 +4,53 @@ describe('Test expanded show and movie card', () => {
     // First, visit the main page
     beforeAll(async () => {
         //clear local storage before adding anything
+        await page.goto(`${url}/source/index.html`);
         await page.evaluate(() => {
             window.localStorage.clear();
-          });
-        const json = [
+        });
+
+      //Navigating to the movie's expanded card page
+        //await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
+    });      
+
+    it("Inital Home Page - Add data into local storage", () => 
+    {
+        page.evaluate(function (){
+            const shows = "shows";
+            /*const json = [
             //Add 1 movie to test
             {id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
             movie : true, movieFar:  "100", movieName: "movieTest1", movieTime: "10", rating: "0", 
-            review: "testing"}, ];
-        //Adding the movie to local storage
-        await window.localStorage.setItem("shows", JSON.stringify(json));
+            review: "testing"}];*/
 
-      //Navigating to the movie's expanded card page
-        await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
-    });      
+            const json = [
+                {id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
+                movie : false, episodeArray: [[false]], imgAlt: "showTest1", showTitle: "showTest1", rating: "0", 
+                review: "testing"}
+            ]
+        //Adding the movie to local storage
+        window.localStorage.setItem(shows, JSON.stringify(json));
+        })
+    })
   
     // Check to make sure that all <expanded-movie-card> elements have data in them
     it('Make sure <expanded-movie-card> elements are populated', async () => {
       console.log('Checking to make sure <expanded-movie-card> elements are populated...');
-      await page.reload();
+      await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
+      //await page.reload();
       // Start as true, if any don't have data, swap to false
       let allArePopulated = true;
       let data, plainValue;
       // Query select all of the <expanded-movie-card> elements
+      //console.log(document.querySelector('expanded-movie-card').shadowRoot.querySelector('.title').innerHTML)
       const movieCard = await page.$$('expanded-movie-card');
       for (let i = 0; i < movieCard.length; i++) {
         // Grab the .data property of <product-items> to grab all of the json data stored inside
         data = await movieCard[i].getProperty('data');
+        console.log(data);
         // Convert that property to JSON
         plainValue = await data.jsonValue();
+        console.log(plainValue);
         // Make sure the title, price, and image are populated in the JSON
         /*{id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
         movie : true, movieFar:  "100", movieName: "movieTest1", movieTime: "10", rating: "0", 
@@ -136,12 +154,21 @@ describe('Test expanded show and movie card', () => {
             await trashbutton.click();
             //console.log(editLinkHref.toString());
             // compare if the link is correc
-            let localStorageString = localStorage.getItem('shows');
-            let localStorageArray = await JSON.parse(localStorageString);
         }
+
+        await page.goto(`${url}/source/index.html`);
+
+        length = await page.evaluate(() => {
+            let localStorageString = window.localStorage.getItem('shows');
+            var localStorageArray = JSON.parse(localStorageString);
+            return localStorageArray.length;
+        })
+
+        expect(length).toBe(0);
+
+    
     
         // Expect allAreLinked to still be true
-        expect(localStorageArray.length).toBe(0);
     }, 10000);
 
     // clean the local storge after test is done

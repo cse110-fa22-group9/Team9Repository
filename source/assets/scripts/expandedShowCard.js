@@ -216,6 +216,9 @@ import {saveShowsToStorage} from './tools.js';
         update(data,  1, shadowDom);
 
     }
+    get data(){
+        return this.json
+    }
 
 }
 
@@ -336,6 +339,7 @@ function generatedInnerHTML(data, seasonNumber){
                 //+ `<p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched</p>`;
                 return innerHTML;
 }
+
 
 /**
  * Generates a HTML string for the episodes section
