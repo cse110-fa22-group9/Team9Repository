@@ -282,6 +282,13 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             saveShowsToStorage(cards);
         })
     }
+
+    let trashButton = shadowDom.getElementById(`trashbutton`);
+    trashButton.addEventListener('click', () => {
+        cards.splice(data.id, 1);
+        saveShowsToStorage(cards);
+        window.location.href="./../../index.html";
+    });
 }
 
 /**
@@ -307,10 +314,12 @@ function generatedInnerHTML(data, seasonNumber){
                                 <div id="titleandbuttons"> 
                                     <p class="title">Name: ${data.showTitle}</p>
                                     <div id="buttons">
-                                        <button id="editbutton">
-                                            <img height="27em" src="../img/icons/edit.png"></img>
-                                        </button>
-                                        <button id="editbutton">
+                                        <a href="./add-content.html?ind=${data['id']}" id="editLink">
+                                            <button id="editbutton">
+                                                <img height="27em" src="../img/icons/edit.png"></img>
+                                            </button>
+                                        </a>
+                                        <button id="trashbutton">
                                             <img height="27em" src="../img/icons/trash.png"></img>
                                         </button>
                                     </div>

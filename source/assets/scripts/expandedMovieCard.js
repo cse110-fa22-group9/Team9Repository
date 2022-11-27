@@ -1,4 +1,6 @@
-/**
+
+import {getShowsFromStorage} from './tools.js';
+import {saveShowsToStorage} from './tools.js';/**
  * File Header: expandedMovieCard.js
  * 
  * Creates the class for the expanded movie card
@@ -41,32 +43,60 @@
      * 
      * @param {Object} data - The data to pass into the <expanded-movie-card>, must be of the following format:
      *                        {
-     *                            "movieTitle" : "string"
+     *                            "movieName" : "string"
      *                            "imgSrc" : "string"
      *                            "imgAlt" : "string"
-     *                            "movieDuration" : "string"
-     *                            "progressMade" : "string"
+     *                            "movieTime" : "string"
+     *                            "movieFar" : "string"
      *                            "rating" : number
-     *                            "comments" : "string"
+     *                            "review" : "string"
+     *                            "id" : number
      *                        }
      */
+    
     set data(data) {
         // If no data, return
         if (!data) return;
 
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
+        let cards = getShowsFromStorage();
 
         // TODO: Implement a progress bar (no "season" indicator needed for movies)
 
-        article.innerHTML = `<p class="title">${data.movieTitle}</p>
-                             <img src=${data.imgSrc} alt=${data.imgAlt}>
-                             <time class="duration">${data.movieDuration}</time>
-                             <time class="progress">${data.progressMade}</time>
-                             <p class="rating">${data.rating}/5</p>
-                             <p class="comments">${data.comments}</p>`;
+        article.innerHTML = `
+                            <div class="toptvshowheader"> 
+                                <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
+                                <div class="half"><a href="../../index.html"><button id="homebutton">
+                                    <img height="35em" src="../img/icons/home.png"></img>
+                                </button></a></div>
+                            </div>
+        
+                            <p class="title">${data.movieName}</p>
+                            <div id="buttons">
+                                <a href="./add-content.html?ind=${data['id']}" id="editLink">
+                                    <button id="editbutton">
+                                        <img height="27em" src="../img/icons/edit.png"></img>
+                                    </button>
+                                </a>
+                                <button id="trashbutton">
+                                    <img height="27em" src="../img/icons/trash.png"></img>
+                                </button>
+                            </div>
+                            <img src=${data.imgSrc} alt=${data.imgAlt}>
+                            <time class="duration">${data.movieTime}</time>
+                            <time class="progress">${data.movieFar}</time>
+                            <p class="rating">${data.rating}/5</p>
+                            <p class="comments">${data.review}</p>`;
 
+        let trashButton = shadowDom.getElementById(`trashbutton`);
+        trashButton.addEventListener('click', () => {
+            cards.splice(data.id, 1);
+            saveShowsToStorage(cards);
+            window.location.href="./../../index.html";
+        });
     }
+
 }
 
 customElements.define("expanded-movie-card", expandedMovieCard);

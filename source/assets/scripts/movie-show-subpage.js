@@ -22,10 +22,10 @@ function generateCard(ind) {
   let thisObject = shows[ind];
 
   let newCard;
-  if(thisObject["movie"]) { //if show 
+  if(thisObject["movie"]) { 
     newCard = document.createElement('expanded-movie-card');
   }
-  else { //movie
+  else { 
     newCard = document.createElement('expanded-show-card');
   }
   newCard.data = thisObject;
