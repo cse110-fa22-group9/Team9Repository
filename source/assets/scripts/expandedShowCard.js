@@ -311,7 +311,7 @@ function generatedInnerHTML(data, seasonNumber){
                                         <button id="editbutton">
                                             <img height="27em" src="../img/icons/edit.png"></img>
                                         </button>
-                                        <button id="editbutton">
+                                        <button id="trashbutton">
                                             <img height="27em" src="../img/icons/trash.png"></img>
                                         </button>
                                     </div>
