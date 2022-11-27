@@ -80,6 +80,7 @@ import {saveShowsToStorage} from './tools.js';
 
         #info {
             margin-left: 0.7em;
+            width: 100%;
         }
         
         #titleandbuttons {
@@ -87,7 +88,7 @@ import {saveShowsToStorage} from './tools.js';
             align-items: center;
             justify-content: space-between;
             height: 2.5em;
-            width: 47em;
+            width: 100%;
         }
 
         #titleandbuttons p {
@@ -134,7 +135,7 @@ import {saveShowsToStorage} from './tools.js';
 
         #seasonbuttons {
             padding: 0;
-            height: 2.5em;
+            height: 100%;
         }
 
         .currentSeasonButton{
