@@ -302,7 +302,14 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             let ind = currentInd;
             let cards = getShowsFromStorage();
 
-            //removes current entry
+            //edge case if there's only one show right now, deletes localStorage entirely
+            if(cards.length == 1) {
+                localStorage.removeItem('shows');
+                window.location.href = '../../index.html';
+                return;
+            }
+
+            //if there's more than one entry, removes current entry
             cards.splice(ind, 1);
 
             //after you splice the cards, you must update the ids for each

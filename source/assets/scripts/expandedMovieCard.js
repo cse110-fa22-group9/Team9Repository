@@ -210,6 +210,13 @@ function CreateActionListeners(data, shadowDom) {
             let ind = currentInd;
             let cards = getShowsFromStorage();
 
+            //edge case if there's only one show right now
+            if(cards.length == 1) {
+                localStorage.removeItem('shows');
+                window.location.href = '../../index.html';
+                return;
+            }
+
             //removes current entry
             cards.splice(ind, 1);
 
