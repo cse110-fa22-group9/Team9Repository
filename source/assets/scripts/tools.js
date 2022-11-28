@@ -3,6 +3,7 @@ function getShowsFromStorage() {
 }
 
 function saveShowsToStorage(shows){
+    console.log(JSON.stringify(shows));
     localStorage.setItem('shows',JSON.stringify(shows));
 }
 
