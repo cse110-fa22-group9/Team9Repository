@@ -6,24 +6,37 @@
   <!-- Link addMovie.js -->
   <script src="../scripts/addContent.js" type="module"></script>
   <title>Add Move From</title>
+
+  <style>
+    body {
+      background-color: rgb(17, 151, 157);
+    }
+
+    div h2 {
+      margin-top: 0px;
+      margin-left: 0px;
+      color: white;
+    }
+      
+  </style>
 </head>
 <body>
   <!-- Binge Tracker's sidebar to return to the Watch List Page -->
   <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-     <h3 class="bit-sidebar-heading">Binge Tracker</h3>
+     <h2 class="bit-sidebar-heading">Binge Tracker</h2>
      <!--Changing to index.html from watchlist.html-->
      <a href="../../index.html" class="bit-sidebar-btn">Watch List</a>
   </div>
 
-  <label for="content">What content are you adding?</label>
-  <select name="content" id="contentSelection">
+  <label for="content" style="color: white;">What content are you adding?</label>
+  <select name="content" id="contentSelection" >
     <!-- Add empty default?-->
-    <option disabled selected hidden>Choose Content</option>
+    <option disabled selected>Choose Content</option>
     <option value="movie" id = "selectMovie">Movie</option>
     <option value="show" id = "selectShow">Show</option>
   </select>
 
-  <form id="new-movie" hidden>
+  <form id="new-movie" hidden style="color: white;">
     <fieldset>
       <legend>What movie you are watching?</legend>
       <label for="movie-name">
@@ -80,7 +93,7 @@
     -->
   </form>
 
-  <form id="new-show" hidden>
+  <form id="new-show" hidden style="color: white;">
     <fieldset>
       <legend>What show you are watching?</legend>
       <label for="show-name">

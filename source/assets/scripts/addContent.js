@@ -1,3 +1,11 @@
+/**
+ * File Header: addContent.js
+ * 
+ * Edit or insert a new movie or show to the local storge base on the from at 
+ * add-content.html
+ * 
+ */
+
 //importing functions from tools.js
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
@@ -6,10 +14,19 @@ import {saveShowsToStorage} from './tools.js';
 // Binding initialization function to document listener
 window.addEventListener('DOMContentLoaded', init);
 
-// input: None
-// Output: None
-// Operations: when the user click the submit button, insert new movie into local storage
-// by calling initFormHandler()
+/**
+ * The init() function for the add-content.html. It will check if the calling link
+ * has index or not. If have index then we are edit a exsit show and movie. Then we 
+ * will calling editFormHandler with the corresponding index inside the link. If the
+ * calling link doesn't have index then we are inserting a new movie or show to the
+ * watch list. Then we will calling initFormHandler() to insert a new movie and show.
+ * 
+ * For example if the location is ./assets/pages/add-content.html?ind=0 Then the index
+ * for the movie or show we want edit is 0. Then we will just called editformhandler(0)
+ * to edit it.
+ * 
+ * @return none
+ */
 function init() {
     let queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -22,8 +39,20 @@ function init() {
     
 }
 
+/**
+ * Called when we want to edit an exsit show or movie. It will fill in the form with all the data
+ * corresponding with the specfic show or movie with thier special index. When user click the submit
+ * button it will update the new data to local stroge at corresponding index.
+ * 
+ * For example:
+ * editFormHandler(0) will fill in the from with the data at local storge has index 0
+ * 
+ * 
+ * @param ind - The index value for the Movie or Show
+ * @return none
+ */
 function editFormHandler(ind) {
-
+    // get element form html
     const contentSelection = document.getElementById("contentSelection");
     const formSelectorMovie = document.getElementById('new-movie');
     const formSelectorShow = document.getElementById('new-show');
@@ -123,10 +152,9 @@ function editFormHandler(ind) {
         movieSubmit.innerText = 'Edit Movie';
     }
 
-    /**
-     * Once the season number is changed number inputs for the amount of episodes
-     * appear based on the inputted number of seasons
-     */
+    
+    // Once the season number is changed number inputs for the amount of episodes
+    // appear based on the inputted number of seasons
     seasonsNumber.addEventListener('change',() => {
         episodeField.innerHTML = "";
         for(let i = 0; i< seasonsNumber.value;  i++){
@@ -145,9 +173,11 @@ function editFormHandler(ind) {
     submitSelectorMovie.addEventListener("click", editMovie);
     submitSelectorShow.addEventListener("click", editShow);
     
+
     /**
-     * The function to create a movie object if that is the current form being
-     * submitted
+     * Update the edit data to local storge with the corresponding index.
+     * 
+     * @return None
      */
     function editMovie() {
         const formData = new FormData(formSelectorMovie);
@@ -172,19 +202,21 @@ function editFormHandler(ind) {
             movieObject["movie"] = true;
             saveShowsToStorage(card);
         }
+        movieObject["movie"] = true; 
+        // update local storage
+        saveShowsToStorage(card);
     }
     
     /**
-     * The insertShow function deals a little specially with being able to make
+     * Update the edit data to local storge with the corresponding index.
+     * The editShow function deals a little specially with being able to make
      * our 2D array to pass, it has an array "episodeArray" and array "toPush" 
      * Since "totalSeasons" isn't needed to create the expandedCard it's bypassed
      * Everytime an element with name "episodes" the function create false boolean
      * values which will represent unwatched episodes, and these are pushed to 
      * episode array to create a 2D array.
      * 
-     * Small objects still need to be created from this currently
-     * 
-     * Once the objects are created, you are taken to the homepage
+     * @return None
      */
     function editShow() {
         const formData = new FormData(formSelectorShow);
@@ -222,11 +254,11 @@ function editFormHandler(ind) {
             card[ind][key] = value;
         }
 
-        if (validEpisodes) {
-            card[ind]["imgAlt"] = card[ind]["showTitle"];
-            card[ind]["episodeArray"] = episodeArray;
-            saveShowsToStorage(card);
-        }
+        // update the imgAlt and showTitle
+        card[ind]["imgAlt"] = card[ind]["showTitle"];
+        card[ind]["episodeArray"] = episodeArray;
+        // update local storage
+        saveShowsToStorage(card);
 
         //window.location. = "http://127.0.0.1:5501/source/index.html";
     }
@@ -235,9 +267,12 @@ function editFormHandler(ind) {
 }
 
 
-// input: None
-// output: None
-// Operation: when the user click the submit button, insert new movie into local storage
+/**
+ * Called when we want to create a new show or movie. It will 
+ * 
+ * For example:
+ * editFormHandler(0) will fill in the from with the data at local storge has index 0
+ */
 function initFormHandler() {
 
     const contentSelection = document.getElementById("contentSelection");
@@ -246,9 +281,7 @@ function initFormHandler() {
     const seasonsNumber = document.getElementById("totalSeasons");
     const episodeField = document.getElementById('episodeFill');
 
-    /**
-     * This event listener will check what
-     */
+    // This event listener will check what
     contentSelection.addEventListener('change', () =>{
         if(contentSelection.value == "show"){
             formSelectorMovie.hidden = true;

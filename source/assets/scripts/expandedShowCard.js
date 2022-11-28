@@ -2,7 +2,6 @@
  * File Header: expandedShowCard.js
  * 
  * Creates the class for the expanded show card
- * **mostly copied over from lab 6 recipeCard.js**
  */
 
 /**
@@ -20,7 +19,10 @@
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
 
- class expandedShowCard extends HTMLElement {
+//this variable is used to get the current card's id
+var currentInd;
+
+class expandedShowCard extends HTMLElement {
     /**
      * Construct a expandedShowCard element
      */
@@ -80,6 +82,7 @@ import {saveShowsToStorage} from './tools.js';
 
         #info {
             margin-left: 0.7em;
+            width: 100%;
         }
         
         #titleandbuttons {
@@ -87,7 +90,7 @@ import {saveShowsToStorage} from './tools.js';
             align-items: center;
             justify-content: space-between;
             height: 2.5em;
-            width: 47em;
+            width: 100%;
         }
 
         #titleandbuttons p {
@@ -134,7 +137,7 @@ import {saveShowsToStorage} from './tools.js';
 
         #seasonbuttons {
             padding: 0;
-            height: 2.5em;
+            height: 100%;
         }
 
         .currentSeasonButton{
@@ -204,7 +207,7 @@ import {saveShowsToStorage} from './tools.js';
      *                            "imgAlt" : "string"
      *                            "episodeArray": 2D array of booleans representing show and seasons
      *                            "rating" : number
-     *                            "comments" : "string"
+     *                            "review" : "string"
      *                            "id" : num representing place in local storage
      *
      *                        }
@@ -238,6 +241,7 @@ function update(data, seasonNumber, shadowDom){
     let article = shadowDom.querySelector('article');
     article.innerHTML = generatedInnerHTML(data, seasonNumber);
     CreateActionListeners(data, seasonNumber, shadowDom);
+    currentInd = data.id;
 }
 
 /**
@@ -282,6 +286,47 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             saveShowsToStorage(cards);
         })
     }
+
+    /**
+     * Sets action listener for the trash button, which lets you delete only
+     * the current entry
+     * 
+     * When you confirm the deletion, you are immediately redirected to the home page
+     * The entry is deleted from localStorage, and all ids for the remaining cards are updated
+     * to be continuous
+     * Then they are saved to localStorage again
+     */
+    let trashButton = shadowDom.getElementById("trashbutton");
+    trashButton.addEventListener("click", function() {
+        if(confirm("Are you sure you want to delete this entry?")) {
+            let ind = currentInd;
+            let cards = getShowsFromStorage();
+
+            //edge case if there's only one show right now, deletes localStorage entirely
+            if(cards.length == 1) {
+                localStorage.removeItem('shows');
+                window.location.href = '../../index.html';
+                return;
+            }
+
+            //if there's more than one entry, removes current entry
+            cards.splice(ind, 1);
+
+            //after you splice the cards, you must update the ids for each
+            for(let i = 0; i < cards.length; i++) {
+                cards[i].id = i;
+            }
+
+            //saves the new array (without the deleted entry) to localStorage
+            saveShowsToStorage(cards);
+
+            //redirects you to the home page
+            window.location.href = '../../index.html';
+        }
+        else {
+            return;
+        }
+    ;});
 }
 
 /**
@@ -310,13 +355,14 @@ function generatedInnerHTML(data, seasonNumber){
                                         <button id="editbutton">
                                             <img height="27em" src="../img/icons/edit.png"></img>
                                         </button>
-                                        <button id="editbutton">
-                                            <img height="27em" src="../img/icons/trash.png"></img>
+                                        <button id="trashbutton">
+                                            <img height="27em" src="../img/icons/trash.png">
+                                            </img>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.comments}</div>
+                                <div class="comments">Comments: ${data.review}</div>
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +
@@ -324,9 +370,9 @@ function generatedInnerHTML(data, seasonNumber){
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
                         `</div>
                 </div>`
-                //+ `<p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched</p>`;
                 return innerHTML;
 }
+
 
 /**
  * Generates a HTML string for the episodes section
