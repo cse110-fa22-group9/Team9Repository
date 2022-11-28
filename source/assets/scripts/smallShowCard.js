@@ -138,7 +138,25 @@ class smallShowCard extends HTMLElement {
         .seasons {
           color: #70757A;
           font-size: 12px;
-        }`;
+          position:relative; 
+          top: -15px;
+        }
+
+        time {
+          flex: 1;
+          color: #70757A;
+          font-size: 12px;
+        }
+        
+        progress[value]::-webkit-progress-bar {
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+          width: 100%;
+          height: 8px;
+        }
+
+        `;
+
+
 
         shadow.append(article);
         shadow.append(style);
@@ -158,8 +176,10 @@ class smallShowCard extends HTMLElement {
      *                            "showTitle" : "string"
      *                            "imgSrc" : "string"
      *                            "imgAlt" : "string"
-     *                            "numEpisodes" : number
-     *                            "episodesWatched" : number
+     *                            "episodeArray": 2D array of booleans representing show and seasons
+     *                            "rating" : number
+     *                            "review" : "string"
+     *                            "id" : num representing place in local storage
      *                        }
      */
     set data(data) {
@@ -173,6 +193,9 @@ class smallShowCard extends HTMLElement {
 
         // TODO: add js for a progress bar
 
+        let watched = episodesWatched(data.episodeArray);
+        let total = totalepisodeNum(data.episodeArray);
+
         article.innerHTML =`<img src="${data['imgSrc']}"
                                   alt="showSrc">
                             <div class="show-info">
@@ -185,18 +208,45 @@ class smallShowCard extends HTMLElement {
                                   <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               </div>
                               <br>
+              
+                              <label for="progress"></label>
+                              <progress id="progress" value="${watched}" max="${total}"> 32% </progress>
+                              <time>${watched} watched / ${total} total</time>
                               <p class="season"> ${data['episodeArray'].length} Season(s) Total </p>
                             </div>
+                            
                             <div class="modification">
                               <a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
                                 <img src="./assets/img/icons/Edit.svg" alt="edit">
                               </a>
-                            </div>`;
+                            </div>`;                            
     }
+
+    //ToDo, write function which return episodes watched and total episodes
 
     get data() {
       return this.json;
     }
+}
+
+function totalepisodeNum(episodeArray){
+  let sum = 0;
+  for(let i = 0; i < episodeArray.length; i++){
+    sum += episodeArray[i].length;
+  } 
+  return sum;
+}
+
+function episodesWatched(episodeArray){
+  let sum = 0;
+  for(let i = 0; i < episodeArray.length; i++){
+    for(let j = 0; j < episodeArray[i].length; j++){
+      if(episodeArray[i][j]){
+        sum += 1;
+      }
+    }
+  }
+  return sum;
 }
 
 customElements.define("small-show-card", smallShowCard);
