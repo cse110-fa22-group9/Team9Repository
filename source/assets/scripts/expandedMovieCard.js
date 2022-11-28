@@ -124,7 +124,7 @@ class expandedMovieCard extends HTMLElement {
                 font-size: 1.75em;
             }
 
-            #progressheader {
+            #progressheader, #slideVal {
                 font-family: 'Oswald', sans-serif;
                 margin-top: 0.3em;
                 margin-bottom: 0em;
@@ -235,6 +235,22 @@ function CreateActionListeners(data, shadowDom) {
             return;
         }
     ;});
+
+    let cards = getShowsFromStorage();
+    
+    let progressSlider = shadowDom.getElementById('myRange');
+
+    progressSlider.addEventListener('change', () => {
+        data.movieFar = progressSlider.value;
+        cards[data.id] = data;
+    // update local storage
+        saveShowsToStorage(cards);
+    });
+
+    let progressVal = shadowDom.getElementById("slideVal");
+    progressSlider.oninput = function () {
+        progressVal.innerHTML = `${this.value}/${data.movieTime}`;
+    }
 }
 
 /**
@@ -273,7 +289,8 @@ function generatedInnerHTML(data){
                         </div>
                         <div>
                         <h2 id="progressheader">Progress: </h2>
-                        
+                        <span id="slideVal"> ${data.movieFar}/${data.movieTime} </span> <br>
+                        <input type="range" min="0" max=${data.movieTime} value=${data.movieFar} class="slider" id="myRange">
                         </div>
                 </div>`
                 return innerHTML;
