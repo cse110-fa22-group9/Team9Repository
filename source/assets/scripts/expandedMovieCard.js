@@ -206,6 +206,11 @@ function CreateActionListeners(data, shadowDom) {
      * to be continuous
      * Then they are saved to localStorage again
      */
+    let editbutton = shadowDom.getElementById("editbutton");
+    editbutton.addEventListener('click', () => {
+        window.location.href = `./add-content.html?ind=${data['id']}`;
+    });
+
     let trashButton = shadowDom.getElementById("trashbutton");
     trashButton.addEventListener("click", function() {
         if(confirm("Are you sure you want to delete this entry?")) {
@@ -276,9 +281,9 @@ function generatedInnerHTML(data){
                                 <div id="titleandbuttons"> 
                                     <p class="title">Name: ${data.movieName}</p>
                                     <div id="buttons">
-                                        <button id="editbutton">
-                                            <img height="27em" src="../img/icons/edit.png"></img>
-                                        </button>
+                                    <button id="editbutton">
+                                        <img height="27em" src="../img/icons/edit.png"></img>
+                                    </button>
                                         <button id="trashbutton">
                                             <img height="27em" src="../img/icons/trash.png">
                                             </img>
