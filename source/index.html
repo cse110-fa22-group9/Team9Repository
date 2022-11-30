@@ -18,77 +18,82 @@
     <style>
 
         * {
-          font-family: sans-serif;
+            font-family: sans-serif;
         }
 
         .sidebar {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgb(100, 100, 100);
-        overflow-x: hidden;
-        transition: 0.1s;
-        padding-top: 50px;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(100, 100, 100);
+            overflow-x: hidden;
+            transition: 0.1s;
+            padding-top: 50px;
         }
     
-        .sidebar div {
-        padding: 10px 10px 10px 10px;
-        font-size: 20px;
-        display: block;
-        transition: 0.5s;
-        cursor: pointer;
+        /* .sidebar div {
+            padding: 10px 10px 10px 10px;
+            font-size: 20px;
+            display: block;
+            transition: 0.5s;
+            cursor: pointer;
         }
         
         .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 10px;
-        font-size: 30px;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 30px;
         }
         
         .openbtn {
-        /* width: 30px;
-        height: 3px; */
-        cursor: pointer;
-        background-color: rgb(27, 92, 96);
+            cursor: pointer;
+            background-color: rgb(100, 100, 100);
         }
-        
+         */
+         
         main {
-        transition: margin-left .5s;
-        display: flex;
-        flex-wrap: wrap;
+            transition: margin-left .5s;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         h1{
-        position: center;
-        left: 40%;
-        top:0px;
+            position: center;
+            left: 40%;
+            top:0px;
 
         }
 
         a {
-        left: 100px;
-        top: 10px;
-        color: black;
-        font-size: 20px;
-        text-decoration: none;
+            left: 100px;
+            top: 10px;
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
         }
 
         body {
-            background-color: rgb(27, 92, 96);
+            background-color: rgb(17, 151, 157);
+            margin: 0px;
+            padding: 0px;
         }
 
         div.links a{
-          margin-left: 15px !important;
-          color: white;
-          font-size: 55px;
-          text-decoration: none;
+            margin-left: 15px !important;
+            color: white;
+            font-size: 50px;
+            text-decoration: none;
+            line-height: 20%;
         }
         
         div.header {
-            display: flex;
+            background-color:rgb(1, 107, 112);
+            font-size: 140%;
+            padding-top: 5px;
+            padding-bottom: 0px;
         }
 
         div h1 {
@@ -104,6 +109,11 @@
             width: 30px;
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(202deg) brightness(104%) contrast(104%);
         }
+
+        #trashbutton{
+            position: relative;
+            top: -5px;
+        }
     </style>
 </head>
 <body>
@@ -111,22 +121,27 @@
 
     <!-- when the sidebar is closed -->
     <div id="sidebar" class="sidebar">
-        <div class="closebtn" onclick="closeNav()">x</div>
+        <!-- <div class="closebtn" onclick="closeNav()">x</div> -->
         <a href="index.html">Watch List</a>
     </div>
     <!-- when the sidebar is open -->
     <div id="open_sidebar"> 
         <div class="header">
-            <div class="openbtn" onclick="openNav()">
-                <!-- <i style='font-size:30px' class='fas'>&#xf039;</i> -->
+            <!-- <div class="openbtn" onclick="openNav()">
+                <i style='font-size:30px' class='fas'>&#xf039;</i>
                 <img src="./assets/img/icons/menu.svg" alt="edit" class="menu">
-            </div> 
+            </div>--> 
             <h1 style="color: white;">Watch List</h1>
         </div>
         <!-- Access to the add movie and add show pages -->
         <div class="links">
             <a href="./assets/pages/add-content.html">+</a>
+            <button id="trashbutton">
+                <img height="27em" src="./assets/img/icons/DeleteAllTrash.png">
+                </img>
+            </button>
         </div>
+
 
          <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
         <main>
@@ -135,6 +150,17 @@
     </div>
 
     <script>
+        let deleteAll = document.getElementById("trashbutton");
+        deleteAll.addEventListener('click', () => {
+            if(confirm("This will delete all your saved movies and shows, continue?")){
+                window.localStorage.clear();
+                location.reload();
+            }
+            else{
+                return;
+            }
+        })
+
         function openNav() {
         document.getElementById("sidebar").style.width = "250px";
         document.getElementById("open_sidebar").style.marginLeft = "250px";

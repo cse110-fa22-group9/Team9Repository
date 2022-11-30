@@ -209,7 +209,7 @@ class expandedShowCard extends HTMLElement {
      * @param {Object} data - The data to pass into the <expanded-show-card>, must be of the following format:
      *                        {
      *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
-     *                            "id" : number
+     *                            "id" : num representing place in local storage
      *                            "imgSrc" : "string"
      *                            "imgAlt" : "string"
      *                            "movie" : boolean representing whether or not item is a move
@@ -309,7 +309,14 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             let ind = currentInd;
             let cards = getShowsFromStorage();
 
-            //removes current entry
+            //edge case if there's only one show right now, deletes localStorage entirely
+            if(cards.length == 1) {
+                localStorage.removeItem('shows');
+                window.location.href = '../../index.html';
+                return;
+            }
+
+            //if there's more than one entry, removes current entry
             cards.splice(ind, 1);
 
             //after you splice the cards, you must update the ids for each
@@ -363,7 +370,7 @@ function generatedInnerHTML(data, seasonNumber){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.comments}</div>
+                                <div class="comments">Comments: ${data.review}</div>
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +
@@ -371,7 +378,6 @@ function generatedInnerHTML(data, seasonNumber){
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
                         `</div>
                 </div>`
-                //+ `<p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched</p>`;
                 return innerHTML;
 }
 
