@@ -81,7 +81,7 @@ function editFormHandler(ind) {
 
         for(let i = 0; i< card[ind]['episodeArray'].length;  i++){
             episodeField.innerHTML += `<label for="season${i+1}Episodes"> Episodes in season ${i+1}:
-                                    <input type="number" id="season${i+1}Episodes" name = "episodes" required>
+                                    <input type="number" id="season${i+1}Episodes" name = "episodes" min="0" max="10000" required>
                                     </label> <br>` ;
         }
         // fill in number of episode for each season
@@ -191,10 +191,10 @@ function editFormHandler(ind) {
             if (key == "imgSrc" && value == "") {
                 canSubmit = false;
             }
-            if (key == "movieTime" && value == "") {
+            if (key == "movieTime" && (value == "" || parseInt(value) < 0)) {
                 canSubmit = false;
             }
-            if (key == "movieFar" && value == "") {
+            if (key == "movieFar" && (value == "" || parseInt(value) < 0)) {
                 canSubmit = false;
             }
         }
@@ -237,13 +237,16 @@ function editFormHandler(ind) {
                 validEpisodes = false;
             }
             if(key == "totalSeasons"){
-                if (value == "") {
+                if (value == "" || parseInt(value) < 0 || parseInt(value) > 500) {
                     validEpisodes = false;
                 }
                 continue;
             }
             else if(key == "episodes"){
                 //totalEpisodes += value;
+                if (value < 0) {
+                    validEpisodes = false;
+                }
                 for(let i = 0; i < value; i++){
                     toPush.push(false);
                 }
@@ -307,7 +310,7 @@ function initFormHandler() {
         for(let i = 0; i< seasonsNumber.value;  i++){
 
             episodeField.innerHTML += `<label for="season${i+1}Episodes"> Episodes in season ${i+1}:
-                                    <input type="number" id="season${i+1}Episodes" name = "episodes" required>
+                                    <input type="number" id="season${i+1}Episodes" name = "episodes" min="0" max="10000" required>
                                     </label> <br>` ;
                                     
             ;
@@ -364,7 +367,8 @@ function initFormHandler() {
         movieObject["id"] = movies.length;
         movies.push(movieObject);
         if (!(movieObject["movieName"] == "" || movieObject["imgSrc"] == "" ||
-            movieObject["movieTime"] == "" || movieObject["movieFar"] == "")) {
+            movieObject["movieTime"] == "" || parseInt(movieObject["movieTime"]) < 0 ||
+            movieObject["movieFar"] == "" || parseInt(movieObject["movieFar"]) < 0)) {
             saveShowsToStorage(movies);
         }
     }
@@ -449,10 +453,16 @@ function initFormHandler() {
                 */
             }
             if(key == "totalSeasons"){
+                if (value == "" || parseInt(value) < 0 || parseInt(value) > 500) {
+                    validEpisodes = false;
+                }
                 continue;
             }
             else if(key == "episodes"){
                 //totalEpisodes += value;
+                if (value < 0) {
+                    validEpisodes = false;
+                }
                 for(let i = 0; i < value; i++){
                     toPush.push(false);
                 }

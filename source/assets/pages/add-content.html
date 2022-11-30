@@ -54,10 +54,10 @@
     <fieldset>
       <legend>Movie Time Information:</legend>
       <label for="movie-Time">How long is the movie (in minutes)?:
-        <input type="number" id="movieTime" name="movieTime" required>
+        <input type="number" id="movieTime" name="movieTime" min="0" required>
       </label>
       <label for="movie-far">How far you are into the movie (in minutes)?:
-        <input type="number" id="movieFar" name="movieFar" required>
+        <input type="number" id="movieFar" name="movieFar" min="0" required>
       </label>
     </fieldset>
       <fieldset>
@@ -111,7 +111,7 @@
     <fieldset>
       <legend>Show episodes Information:</legend>
       <label for="totalSeasons">How many seasons in the show?
-        <input type="number" id="totalSeasons" name="totalSeasons" required>
+        <input type="number" id="totalSeasons" name="totalSeasons" min= "0" max="500" required>
       </label>
       <br>
       
