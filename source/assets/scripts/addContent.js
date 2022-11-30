@@ -198,6 +198,9 @@ function editFormHandler(ind) {
                 canSubmit = false;
             }
         }
+        if (parseInt(card[ind]["movieFar"]) > parseInt(card[ind]["movieTime"])) {
+            card[ind]["movieFar"] = card[ind]["movieTime"];
+        }
         if (canSubmit) {
             movieObject["movie"] = true;
             saveShowsToStorage(card);
@@ -366,6 +369,9 @@ function initFormHandler() {
         let movies = getShowsFromStorage();
         movieObject["id"] = movies.length;
         movies.push(movieObject);
+        if (parseInt(movieObject["movieFar"]) > parseInt(movieObject["movieTime"])) {
+            movieObject["movieFar"] =  movieObject["movieTime"];
+        }
         if (!(movieObject["movieName"] == "" || movieObject["imgSrc"] == "" ||
             movieObject["movieTime"] == "" || parseInt(movieObject["movieTime"]) < 0 ||
             movieObject["movieFar"] == "" || parseInt(movieObject["movieFar"]) < 0)) {
