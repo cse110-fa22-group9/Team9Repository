@@ -202,9 +202,9 @@ function editFormHandler(ind) {
             movieObject["movie"] = true;
             saveShowsToStorage(card);
         }
-        movieObject["movie"] = true; 
+        //movieObject["movie"] = true; 
         // update local storage
-        saveShowsToStorage(card);
+       // saveShowsToStorage(card);
     }
     
     /**
@@ -237,6 +237,9 @@ function editFormHandler(ind) {
                 validEpisodes = false;
             }
             if(key == "totalSeasons"){
+                if (value == "") {
+                    validEpisodes = false;
+                }
                 continue;
             }
             else if(key == "episodes"){
@@ -253,12 +256,13 @@ function editFormHandler(ind) {
             }
             card[ind][key] = value;
         }
-
+        if (validEpisodes) {
         // update the imgAlt and showTitle
-        card[ind]["imgAlt"] = card[ind]["showTitle"];
-        card[ind]["episodeArray"] = episodeArray;
-        // update local storage
-        saveShowsToStorage(card);
+            card[ind]["imgAlt"] = card[ind]["showTitle"];
+            card[ind]["episodeArray"] = episodeArray;
+            // update local storage
+            saveShowsToStorage(card);
+        }
 
         //window.location. = "http://127.0.0.1:5501/source/index.html";
     }
