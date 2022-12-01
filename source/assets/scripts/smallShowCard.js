@@ -4,7 +4,7 @@
  * Creates the class for the small show card
  */
 
-//importing functions from tools.js
+//export totalepisodeNum and episodesWatched to test 
 
 /**
  * Class Header: smallShowCard
@@ -15,7 +15,7 @@
  * set data() - sets the show card data with the information provided from the data object
  * get data() - returns the show card's data
  */
-class smallShowCard extends HTMLElement {
+ export default class smallShowCard extends HTMLElement {
     /**
      * Construct a smallShowCard element
      * @constructor
@@ -225,7 +225,7 @@ class smallShowCard extends HTMLElement {
     }
 }
 
-function totalepisodeNum(episodeArray){
+export function totalepisodeNum(episodeArray){
   let sum = 0;
   for(let i = 0; i < episodeArray.length; i++){
     sum += episodeArray[i].length;
@@ -233,7 +233,7 @@ function totalepisodeNum(episodeArray){
   return sum;
 }
 
-function episodesWatched(episodeArray){
+export function episodesWatched(episodeArray){
   let sum = 0;
   for(let i = 0; i < episodeArray.length; i++){
     for(let j = 0; j < episodeArray[i].length; j++){

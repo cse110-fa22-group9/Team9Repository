@@ -9,7 +9,7 @@
     "puppeteer": "^19.3.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --env=jsdom"
   },
   "jest": {
     "preset": "jest-puppeteer",
@@ -20,5 +20,8 @@
     "setupFilesAfterEnv": [
       "./source/assets/scripts/jestLocalStorage.js"
     ]
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^29.3.1"
   }
 }

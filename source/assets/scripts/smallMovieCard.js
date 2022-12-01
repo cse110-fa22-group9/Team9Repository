@@ -16,7 +16,7 @@
  * 
  * get data() - returns the movie card data
  */
-class smallMovieCard extends HTMLElement {
+export default class smallMovieCard extends HTMLElement {
     /**
      * Construct a smallMovieCard element
      */
