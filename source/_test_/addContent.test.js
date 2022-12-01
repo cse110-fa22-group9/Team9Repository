@@ -53,26 +53,24 @@ describe('Test add content', () => {
         await page.type('#showTitle', 'The Boys');
         await page.type('#imgSrc-Show', 'https://resizing.flixster.com/oynbxA9hJYlfdYfqcy_BrVNu_cQ=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjczNzIyNC53ZWJw');
         await page.type('#totalSeasons', '2');
-        // once the number of seasons are put in, wait 2000 milliseconds for the corresponding episode boxes to load and keep going
-        await page.evaluate(async() =>  {
-            setTimeout(async function() {
-                // enter in data for the episode boxes
-                await page.type('#season1Episodes', '1');
-                await page.type('#season2Episodes', '2');
-                // click the 3-star rating button
-                const ratingThreeSelector = await page.$('#rating-3-Show');
-                await ratingThreeSelector.click();
-                // fill out the review textarea
-                await page.type('#review', 'Good Show');
-                const showSubmitSelector = await page.$('showSubmit');
-                await showSubmitSelector.click();
-                await page.waitForNavigation();
-                // check whether the content accurately appears in localStorage
-                const localStorageShows = await page.evaluate(() => window.localStorage.getItem('shows'));
-                const json = '[{"showTitle":"The Boys","imgSrc":"https://resizing.flixster.com/oynbxA9hJYlfdYfqcy_BrVNu_cQ=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjczNzIyNC53ZWJw","rating":"3","review":"Good Show","imgAlt":"The Boys","episodeArray":[[false],[false,false]],"movie":false,"id":0}]';
-                expect(localStorageShows).toBe(json);
-                await page.evaluate(() => { window.localStorage.clear() });
-            }, 2000);
-        });
+        //    console.log("poop");
+        await setTimeout(async function() {
+            // enter in data for the episode boxes
+            await page.type('#season1Episodes', '1');
+            await page.type('#season2Episodes', '2');
+            // click the 3-star rating button
+            const ratingThreeSelector = await page.$('#rating-3-Show');
+            await ratingThreeSelector.click();
+            // fill out the review textarea
+            await page.type('#review', 'Good Show');
+            const showSubmitSelector = await page.$('showSubmit');
+            await showSubmitSelector.click();
+            await page.waitForNavigation();
+            // check whether the content accurately appears in localStorage
+            const localStorageShows = await page.evaluate(() => window.localStorage.getItem('shows'));
+            const json = '[{"showTitle":"The Boys","imgSrc":"https://resizing.flixster.com/oynbxA9hJYlfdYfqcy_BrVNu_cQ=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjczNzIyNC53ZWJw","rating":"3","review":"Good Show","imgAlt":"The Boys","episodeArray":[[false],[false,false]],"movie":false,"id":0}]';
+            expect(localStorageShows).toBe(json);
+            await page.evaluate(() => { window.localStorage.clear() });
+        }, 500);
     });
 });
