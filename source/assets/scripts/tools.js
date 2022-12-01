@@ -1,3 +1,4 @@
+
 function getShowsFromStorage() {
     return JSON.parse(localStorage.getItem('shows')) || [];
 }

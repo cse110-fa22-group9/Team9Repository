@@ -13,6 +13,12 @@
   },
   "jest": {
     "preset": "jest-puppeteer",
-    "verbose": true
+    "verbose": true,
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "./source/assets/scripts/jestLocalStorage.js"
+    ]
   }
 }
