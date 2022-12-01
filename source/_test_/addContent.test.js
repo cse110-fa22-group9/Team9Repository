@@ -1,6 +1,6 @@
 describe('Test add content', () => {
     // the page url to check 
-    let url = 'http://127.0.0.1:5501';
+    let url = 'https://cse110-fa22-group9.github.io/Team9Repository';
     // First, visit the main page
     beforeAll(async () => {    
       await page.goto(`${url}/source/assets/pages/add-content.html`);
@@ -14,7 +14,7 @@ describe('Test add content', () => {
         console.log('Check whether new movie, whose data is added to the form, gets properly saved to localStorage');
         // make sure the page is reloaded and all the dom content has been loaded as well
         await page.evaluate(() => { window.localStorage.clear() });
-        expect(page.url()).toBe('http://127.0.0.1:5501/source/assets/pages/add-content.html');
+        expect(page.url()).toBe(`${url}/source/assets/pages/add-content.html`);
         await page.reload({ waitUntil: [ 'networkidle0', "domcontentloaded" ] });
         //add data into the form
         await page.select('select#contentSelection', 'movie');
@@ -46,7 +46,7 @@ describe('Test add content', () => {
         // make sure the page is reloaded and all the dom content has been loaded as well
         await page.goto(`${url}/source/assets/pages/add-content.html`);
         await page.evaluate(() => { window.localStorage.clear() });
-        expect(page.url()).toBe('http://127.0.0.1:5501/source/assets/pages/add-content.html');
+        expect(page.url()).toBe(`${url}/source/assets/pages/add-content.html`);
         await page.reload({ waitUntil: [ 'networkidle0', "domcontentloaded" ] });
         //add data into the form
         await page.select('select#contentSelection', 'show');
