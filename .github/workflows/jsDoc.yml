@@ -1,0 +1,16 @@
+name: JSDoc
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v1
+    - name: buildJsDoc
+      uses: andstor/jsdoc-action@v1
+      with:
+        source_dir: ./source
+        recurse: true
+        output_dir: ./out
