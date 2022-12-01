@@ -20,39 +20,6 @@
         * {
             font-family: sans-serif;
         }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: rgb(100, 100, 100);
-            overflow-x: hidden;
-            transition: 0.1s;
-            padding-top: 50px;
-        }
-    
-        /* .sidebar div {
-            padding: 10px 10px 10px 10px;
-            font-size: 20px;
-            display: block;
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 10px;
-            font-size: 30px;
-        }
-        
-        .openbtn {
-            cursor: pointer;
-            background-color: rgb(100, 100, 100);
-        }
-         */
          
         main {
             transition: margin-left .5s;
@@ -64,7 +31,6 @@
             position: center;
             left: 40%;
             top:0px;
-
         }
 
         a {
@@ -83,23 +49,28 @@
 
         div.links a{
             margin-left: 15px !important;
+            margin-top: 20px;
             color: white;
             font-size: 50px;
             text-decoration: none;
             line-height: 20%;
         }
+
+        #trashbutton{
+            margin-left: 10px !important;
+            margin-top: 20px;
+            position: relative;
+        }
         
         div.header {
             background-color:rgb(1, 107, 112);
-            font-size: 140%;
-            padding-top: 5px;
-            padding-bottom: 0px;
+            font-size: 100%;
+            padding-top: 0.5px;
+            padding-bottom: 0.5px;
         }
 
         div h1 {
-            margin-top: 0px;
             margin-left: 15px;
-            color: white;
         }
 
         .menu {
@@ -109,44 +80,23 @@
             width: 30px;
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(202deg) brightness(104%) contrast(104%);
         }
-
-        #trashbutton{
-            margin-left: 10px !important;
-            position: relative;
-        }
     </style>
 </head>
 <body>
-    <!-- Binge Tracker's sidebar to return to the Watch List Page -->
-
-    <!-- when the sidebar is closed -->
-    <div id="sidebar" class="sidebar">
-        <!-- <div class="closebtn" onclick="closeNav()">x</div> -->
-        <a href="index.html">Watch List</a>
+    <div class="header">
+        <h1 style="color: white;">Watch List</h1>
     </div>
-    <!-- when the sidebar is open -->
-    <div id="open_sidebar"> 
-        <div class="header">
-            <!-- <div class="openbtn" onclick="openNav()">
-                <i style='font-size:30px' class='fas'>&#xf039;</i>
-                <img src="./assets/img/icons/menu.svg" alt="edit" class="menu">
-            </div>--> 
-            <h1 style="color: white;">Watch List</h1>
-        </div>
+
+    <div class="links">
         <!-- Access to the add movie and add show pages -->
-        <div class="links">
-            <a href="./assets/pages/add-content.html">+</a>
-            <!-- <button id="trashbutton"> -->
-            <img height="27em" id="trashbutton" src="./assets/img/icons/DeleteAllTrash.png"></img>
-            <!-- </button> -->
-        </div>
-
-
-         <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
-        <main>
-            <!-- Add all movie cards here -->
-        </main>
+        <a href="./assets/pages/add-content.html">+</a>
+        <!-- Access to the delete movie and add show pages -->
+        <img height="27em" id="trashbutton" src="./assets/img/icons/DeleteAllTrash.png"></img>
     </div>
+         <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
+    <main>
+        <!-- Add all movie cards here -->
+    </main>
 
     <script>
         let deleteAll = document.getElementById("trashbutton");

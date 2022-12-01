@@ -8,38 +8,67 @@
   <title>Add Move From</title>
 
   <style>
+    * {
+      font-family: sans-serif;
+    }
+
     body {
       background-color: rgb(17, 151, 157);
+      margin:0px;
+    }
+
+    div.header {
+      background-color:rgb(1, 107, 112);
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
 
     div h2 {
-      margin-top: 0px;
-      margin-left: 0px;
       color: white;
+      font-size: 140%;
+      background-color:rgb(1, 107, 112);
+      margin-left:10px;
     }
 
     #homebutton {
-            border: 0;
-            background-color: rgb(17, 151, 157);
-            float: right;
-            margin-right: 0.5em;
+      border: 0;
+      background-color: rgb(1, 107, 112);
+      float: right;
+      margin-right: 0.5em;
+      margin-top: 10px;
     }
-      
+
+    fieldset
+    {
+      max-width:700px;
+      margin-top: 10px;
+      border-color: white;
+      margin-left:10px;
+    }
+
+    label 
+    {
+      margin-left:10px;
+    }
+
+    button {
+      margin-left:10px;
+    }
+
   </style>
 </head>
 <body>
-  <!--Changing to index.html from watchlist.html-->
-  <div class="half"><a href="../../index.html">
-    <button id="homebutton">
-      <img height="35em" src="../img/icons/home.png"></img>
-    </button>
-  </a></div>
-  <!-- Binge Tracker's sidebar to return to the Watch List Page -->
-  <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <div class="header">
+    <a href="../../index.html">
+      <button id="homebutton">
+        <img height="35em" src="../img/icons/home.png"></img>
+      </button>
+    </a>
+  <!-- Binge Tracker's name -->
      <h2 class="bit-sidebar-heading">Binge Tracker</h2>
-     <!-- <a href="../../index.html" class="bit-sidebar-btn">Watch List</a> -->
   </div>
-
+  <!--Changing to index.html from watchlist.html-->
+  <br>
   <label for="content" style="color: white;">What content are you adding?</label>
   <select name="content" id="contentSelection" >
     <!-- Add empty default?-->
@@ -126,13 +155,6 @@
         <input type="number" id="totalSeasons" name="totalSeasons" min= "0" max="500" required>
       </label>
       <br>
-      
-      <!--
-      <label for="episodes-Right-Now">How many episodes of the show you've been:
-        <input type=" " id="episodesRightNow" name="episodesRightNow" required>
-      </label>
-      -->
-
     </fieldset>
     <fieldset id="episodeFill">
     
@@ -165,9 +187,6 @@
       </label>
     </fieldset>
     <button type="submit" id="showSubmit">Add Show to watch list</button>
-    <!--
-    <button type="button" class="danger">Delete this Show from watch list</button>
-    -->
   </form>
 </body>
 </html>
