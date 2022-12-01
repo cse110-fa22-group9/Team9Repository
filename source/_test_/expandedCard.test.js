@@ -1,6 +1,6 @@
 describe('Test expanded show and movie card', () => {
     // the page url to check 
-    let url = 'http://127.0.0.1:5501';
+    let url = 'http://192.168.1.100:5501';
     // First, visit the main page
     beforeAll(async () => {
         //clear local storage before adding anything
@@ -89,8 +89,8 @@ describe('Test expanded show and movie card', () => {
             // check the showCard 
             let shadowRoot = await movieCard[i].getProperty('shadowRoot');
             // get the value of expanedlink from shadow root
-            let expandedLink = await shadowRoot.$('#homebutton');
-            let expandedLinkHref = await expandedLink.parentElement.getProperty('href');
+            let expandedLink = await shadowRoot.$('#testhomebutton');
+            let expandedLinkHref = await expandedLink.getProperty('href');
             //console.log(expandedLinkHref.toString());
             // compare if the link is correct
             if (expandedLinkHref.toString() != 

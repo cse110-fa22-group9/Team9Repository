@@ -212,6 +212,7 @@ import {saveShowsToStorage} from './tools.js';
     set data(data) {
         // if no data, return
         if (!data) return;
+        this.json = data;
         const shadowDom = this.shadowRoot;
         update(data,  1, shadowDom);
 
@@ -219,6 +220,7 @@ import {saveShowsToStorage} from './tools.js';
     get data(){
         return this.json
     }
+
 
 }
 
@@ -306,7 +308,7 @@ function generatedInnerHTML(data, seasonNumber){
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
                         <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
+                        <div class="half"><a id="testhomebutton" href="../../index.html"><button id="homebutton">
                             <img height="35em" src="../img/icons/home.png"></img>
                         </button></a></div>
                     </div>
@@ -338,6 +340,7 @@ function generatedInnerHTML(data, seasonNumber){
                 </div>`
                 //+ `<p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched</p>`;
                 return innerHTML;
+
 }
 
 
@@ -378,5 +381,6 @@ function generateSeasonsHTML(episodes, seasonNumber){
     s += `</div>`;
     return s;
 }
+
 
 customElements.define("expanded-show-card", expandedShowCard);

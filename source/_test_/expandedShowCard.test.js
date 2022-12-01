@@ -1,6 +1,6 @@
-describe('Test expanded show and movie card', () => {
+describe('Test expanded show', () => {
     // the page url to check 
-    let url = 'http://127.0.0.1:5501';
+    let url = 'http://192.168.1.100:5501';
     // First, visit the main page
     beforeAll(async () => {
         //clear local storage before adding anything
@@ -24,7 +24,7 @@ describe('Test expanded show and movie card', () => {
             review: "testing"}];*/
 
             const json = [
-                {id: 3, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
+                {id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
                 movie : false, episodeArray: [[false,true,true,true,false],[true,true,false,true,false]], imgAlt: "showTest1", showTitle: "showTest1", rating: "0", 
                 review: "testing"}
             ]
@@ -41,9 +41,9 @@ describe('Test expanded show and movie card', () => {
       // Start as true, if any don't have data, swap to false
       let allArePopulated = true;
       let data, plainValue;
-      // Query select all of the <expanded-movie-card> elements
-      //console.log(document.querySelector('expanded-movie-card').shadowRoot.querySelector('.title').innerHTML)
+      // Query select all of the <expanded-show-card> elements
       const showCard = await page.$$('expanded-show-card');
+      console.log(showCard);
       for (let i = 0; i < showCard.length; i++) {
         // Grab the .data property of <product-items> to grab all of the json data stored inside
         data = await showCard[i].getProperty('data');
@@ -52,15 +52,17 @@ describe('Test expanded show and movie card', () => {
         plainValue = await data.jsonValue();
         console.log(plainValue);
         // Make sure the title, price, and image are populated in the JSON
-        /*{id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
-        movie : true, movieFar:  "100", movieName: "movieTest1", movieTime: "10", rating: "0", 
-        review: "testing"}*/
+        /*            const json = [
+                {id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
+                movie : false, episodeArray: [[false,true,true,true,false],[true,true,false,true,false]], imgAlt: "showTest1", showTitle: "showTest1", rating: "0", 
+                review: "testing"}
+            ]*/
         if (plainValue.id.length == 0) { allArePopulated = false; }
         if (plainValue.imgSrc.length == 0) { allArePopulated = false; }
-        if (plainValue.movie.length == 0) { allArePopulated = false; }
-        if (plainValue.movieFar.length == 0) { allArePopulated = false; }
-        if (plainValue.movieName.length == 0) { allArePopulated = false; }
-        if (plainValue.movieTime.length == 0) { allArePopulated = false; }
+        if (plainValue.movie.length == 1) { allArePopulated = false; }
+        if (plainValue.episodeArray.length == 0) { allArePopulated = false; }
+        if (plainValue.imgAlt.length == 0) { allArePopulated = false; }
+        if (plainValue.showTitle.length == 0) { allArePopulated = false; }
         if (plainValue.rating.length == 0) { allArePopulated = false; }
         if (plainValue.review.length == 0) { allArePopulated = false; }
       }
@@ -89,9 +91,9 @@ describe('Test expanded show and movie card', () => {
             // check the showCard 
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
             // get the value of expanedlink from shadow root
-            let expandedLink = await shadowRoot.$('#homebutton');
-            let expandedLinkHref = await expandedLink.parentElement.getProperty('href');
-            //console.log(expandedLinkHref.toString());
+            let expandedLink = await shadowRoot.$('#testhomebutton');
+            console.log(expandedLink.parentElement);
+            let expandedLinkHref = await expandedLink.getProperty('href');
             // compare if the link is correct
             if (expandedLinkHref.toString() != 
                 `JSHandle:${url}/source/index.html`) 
@@ -132,6 +134,29 @@ describe('Test expanded show and movie card', () => {
         // Expect allAreLinked to still be true
         expect(allAreLinked).toBe(true);
     }, 10000);
+    it('Clicking season button', 
+    async () => {
+        console.log('Checking <small-show-card> elements edit link are correct...');
+        await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
+
+        let data, plainValue;
+        // Query select all of the <small-show-card> elements
+        const showCard = await page.$$('expanded-show-card');
+
+        // Grab the .data property of <small-show-card> to grab all of the json data stored inside
+        data = await showCard[0].getProperty('data');
+        // Convert that property to JSON
+        plainValue = await data.jsonValue();
+        // get the value of expanedlink from shadow root
+        let shadowRoot = await showCard[0].getProperty('shadowRoot');
+        let season2button = await shadowRoot.$('.seasonButton');
+        console.log(season2button).getProperty('id').jsonValue.toString;
+        await season2button.click();
+        let index = await shadowRoot.$$('.currentSeasonButton');
+        //console.log(index.getProperty('id').jsonValue.toString);
+
+        expect(season2button.textContent).toBe('season_2');
+    }, 10000);
 
     // Make sure all the <small-show-card> elements have correct link to thier edit page
     it('Make sure all the <expanded-movie-card> elements delete button deletes', 
@@ -165,27 +190,7 @@ describe('Test expanded show and movie card', () => {
         expect(length).toBe(0);
     }, 10000);
 
-    it('Clicking season button', 
-    async () => {
-        console.log('Checking <small-show-card> elements edit link are correct...');
-        await page.reload();
 
-        let data, plainValue;
-        // Query select all of the <small-show-card> elements
-        const showCard = await page.$$('expanded-show-card');
-
-        // Grab the .data property of <small-show-card> to grab all of the json data stored inside
-        data = await showCard[0].getProperty('data');
-        // Convert that property to JSON
-        plainValue = await data.jsonValue();
-        // get the value of expanedlink from shadow root
-        let shadowRoot = await showCard[0].getProperty('shadowRoot');
-        let season2button = await shadowRoot.$('#season_2_button');
-        await season2button.click();
-        let same = await shadowRoot.$('.currentSeasonButton') == await shadowRoot.$('#season_2_button');
-
-        expect(same).toBe(true);
-    }, 10000);
 
     // clean the local storge after test is done
     it('Clean the local storge after test is done', 

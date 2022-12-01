@@ -69,7 +69,7 @@ import {saveShowsToStorage} from './tools.js';/**
         article.innerHTML = `
                             <div class="toptvshowheader"> 
                                 <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
-                                <div class="half"><a href="../../index.html"><button id="homebutton">
+                                <div class="half"><a id="testhomebutton" href="../../index.html"><button id="homebutton">
                                     <img height="35em" src="../img/icons/home.png"></img>
                                 </button></a></div>
                             </div>
