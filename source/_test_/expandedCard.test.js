@@ -142,7 +142,7 @@ describe('Test expanded show and movie card', () => {
         let allAreLinked = true;
         let data, plainValue;
         // Query select all of the <small-show-card> elements
-        const showCard = await page.$$('expanded-movie-card');
+        const showCard = await page.$$('expanded-show-card');
         for (let i = 0; i < showCard.length; i++) {
             // Grab the .data property of <small-show-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');

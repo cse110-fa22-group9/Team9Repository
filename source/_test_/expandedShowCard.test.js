@@ -137,8 +137,7 @@ describe('Test expanded show', () => {
     it('Clicking season button', 
     async () => {
         console.log('Checking <small-show-card> elements edit link are correct...');
-        await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
-
+        await page.reload();
         let data, plainValue;
         // Query select all of the <small-show-card> elements
         const showCard = await page.$$('expanded-show-card');
@@ -150,12 +149,18 @@ describe('Test expanded show', () => {
         // get the value of expanedlink from shadow root
         let shadowRoot = await showCard[0].getProperty('shadowRoot');
         let season2button = await shadowRoot.$('.seasonButton');
-        console.log(season2button).getProperty('id').jsonValue.toString;
+        let yum = await season2button.getProperty('id');
+        let season2json = await yum.jsonValue();
+        console.log(season2json.toString());
         await season2button.click();
-        let index = await shadowRoot.$$('.currentSeasonButton');
+        let index = await shadowRoot.$('.currentSeasonButton');
+        yum = await index.getProperty('id');
+        season2json = await yum.jsonValue();
+        console.log(season2json.toString());
+        let ans = season2json.toString()
         //console.log(index.getProperty('id').jsonValue.toString);
 
-        expect(season2button.textContent).toBe('season_2');
+        expect(ans).toBe('season_2_button');
     }, 10000);
 
     // Make sure all the <small-show-card> elements have correct link to thier edit page
