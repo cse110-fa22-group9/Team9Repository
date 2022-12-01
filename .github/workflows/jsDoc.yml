@@ -15,10 +15,11 @@ jobs:
         with:
           source_dir: ./source
           recurse: true
-          output_dir: ./try
+          output_dir: ./out
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./try
+          folder: ./out
           branch: bit-week-9
+          target-folder: ./out
