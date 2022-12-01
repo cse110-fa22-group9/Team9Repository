@@ -6,16 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-<<<<<<< HEAD
-  steps:
-    - uses: actions/checkout@v1
-    - name: buildJsDoc
-      uses: andstor/jsdoc-action@v1
-      with:
-        source_dir: ./source
-        recurse: true
-        output_dir: ./out
-=======
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -33,4 +23,3 @@ jobs:
           folder: ./out
           branch: bit-week-9-new
           target-folder: ./JSDoc
->>>>>>> daeaee28c8fe9d5b787ffe8299907e6b1d5035fc
