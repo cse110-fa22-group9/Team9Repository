@@ -57,7 +57,6 @@ class smallShowCard extends HTMLElement {
           justify-content: space-between;
           height: 150px;
           width: 500px;
-          /*margin: 0px 0px 0px 0px;*/
           margin-top: 20px !important;
           margin-left: 20px !important;
           justify-content: flex-end;
@@ -77,9 +76,10 @@ class smallShowCard extends HTMLElement {
       
         div.rating>img {
           height: 100%;
-          display: inline-block;
+          /*display: inline-block;*/
           object-fit: scale-down;
           width: 78px;
+          margin-top: 5px;
         }
 
         .modification {
@@ -102,13 +102,6 @@ class smallShowCard extends HTMLElement {
           margin-bottom:auto;
           flex: 1;
         }
-
-        /*article>img {
-          object-fit: contain;
-          height: auto;
-          width: 50%;
-          flex: 1;
-        }*/
 
         .show-info {
           display: flex;
@@ -153,6 +146,7 @@ class smallShowCard extends HTMLElement {
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
           width: 100%;
           height: 8px;
+          margin-top:10px;
         }
 
         `;
@@ -210,8 +204,6 @@ class smallShowCard extends HTMLElement {
                               <div class="rating">
                                   <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               </div>
-                              <br>
-              
                               <label for="progress"></label>
                               <progress id="progress" value="${watched}" max="${total}"> 32% </progress>
                               <time>${watched} watched / ${total} total</time>
