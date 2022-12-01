@@ -57,6 +57,7 @@ class smallMovieCard extends HTMLElement {
           width: 500px;
           margin-top: 20px !important;
           margin-left: 20px !important;
+          justify-content: flex-end;
           position:static;
           box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         }
@@ -66,28 +67,28 @@ class smallMovieCard extends HTMLElement {
         }
       
         div.rating {
-          text-align: right;
-          column-gap: 0px;
+          text-align: center;
+          column-gap: 5px;
           display: flex;
         }
       
         div.rating>img {
           height: 100%;
-          display: inline-block;
+          /*display: inline-block;*/
           object-fit: scale-down;
           width: 78px;
-          margin-top: 10px;
         }
 
         .modification {
-          padding-right: 0px;
-          margin-top: 0px;
+          padding-right: 5px;
         }
 
         .modification img {
           height: 10%;
           object-fit: contain;
-          width: 25px;
+          /*width: 25px;*/
+          width: 15px;
+          margin-right: 0px;
         }
       
         article>img {
@@ -107,8 +108,9 @@ class smallMovieCard extends HTMLElement {
         }
 
         p.title {
+          margin-top: 20px;
           display: -webkit-box;
-          font-size: 20px;
+          font-size: 16px;
           height: 36px;
           line-height: 18px;
           overflow: hidden;
@@ -128,6 +130,7 @@ class smallMovieCard extends HTMLElement {
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
           width: 100%;
           height: 8px;
+          margin-top:10px;
         }
 
         `;
@@ -172,14 +175,12 @@ class smallMovieCard extends HTMLElement {
                                 alt="movieSrc">
                             <div class="movie-info">
                               <p class="title">
-                                  <br>
                                   <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}" id="expandedLink">
-                                  ${data['movieName']}</a>
+                                    ${data['movieName']}</a>
                               </p>
                               <div class="rating">
                                   <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               </div>
-                              <br>
                               <label for="progress"></label>
                               <progress id="progress" value="${data['movieFar']}" max="${data['movieTime']}"> 32% </progress>
                               <time>${data['movieFar']} min / ${data['movieTime']} min</time>

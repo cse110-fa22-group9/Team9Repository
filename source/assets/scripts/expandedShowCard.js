@@ -293,7 +293,12 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             // update local storge
             saveShowsToStorage(cards);
         })
-    }
+    };
+
+    let editbutton = shadowDom.getElementById("editbutton");
+    editbutton.addEventListener('click', () => {
+        window.location.href = `./add-content.html?ind=${data['id']}`;
+    });
 
     /**
      * Sets action listener for the trash button, which lets you delete only
@@ -361,9 +366,9 @@ function generatedInnerHTML(data, seasonNumber){
                                 <div id="titleandbuttons"> 
                                     <p class="title">Name: ${data.showTitle}</p>
                                     <div id="buttons">
-                                        <button id="editbutton">
-                                            <img height="27em" src="../img/icons/edit.png"></img>
-                                        </button>
+                                    <button id="editbutton">
+                                        <img height="27em" src="../img/icons/edit.png"></img>
+                                    </button>
                                         <button id="trashbutton">
                                             <img height="27em" src="../img/icons/trash.png">
                                             </img>
