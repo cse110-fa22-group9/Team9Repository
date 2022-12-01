@@ -20,9 +20,14 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
+<<<<<<< HEAD
+          npm test ./source/_test_/smallCard.test.js
+          npm test ./source/_test_/tools-unit.test.js
+=======
           npm run test-E2E ./source/_test_/smallCard.test.js
           npm run test-E2E ./source/_test_/tools-unit.test.js
           npm run test-unit ./source/_test_/smallShowCard-unit.test.js
           npm run test-unit ./source/_test_/smallMovieCard-unit.test.js
+>>>>>>> daeaee28c8fe9d5b787ffe8299907e6b1d5035fc
         env:
           CI: true
