@@ -1,6 +1,6 @@
 describe('Test small show and movie card', () => {
     // the page url to check 
-    let url = 'http://127.0.0.1:5501';
+    let url = 'https://cse110-fa22-group9.github.io/Team9Repository';
     // First, visit the main page
     beforeAll(async () => {    
       await page.goto(`${url}/source/index.html`);

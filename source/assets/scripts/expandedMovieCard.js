@@ -173,8 +173,8 @@ class expandedMovieCard extends HTMLElement {
 
 /**
  * 
- * @param {*} data 
- * @param {*} shadowDom 
+ * @param {*} data data passed in to expandedShowCard
+ * @param {*} shadowDom shadowDom associated with current object
  * 
  * This function gets the article associated with the shadow and then calls innerHTML on it
  * The generation will create the page with a progress bar representing true or false on if the
@@ -192,8 +192,8 @@ function update(data, shadowDom){
 
 /**
  * 
- * @param {data passed in to expandedShowCard} data 
- * @param {shadowDom associated with current object} shadowDom 
+ * @param {*} data data passed in to expandedShowCard
+ * @param {*} shadowDom shadowDom associated with current object
  * 
  * Creates action listener for the trash button
  */
@@ -263,8 +263,8 @@ function CreateActionListeners(data, shadowDom) {
 
 /**
  * 
- * @param {a reference to the movie data object} data 
- * @returns 
+ * @param {*} data a reference to the movie data object
+ * @returns {string} string representing the innerHTML of the expandedMovieCard
  */
 function generatedInnerHTML(data){
     let innerHTML =
