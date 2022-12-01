@@ -33,8 +33,6 @@
  */
 
 //importing functions from tools.js
-import {getShowsFromStorage} from './tools.js';
-import {saveShowsToStorage} from './tools.js';
 
 /**
  * Class Header: smallShowCard
@@ -85,7 +83,6 @@ class smallShowCard extends HTMLElement {
           justify-content: space-between;
           height: 150px;
           width: 500px;
-          /*margin: 0px 0px 0px 0px;*/
           margin-top: 20px !important;
           margin-left: 20px !important;
           justify-content: flex-end;
@@ -105,9 +102,10 @@ class smallShowCard extends HTMLElement {
       
         div.rating>img {
           height: 100%;
-          display: inline-block;
+          /*display: inline-block;*/
           object-fit: scale-down;
           width: 78px;
+          margin-top: 5px;
         }
 
         .modification {
@@ -130,13 +128,6 @@ class smallShowCard extends HTMLElement {
           margin-bottom:auto;
           flex: 1;
         }
-
-        /*article>img {
-          object-fit: contain;
-          height: auto;
-          width: 50%;
-          flex: 1;
-        }*/
 
         .show-info {
           display: flex;
@@ -167,7 +158,26 @@ class smallShowCard extends HTMLElement {
         .seasons {
           color: #70757A;
           font-size: 12px;
-        }`;
+          position:relative; 
+          top: -15px;
+        }
+
+        time {
+          flex: 1;
+          color: #70757A;
+          font-size: 12px;
+        }
+        
+        progress[value]::-webkit-progress-bar {
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+          width: 100%;
+          height: 8px;
+          margin-top:10px;
+        }
+
+        `;
+
+
 
         shadow.append(article);
         shadow.append(style);
@@ -186,13 +196,13 @@ class smallShowCard extends HTMLElement {
      * @param {Object} data - The data to pass into the &lt;small-show-card>, must be of the following format:
      *                        {
      *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
-     *                            "id" : number
      *                            "imgSrc" : "string"
      *                            "imgAlt" : "string"
      *                            "movie" : boolean representing whether or not item is a move
+     *                            "showTitle" : "string"
      *                            "rating" : number
      *                            "review" : "string"
-     *                            "showTitle" : "string"
+     *                            "id" : num representing place in local storage
      *                        }
      */
     set data(data) {
@@ -206,6 +216,9 @@ class smallShowCard extends HTMLElement {
 
         // TODO: add js for a progress bar
 
+        let watched = episodesWatched(data.episodeArray);
+        let total = totalepisodeNum(data.episodeArray);
+
         article.innerHTML =`&lt;img src="${data['imgSrc']}"
                                   alt="showSrc">
                             &lt;div class="show-info">
@@ -217,14 +230,17 @@ class smallShowCard extends HTMLElement {
                               &lt;div class="rating">
                                   &lt;img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               &lt;/div>
-                              &lt;br>
+                              &lt;label for="progress">&lt;/label>
+                              &lt;progress id="progress" value="${watched}" max="${total}"> 32% &lt;/progress>
+                              &lt;time>${watched} watched / ${total} total&lt;/time>
                               &lt;p class="season"> ${data['episodeArray'].length} Season(s) Total &lt;/p>
                             &lt;/div>
+                            
                             &lt;div class="modification">
                               &lt;a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
                                 &lt;img src="./assets/img/icons/Edit.svg" alt="edit">
                               &lt;/a>
-                            &lt;/div>`;
+                            &lt;/div>`;                            
     }
 
     /**
@@ -237,6 +253,26 @@ class smallShowCard extends HTMLElement {
     }
 }
 
+function totalepisodeNum(episodeArray){
+  let sum = 0;
+  for(let i = 0; i &lt; episodeArray.length; i++){
+    sum += episodeArray[i].length;
+  } 
+  return sum;
+}
+
+function episodesWatched(episodeArray){
+  let sum = 0;
+  for(let i = 0; i &lt; episodeArray.length; i++){
+    for(let j = 0; j &lt; episodeArray[i].length; j++){
+      if(episodeArray[i][j]){
+        sum += 1;
+      }
+    }
+  }
+  return sum;
+}
+
 customElements.define("small-show-card", smallShowCard);</code></pre>
         </article>
     </section>
@@ -247,13 +283,13 @@ customElements.define("small-show-card", smallShowCard);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="smallMovieCard.html">smallMovieCard</a></li><li><a href="smallShowCard.html">smallShowCard</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedMovieCard.html">expandedMovieCard</a></li><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="smallMovieCard.html">smallMovieCard</a></li><li><a href="smallShowCard.html">smallShowCard</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#editFormHandler">editFormHandler</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initFormHandler">initFormHandler</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Nov 27 2022 13:23:16 GMT-0800 (Pacific Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Dec 01 2022 08:07:50 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
