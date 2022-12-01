@@ -191,6 +191,27 @@ class expandedShowCard extends HTMLElement {
             border-style: solid;
             padding: 0;
         }
+
+        #checkAllButton{
+            border: 0;
+            background-color: rgb(219, 253, 255);
+        }
+
+        #checkAllDiv{
+            height: 100%;
+            display: flex;
+            align-items: baseline;
+            margin-top: 0.7em;
+            width: 6.5em;
+        }
+
+        #checkAllDiv p{
+            font-family: Arial;
+            color: black;
+            height: 100%;
+            font-weight: bold;
+            margin: 0;
+        }
         `;
 
         shadow.append(article);
@@ -340,6 +361,39 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             return;
         }
     ;});
+    
+    /**
+     * Sets action listener for the check all button, which sets every episode in the current
+     * season as "watched." Saves the resulting data to localStorage.
+     */
+    let checkAllButton = shadowDom.getElementById("checkAllButton");
+    checkAllButton.addEventListener("click", function() {
+        let episodesBox = shadowDom.getElementById('episodesDiv');
+        let episodesChildren = episodesBox.childNodes;
+        
+        //Loops through all children of episodeDiv and sets them as Checked.
+        for (let i = 0; i < episodesChildren.length; i++) {
+            /**
+             * This if statement guarantees that every element that is accessed is a button
+             * AND is a checkbox.
+             */
+            if(episodesChildren[i].nodeName == "BUTTON" && 
+                episodesChildren[i].classList.contains("showBoxUnchecked")) {
+                episodesChildren[i].classList.remove("showBoxUnchecked");
+                episodesChildren[i].classList.add("showBoxChecked");
+                //console.log("Episode " + i + " was checked in HTML.")
+            }
+        }
+
+        //Sets all entries in the array for the current season to true
+        for(let j = 0; j < data.episodeArray[seasonNumber - 1].length; j++) {
+            data.episodeArray[seasonNumber - 1][j] = true;
+            //console.log("Episode " + j + " was checked in data.")
+        }
+        cards[data.id] = data;
+        saveShowsToStorage(cards);
+        //console.log(data);
+    })
 }
 
 /**
@@ -382,8 +436,7 @@ function generatedInnerHTML(data, seasonNumber){
                         <h2 id="progressheader">Progress: </h2>` +
                         generateSeasonsHTML(data.episodeArray, seasonNumber) + 
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
-                        `</div>
-                </div>`
+                        `</div>`
                 return innerHTML;
 }
 
@@ -403,7 +456,15 @@ function generatedInnerHTML(data, seasonNumber){
         episodes[i] ? checked= "showBoxChecked" : checked = "showBoxUnchecked";
         s += `<button id="season_${seasonNumber}_episode_${i+1}_checkbox" class="${checked}"> ${i+1} </button>`;
     }
-    s += `</div>`;
+    s += `
+    <div id="checkAllDiv">
+        <p>Check All</p>
+        <button id="checkAllButton">
+            <img height="16em" src="../img/icons/checkboxicon.png">
+            </img>
+        </button>
+    </div>
+    </div>`;
     return s;
 }
 

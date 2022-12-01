@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: expandedMovieCard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: expandedMovieCard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * File Header: expandedMovieCard.js
  * 
  * Creates the class for the expanded movie card
@@ -150,7 +178,7 @@ class expandedMovieCard extends HTMLElement {
      * expandedMovieCard theoretically can just take a copy of the data object in the smallMovieCard
      * 
      * @function
-     * @param {Object} data - The data to pass into the <expanded-movie-card>, must be of the following format:
+     * @param {Object} data - The data to pass into the &lt;expanded-movie-card>, must be of the following format:
      *                        {
      *                            "movieName" : "string"
      *                            "movieFar" : "string"
@@ -229,7 +257,7 @@ function CreateActionListeners(data, shadowDom) {
             cards.splice(ind, 1);
 
             //after you splice the cards, you must update the ids for each
-            for(let i = 0; i < cards.length; i++) {
+            for(let i = 0; i &lt; cards.length; i++) {
                 cards[i].id = i;
             }
 
@@ -268,40 +296,62 @@ function CreateActionListeners(data, shadowDom) {
  */
 function generatedInnerHTML(data){
     let innerHTML =
-                `<div id="outerbox">
-                    <div class="topmovieheader"> 
-                        <div class="half"><h4 id="movieheader">Movie</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
-                            <img height="35em" src="../img/icons/home.png"></img>
-                        </button></a></div>
-                    </div>
-                    <div id="innerbox">
-                        <div id="movieandinfo">
-                            <img id="movieimage" src=${data.imgSrc} alt=${data.imgAlt} height="240 em">
-                            <div id="info">
-                                <div id="titleandbuttons"> 
-                                    <p class="title">Name: ${data.movieName}</p>
-                                    <div id="buttons">
-                                    <button id="editbutton">
-                                        <img height="27em" src="../img/icons/edit.png"></img>
-                                    </button>
-                                        <button id="trashbutton">
-                                            <img height="27em" src="../img/icons/trash.png">
-                                            </img>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
-                            </div>
-                        </div>
-                        <div>
-                        <h2 id="progressheader">Progress: </h2>
-                        <span id="slideVal"> ${data.movieFar}/${data.movieTime} </span> <br>
-                        <input type="range" min="0" max=${data.movieTime} value=${data.movieFar} class="slider" id="myRange">
-                        </div>
-                </div>`
+                `&lt;div id="outerbox">
+                    &lt;div class="topmovieheader"> 
+                        &lt;div class="half">&lt;h4 id="movieheader">Movie&lt;/h4>&lt;/div>
+                        &lt;div class="half">&lt;a href="../../index.html">&lt;button id="homebutton">
+                            &lt;img height="35em" src="../img/icons/home.png">&lt;/img>
+                        &lt;/button>&lt;/a>&lt;/div>
+                    &lt;/div>
+                    &lt;div id="innerbox">
+                        &lt;div id="movieandinfo">
+                            &lt;img id="movieimage" src=${data.imgSrc} alt=${data.imgAlt} height="240 em">
+                            &lt;div id="info">
+                                &lt;div id="titleandbuttons"> 
+                                    &lt;p class="title">Name: ${data.movieName}&lt;/p>
+                                    &lt;div id="buttons">
+                                    &lt;button id="editbutton">
+                                        &lt;img height="27em" src="../img/icons/edit.png">&lt;/img>
+                                    &lt;/button>
+                                        &lt;button id="trashbutton">
+                                            &lt;img height="27em" src="../img/icons/trash.png">
+                                            &lt;/img>
+                                        &lt;/button>
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div class="rating">Rating: ${data.rating}/5&lt;/div>
+                                &lt;div class="comments">Comments: ${data.review}&lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;div>
+                        &lt;h2 id="progressheader">Progress: &lt;/h2>
+                        &lt;span id="slideVal"> ${data.movieFar}/${data.movieTime} &lt;/span> &lt;br>
+                        &lt;input type="range" min="0" max=${data.movieTime} value=${data.movieFar} class="slider" id="myRange">
+                        &lt;/div>
+                &lt;/div>`
                 return innerHTML;
 }
 
-customElements.define("expanded-movie-card", expandedMovieCard);
+customElements.define("expanded-movie-card", expandedMovieCard);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedMovieCard.html">expandedMovieCard</a></li><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#editFormHandler">editFormHandler</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initFormHandler">initFormHandler</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Dec 01 2022 20:15:42 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

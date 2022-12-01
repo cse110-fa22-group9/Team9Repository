@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: smallShowCard.js</title>
+    <title>JSDoc: Source: smallMovieCard.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: smallShowCard.js</h1>
+    <h1 class="page-title">Source: smallMovieCard.js</h1>
 
     
 
@@ -27,46 +27,44 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * File Header: smallShowCard.js
+ * File Header: smallMovieCard.js
  * 
- * Creates the class for the small show card
+ * Creates the class for the small movie card
  */
 
 //importing functions from tools.js
-import {getShowsFromStorage} from './tools.js';
-import {saveShowsToStorage} from './tools.js';
 
 /**
- * Class Header: smallShowCard
+ * Class Header: smallMovieCard
  * 
- * A small show card that previews information about show on the user's watch list
- * Displays the show title, an image, and the progress the user made in the show
+ * A small movie card that previews information about movies on the user's watch list
+ * Displays the movie title, image, and progress made with the movie
  * 
- * set data() - sets the show card data with the information provided from the data object
- * get data() - returns the show card's data
+ * set data() - sets the movie card data with the information provided from the data object
+ * 
+ * get data() - returns the movie card data
  */
-class smallShowCard extends HTMLElement {
+export default class smallMovieCard extends HTMLElement {
     /**
-     * Construct a smallShowCard element
-     * @constructor
+     * Construct a smallMovieCard element
      */
     constructor() {
         super();
 
-        let shadow = this.attachShadow({ mode: "open" });
+        let shadow = this.attachShadow({ mode: "open"});
         let article = document.createElement('article');
         let style = document.createElement('style');
 
         style.textContent = `
         * {
           font-family: sans-serif;
-          margin: 0px;
-          padding: 0px;
+          margin: 0;
+          padding: 0;
           background:#FFFFFF;
         }
       
         a {
-          top: 10px;
+          top: 5px;
           text-align: center;
           color: black;
           font-size: 22px;
@@ -85,7 +83,6 @@ class smallShowCard extends HTMLElement {
           justify-content: space-between;
           height: 150px;
           width: 500px;
-          /*margin: 0px 0px 0px 0px;*/
           margin-top: 20px !important;
           margin-left: 20px !important;
           justify-content: flex-end;
@@ -98,61 +95,48 @@ class smallShowCard extends HTMLElement {
         }
       
         div.rating {
-          align-items: center;
+          text-align: center;
           column-gap: 5px;
           display: flex;
         }
       
         div.rating>img {
           height: 100%;
-          display: inline-block;
+          /*display: inline-block;*/
           object-fit: scale-down;
           width: 78px;
         }
 
         .modification {
-          padding-right: 0px;
-          margin-top: 0px;
+          padding-right: 5px;
         }
 
         .modification img {
           height: 10%;
           object-fit: contain;
+          /*width: 25px;*/
           width: 15px;
           margin-right: 0px;
         }
-
+      
         article>img {
-          object-fit: contain;
-          height: 50%;
-          width: auto;
-          margin-top: auto;
-          margin-bottom:auto;
-          flex: 1;
-        }
-
-        /*article>img {
           object-fit: contain;
           height: auto;
           width: 50%;
           flex: 1;
-        }*/
+        }
 
-        .show-info {
+        .movie-info {
           display: flex;
           flex-direction: column;
+          justify-content: space-around;
           margin-right: 0px;
           padding-left: 10px;
-          padding-top: 20px;
-          justify-content:flex-start;
           flex: 2;
         }
 
-        div.modification {
-          padding-right: 5px;
-        }
-
         p.title {
+          margin-top: 20px;
           display: -webkit-box;
           font-size: 16px;
           height: 36px;
@@ -164,11 +148,21 @@ class smallShowCard extends HTMLElement {
       
         p:not(.title),
         span,
-        .seasons {
+        time {
+          flex: 1;
           color: #70757A;
           font-size: 12px;
-        }`;
+        }
 
+        progress[value]::-webkit-progress-bar {
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+          width: 100%;
+          height: 8px;
+          margin-top:10px;
+        }
+
+        `;
+        
         shadow.append(article);
         shadow.append(style);
     }
@@ -177,26 +171,25 @@ class smallShowCard extends HTMLElement {
      * Called when the .data property is set on this element
      * 
      * For example:
-     * let smallShowCard = document.createElement('small-show-card'); // Calls constructor()
-     * smallShowCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+     * let smallMovieCard = document.createElement('small-movie-card'); // Calls constructor()
+     * smallMovieCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
      * 
-     * expandedShowCard and smallShowCard get data from same data object, smallShowCard just uses part of the data
+     * expandedMovieCard and smallMovieCard get data from same data object, smallMovieCard just uses part of the data
      * 
      * @function
-     * @param {Object} data - The data to pass into the &lt;small-show-card>, must be of the following format:
+     * @param {Object} data - The data to pass into the &lt;small-movie-card>, must be of the following format:
      *                        {
-     *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
      *                            "id" : number
      *                            "imgSrc" : "string"
-     *                            "imgAlt" : "string"
      *                            "movie" : boolean representing whether or not item is a move
+     *                            "movieFar" : number
+     *                            "movieName" : "string"
+     *                            "movieTime" : number
      *                            "rating" : number
      *                            "review" : "string"
-     *                            "showTitle" : "string"
      *                        }
      */
     set data(data) {
-        // if no data, return
         if (!data) return;
 
         this.json = data; // Store the data passed in for later
@@ -204,40 +197,42 @@ class smallShowCard extends HTMLElement {
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
 
-        // TODO: add js for a progress bar
+        // TODO: Implement a progress bar (probably implemented as a slider for movies?)
 
         article.innerHTML =`&lt;img src="${data['imgSrc']}"
-                                  alt="showSrc">
-                            &lt;div class="show-info">
+                                alt="movieSrc">
+                            &lt;div class="movie-info">
                               &lt;p class="title">
                                   &lt;a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}" id="expandedLink">
-                                      ${data['showTitle']}
-                                  &lt;/a>
+                                    ${data['movieName']}&lt;/a>
                               &lt;/p>
                               &lt;div class="rating">
                                   &lt;img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
                               &lt;/div>
-                              &lt;br>
-                              &lt;p class="season"> ${data['episodeArray'].length} Season(s) Total &lt;/p>
+                              &lt;label for="progress">&lt;/label>
+                              &lt;progress id="progress" value="${data['movieFar']}" max="${data['movieTime']}"> 32% &lt;/progress>
+                              &lt;time>${data['movieFar']} min / ${data['movieTime']} min&lt;/time>
                             &lt;/div>
                             &lt;div class="modification">
                               &lt;a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
-                                &lt;img src="./assets/img/icons/Edit.svg" alt="edit">
+                                  &lt;img src="./assets/img/icons/Edit.svg" alt="edit">
                               &lt;/a>
-                            &lt;/div>`;
+                            &lt;/div>
+                            `;
     }
 
     /**
-     * Returns the data set to the show card
+     * Returns the data of the small movie card object
+     * 
      * @function
-     * @return {Object} - small show card's data
+     * @return {Object} - the movie card's data
      */
     get data() {
       return this.json;
     }
 }
 
-customElements.define("small-show-card", smallShowCard);</code></pre>
+customElements.define('small-movie-card', smallMovieCard);</code></pre>
         </article>
     </section>
 
@@ -247,13 +242,13 @@ customElements.define("small-show-card", smallShowCard);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="smallMovieCard.html">smallMovieCard</a></li><li><a href="smallShowCard.html">smallShowCard</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedMovieCard.html">expandedMovieCard</a></li><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#editFormHandler">editFormHandler</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initFormHandler">initFormHandler</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Nov 27 2022 13:23:16 GMT-0800 (Pacific Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Dec 01 2022 20:15:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -48,6 +48,7 @@
  */
 
 //importing functions from tools.js
+
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
 
@@ -218,6 +219,27 @@ class expandedShowCard extends HTMLElement {
             border-style: solid;
             padding: 0;
         }
+
+        #checkAllButton{
+            border: 0;
+            background-color: rgb(219, 253, 255);
+        }
+
+        #checkAllDiv{
+            height: 100%;
+            display: flex;
+            align-items: baseline;
+            margin-top: 0.7em;
+            width: 6.5em;
+        }
+
+        #checkAllDiv p{
+            font-family: Arial;
+            color: black;
+            height: 100%;
+            font-weight: bold;
+            margin: 0;
+        }
         `;
 
         shadow.append(article);
@@ -237,7 +259,7 @@ class expandedShowCard extends HTMLElement {
      * @param {Object} data - The data to pass into the &lt;expanded-show-card>, must be of the following format:
      *                        {
      *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
-     *                            "id" : number
+     *                            "id" : num representing place in local storage
      *                            "imgSrc" : "string"
      *                            "imgAlt" : "string"
      *                            "movie" : boolean representing whether or not item is a move
@@ -320,7 +342,12 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             // update local storge
             saveShowsToStorage(cards);
         })
-    }
+    };
+
+    let editbutton = shadowDom.getElementById("editbutton");
+    editbutton.addEventListener('click', () => {
+        window.location.href = `./add-content.html?ind=${data['id']}`;
+    });
 
     /**
      * Sets action listener for the trash button, which lets you delete only
@@ -337,7 +364,14 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             let ind = currentInd;
             let cards = getShowsFromStorage();
 
-            //removes current entry
+            //edge case if there's only one show right now, deletes localStorage entirely
+            if(cards.length == 1) {
+                localStorage.removeItem('shows');
+                window.location.href = '../../index.html';
+                return;
+            }
+
+            //if there's more than one entry, removes current entry
             cards.splice(ind, 1);
 
             //after you splice the cards, you must update the ids for each
@@ -355,6 +389,39 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             return;
         }
     ;});
+    
+    /**
+     * Sets action listener for the check all button, which sets every episode in the current
+     * season as "watched." Saves the resulting data to localStorage.
+     */
+    let checkAllButton = shadowDom.getElementById("checkAllButton");
+    checkAllButton.addEventListener("click", function() {
+        let episodesBox = shadowDom.getElementById('episodesDiv');
+        let episodesChildren = episodesBox.childNodes;
+        
+        //Loops through all children of episodeDiv and sets them as Checked.
+        for (let i = 0; i &lt; episodesChildren.length; i++) {
+            /**
+             * This if statement guarantees that every element that is accessed is a button
+             * AND is a checkbox.
+             */
+            if(episodesChildren[i].nodeName == "BUTTON" &amp;&amp; 
+                episodesChildren[i].classList.contains("showBoxUnchecked")) {
+                episodesChildren[i].classList.remove("showBoxUnchecked");
+                episodesChildren[i].classList.add("showBoxChecked");
+                //console.log("Episode " + i + " was checked in HTML.")
+            }
+        }
+
+        //Sets all entries in the array for the current season to true
+        for(let j = 0; j &lt; data.episodeArray[seasonNumber - 1].length; j++) {
+            data.episodeArray[seasonNumber - 1][j] = true;
+            //console.log("Episode " + j + " was checked in data.")
+        }
+        cards[data.id] = data;
+        saveShowsToStorage(cards);
+        //console.log(data);
+    })
 }
 
 /**
@@ -381,9 +448,9 @@ function generatedInnerHTML(data, seasonNumber){
                                 &lt;div id="titleandbuttons"> 
                                     &lt;p class="title">Name: ${data.showTitle}&lt;/p>
                                     &lt;div id="buttons">
-                                        &lt;button id="editbutton">
-                                            &lt;img height="27em" src="../img/icons/edit.png">&lt;/img>
-                                        &lt;/button>
+                                    &lt;button id="editbutton">
+                                        &lt;img height="27em" src="../img/icons/edit.png">&lt;/img>
+                                    &lt;/button>
                                         &lt;button id="trashbutton">
                                             &lt;img height="27em" src="../img/icons/trash.png">
                                             &lt;/img>
@@ -391,15 +458,13 @@ function generatedInnerHTML(data, seasonNumber){
                                     &lt;/div>
                                 &lt;/div>
                                 &lt;div class="rating">Rating: ${data.rating}/5&lt;/div>
-                                &lt;div class="comments">Comments: ${data.comments}&lt;/div>
+                                &lt;div class="comments">Comments: ${data.review}&lt;/div>
                             &lt;/div>
                         &lt;/div>
                         &lt;h2 id="progressheader">Progress: &lt;/h2>` +
                         generateSeasonsHTML(data.episodeArray, seasonNumber) + 
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
-                        `&lt;/div>
-                &lt;/div>`
-                //+ `&lt;p class="watched">${WatchedEpisodes(data.episodeArray)}/${TotalEpisodes(data.episodeArray)} episodes watched&lt;/p>`;
+                        `&lt;/div>`
                 return innerHTML;
 }
 
@@ -419,7 +484,15 @@ function generatedInnerHTML(data, seasonNumber){
         episodes[i] ? checked= "showBoxChecked" : checked = "showBoxUnchecked";
         s += `&lt;button id="season_${seasonNumber}_episode_${i+1}_checkbox" class="${checked}"> ${i+1} &lt;/button>`;
     }
-    s += `&lt;/div>`;
+    s += `
+    &lt;div id="checkAllDiv">
+        &lt;p>Check All&lt;/p>
+        &lt;button id="checkAllButton">
+            &lt;img height="16em" src="../img/icons/checkboxicon.png">
+            &lt;/img>
+        &lt;/button>
+    &lt;/div>
+    &lt;/div>`;
     return s;
 }
 
@@ -458,13 +531,13 @@ customElements.define("expanded-show-card", expandedShowCard);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="smallMovieCard.html">smallMovieCard</a></li><li><a href="smallShowCard.html">smallShowCard</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedMovieCard.html">expandedMovieCard</a></li><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#editFormHandler">editFormHandler</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initFormHandler">initFormHandler</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Nov 27 2022 13:23:16 GMT-0800 (Pacific Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Dec 01 2022 20:15:42 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
