@@ -373,6 +373,7 @@ function initFormHandler() {
         if (parseInt(movieObject["movieFar"]) > parseInt(movieObject["movieTime"])) {
             movieObject["movieFar"] =  movieObject["movieTime"];
         }
+        // check the number of character in the input
         if (!(movieObject["movieName"] == "" || movieObject["imgSrc"] == "" ||
             movieObject["movieTime"] == "" || parseInt(movieObject["movieTime"]) < 0 ||
             movieObject["movieFar"] == "" || parseInt(movieObject["movieFar"]) < 0)) {
