@@ -22,4 +22,4 @@ jobs:
         with:
           folder: ./out
           branch: bit-week-9-new
-          target-folder: ./out
+          target-folder: ./JSDoc
