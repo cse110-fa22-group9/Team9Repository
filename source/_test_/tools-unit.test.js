@@ -1,7 +1,6 @@
 import {getShowsFromStorage} from '../assets/scripts/tools.js';
 import {saveShowsToStorage} from '../assets/scripts/tools.js';
 import {getIDFromStorage} from '../assets/scripts/tools.js';
-//const functions = require('../assets/scripts/tools.js');
 
 test('testing whether method getShowsFromStorage returns the empty array', () => {
     const returnedShow = getShowsFromStorage();

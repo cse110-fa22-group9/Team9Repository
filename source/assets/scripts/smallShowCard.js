@@ -6,9 +6,6 @@
 
 //importing functions from tools.js
 
-//import {getShowsFromStorage} from './tools.js';
-//import {saveShowsToStorage} from './tools.js';
-
 /**
  * Class Header: smallShowCard
  * 

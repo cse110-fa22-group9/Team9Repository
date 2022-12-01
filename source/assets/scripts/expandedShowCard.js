@@ -20,7 +20,6 @@
  */
 
 //importing functions from tools.js
-//const functions = require('./tools.js');
 
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
