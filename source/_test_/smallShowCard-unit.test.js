@@ -5,9 +5,6 @@ import { episodesWatched } from '../assets/scripts/smallShowCard.js';
 describe("Validator", () => {
     const showCard = new smallShowCard();
 
-    console.log(totalepisodeNum([[false]]));
-
-
     test('totalepisodeNum() test1', () => {
         expect(totalepisodeNum([[false]])).toStrictEqual(1);
        });
