@@ -4,8 +4,12 @@ on: [push]
 
 jobs:
   build:
-    uses: andstor/jsdoc-action@v1
-    with:
-      source_dir: ./source
-      recurse: true
-      output_dir: ./out
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: build JsDoc
+      uses: andstor/jsdoc-action@v1
+      with:
+        source_dir: ./source
+        recurse: true
+        output_dir: ./out
