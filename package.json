@@ -9,7 +9,8 @@
     "puppeteer": "^19.3.0"
   },
   "scripts": {
-    "test": "jest --env=jsdom"
+    "test-unit": "jest --env=jsdom",
+    "test-E2E": "jest"
   },
   "jest": {
     "preset": "jest-puppeteer",
