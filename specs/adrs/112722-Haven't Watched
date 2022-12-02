@@ -1,0 +1,6 @@
+## ADR: Displaying "Haven't watched"
+
+There was a bit of debate over whether to display a image with 0 stars filled in or the term "Haven't Watched". We decieded that Haven't Watched was a
+better indication that there is no current review, rather than a 0 star image which may portray a really, really poor view of the movie.
+
+We may come back to this item with updated phrasing, but this is our decision as of now.
