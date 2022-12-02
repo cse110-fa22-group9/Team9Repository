@@ -1,0 +1,10 @@
+## ADR: Watch All in Season
+
+We have decided to include a button that will select all episodes in the selected season at once. This is in case someone edits the seaons and has
+progress cleared, or is already far along in a show and has just added it to binge tracker.
+
+There has also been consideration of a button that clears all episodes in a season as well, but we are implmenting that as an option only if the time
+is available for it.
+
+We have deicided against a watch all in every season as it would be really hard to deselect all the ones you don't need if you only need one or two
+seasons out of several.
