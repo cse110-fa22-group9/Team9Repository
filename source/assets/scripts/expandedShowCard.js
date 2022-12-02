@@ -350,6 +350,10 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
  * @returns {string} string representing the innerHTML of the expandedShowCard
  */
 function generatedInnerHTML(data, seasonNumber){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+
     let innerHTML =
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
@@ -375,7 +379,9 @@ function generatedInnerHTML(data, seasonNumber){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea cols="38" rows="5" disabled> ${data.review}</textarea>
+            
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +
@@ -385,7 +391,7 @@ function generatedInnerHTML(data, seasonNumber){
                 </div>`
                 return innerHTML;
 }
-
+//<div class="comments">Comments: ${data.review}</div>
 
 /**
  * Generates a HTML string for the episodes section
