@@ -4,7 +4,6 @@
  * Creates the class for the small movie card
  */
 
-//importing functions from tools.js
 
 /**
  * Class Header: smallMovieCard
@@ -168,8 +167,6 @@ export default class smallMovieCard extends HTMLElement {
 
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
-
-        // TODO: Implement a progress bar (probably implemented as a slider for movies?)
 
         article.innerHTML =`<img src="${data['imgSrc']}"
                                 alt="movieSrc">

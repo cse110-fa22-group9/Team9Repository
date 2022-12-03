@@ -1,10 +1,10 @@
 /**
  * File Header: smallShowCard.js
  * 
- * Creates the class for the small show card
+ * Creates the class for the small show card and exports two functions
+ * to be used in the calculation of the number of watched episodes and the number of
+ * total episodes
  */
-
-//export totalepisodeNum and episodesWatched to test 
 
 /**
  * Class Header: smallShowCard
@@ -186,8 +186,6 @@
         const shadowDom = this.shadowRoot;
         let article = shadowDom.querySelector('article');
 
-        // TODO: add js for a progress bar
-
         let watched = episodesWatched(data.episodeArray);
         let total = totalepisodeNum(data.episodeArray);
 
@@ -225,6 +223,12 @@
     }
 }
 
+/**
+ * Exports a function that returns the total number of episodes stored in the
+ * episodeArray in data
+ * @param {*} episodeArray The 2D boolean array that stores the watch value of all episodes
+ * @returns The number of episodes stored in the episodeArray
+ */
 export function totalepisodeNum(episodeArray){
   let sum = 0;
   for(let i = 0; i < episodeArray.length; i++){
@@ -233,6 +237,12 @@ export function totalepisodeNum(episodeArray){
   return sum;
 }
 
+/**
+ * Exports a function that returns the total number of episodes with a watch
+ * value of true
+ * @param {*} episodeArray The 2D boolean array that stores the watch value of all episodes
+ * @returns The number of watched episodes for the given show
+ */
 export function episodesWatched(episodeArray){
   let sum = 0;
   for(let i = 0; i < episodeArray.length; i++){
