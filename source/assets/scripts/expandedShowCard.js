@@ -175,6 +175,12 @@ class expandedShowCard extends HTMLElement {
             padding-left: 1em;
         }
 
+        #commentArea {
+            width: 100%;
+            height: 20%;
+            resize: vertical;
+        }
+
         .showBoxChecked{
             background-color: rgb(12, 167, 137);
             width: 6.5em;
@@ -380,7 +386,7 @@ function generatedInnerHTML(data, seasonNumber){
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
                                 <div class="comments">Comments:</div>
-                                <textarea cols="38" rows="5" disabled> ${data.review}</textarea>
+                                <textarea disabled id="commentArea"> ${data.review}</textarea>
             
                             </div>
                         </div>

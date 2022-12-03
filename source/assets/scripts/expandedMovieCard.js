@@ -125,6 +125,12 @@ class expandedMovieCard extends HTMLElement {
                 font-size: 1.75em;
             }
 
+            #commentArea {
+                width: 100%;
+                height: 50%;
+                resize: vertical;
+            }
+
             #progressheader, #slideVal {
                 font-family: 'Oswald', sans-serif;
                 margin-top: 0.3em;
@@ -296,7 +302,7 @@ function generatedInnerHTML(data){
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
                                 <div class="comments">Comments:</div>
-                                <textarea cols="38" rows="5" disabled> ${data.review}</textarea>
+                                <textarea id="commentArea" disabled> ${data.review}</textarea>
                             </div>
                         </div>
                         <div>
