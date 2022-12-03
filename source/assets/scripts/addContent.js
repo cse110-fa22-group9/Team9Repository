@@ -11,6 +11,8 @@
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
 
+export {editFormHandler}
+// export {editMovie}
 
 // Binding initialization function to document listener
 window.addEventListener('DOMContentLoaded', init);
@@ -157,6 +159,7 @@ function editFormHandler(ind) {
     // Once the season number is changed number inputs for the amount of episodes
     // appear based on the inputted number of seasons
     seasonsNumber.addEventListener('change',() => {
+        console.log("fired");
         episodeField.innerHTML = "";
         for(let i = 0; i< seasonsNumber.value;  i++){
 
@@ -251,6 +254,7 @@ function editFormHandler(ind) {
                 if (value < 0) {
                     validEpisodes = false;
                 }
+                console.log("value: " + value)
                 for(let i = 0; i < value; i++){
                     toPush.push(false);
                 }
@@ -497,8 +501,10 @@ function initFormHandler() {
         console.log(showObject["episodeArray"]);
         if (!(showObject["showTitle"] == "" || showObject["imgSrc"] == "" ||
             showObject["episodeArray"].length == 0) && validEpisodes) {
+            console.log("success");
             saveShowsToStorage(shows);
         }
+        console.log("hi");
         //window.location. = "http://127.0.0.1:5501/source/index.html";
     }
 
