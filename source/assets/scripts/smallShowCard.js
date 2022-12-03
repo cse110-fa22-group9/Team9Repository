@@ -215,6 +215,7 @@
 
     /**
      * Returns the data set to the show card
+     * 
      * @function
      * @return {Object} - small show card's data
      */
@@ -226,6 +227,8 @@
 /**
  * Exports a function that returns the total number of episodes stored in the
  * episodeArray in data
+ * 
+ * @function
  * @param {*} episodeArray The 2D boolean array that stores the watch value of all episodes
  * @returns The number of episodes stored in the episodeArray
  */
@@ -240,6 +243,8 @@ export function totalepisodeNum(episodeArray){
 /**
  * Exports a function that returns the total number of episodes with a watch
  * value of true
+ * 
+ * @function
  * @param {*} episodeArray The 2D boolean array that stores the watch value of all episodes
  * @returns The number of watched episodes for the given show
  */

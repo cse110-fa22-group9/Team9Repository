@@ -18,6 +18,7 @@
 export default class smallMovieCard extends HTMLElement {
     /**
      * Construct a smallMovieCard element
+     * @constructor
      */
     constructor() {
         super();
