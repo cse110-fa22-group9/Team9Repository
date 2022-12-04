@@ -2,7 +2,10 @@
 
 This document introduces go through all files inside sources directory in our github repo and explain their purposes and functionalities. 
 
-## Overview
+## CI/CD Pipline
+bla bla bla 
+
+## Source Files 
 Here is the overview of the hierarchy of all files in the source directory: \
 (Click on each of it to see the decription of files and each function inside the file)
 
