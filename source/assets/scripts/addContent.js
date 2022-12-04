@@ -12,6 +12,7 @@ import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
 
 export {editFormHandler}
+export {initFormHandler}
 // export {editMovie}
 
 // Binding initialization function to document listener
@@ -501,10 +502,8 @@ function initFormHandler() {
         console.log(showObject["episodeArray"]);
         if (!(showObject["showTitle"] == "" || showObject["imgSrc"] == "" ||
             showObject["episodeArray"].length == 0) && validEpisodes) {
-            console.log("success");
             saveShowsToStorage(shows);
         }
-        console.log("hi");
         //window.location. = "http://127.0.0.1:5501/source/index.html";
     }
 
