@@ -12,10 +12,10 @@ Here is the overview of the hierarchy of all files in the source directory: \
 - src/
   - _test_/ \
  *(all testing files: each file include unit tests to the corresponding javascipt files)*
-    - [addContent.test.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#addcontenttestjs)
-    - [smallCard.test.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#smallcardtestjs)
-    - [smallMovieCard-unit.test.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#smallmoviecard-unittestjs)
-    - [smallShowCard-unit.test.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#smallshowcard-unittestjs)
+    - [addContent.test.js](#addContenttestjs)
+    - [smallCard.test.js](#smallcardtestjs)
+    - [smallMovieCard-unit.test.js](#smallmoviecard-unittestjs)
+    - [smallShowCard-unit.test.js](#smallshowcard-unittestjs)
     - [tools-unit.test.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#tools-unittestjs)
   - assets/
     - img/ \
@@ -49,7 +49,7 @@ Here is the overview of all files in the JSDoc directory:
 #### smallMovieCard-unit.test.js
 #### smallShowCard-unit.test.js
 #### tools-unit.test.js
-[return to the overview](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#overview)
+[return to the overview](#Source-Files)
 
 ### Page Designs
 #### add-content.html
