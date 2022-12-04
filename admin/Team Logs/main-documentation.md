@@ -5,6 +5,9 @@ This document introduces go through all files inside sources directory in our gi
 ## CI/CD Pipline
 bla bla bla 
 
+## JS Doc 
+bla bla bla 
+
 ## Source Files 
 Here is the overview of the hierarchy of all files in the source directory: \
 (Click on each of it to see the decription of files and each function inside the file)
@@ -22,7 +25,6 @@ Here is the overview of the hierarchy of all files in the source directory: \
     *(store all images in our project including beinge tracker's logo, images for ratings, and images for edit, delete, and home icons)*
     - pages/ *(design for all webpages)*
       - [add-content.html](#add-contenthtml)
-      - [add-show.html](#add-showhtml)
       - [movie-show-subpage.html](#movie-show-subpagehtml)
       - [TestCard.html](#TestCardhtml)
     - scripts/ *(coding files)*
@@ -39,8 +41,6 @@ Here is the overview of the hierarchy of all files in the source directory: \
     - [CardObjects.md](#CardObjectsmd)
   - [index.html](#indexhtml) *(design for the homepage)*
 
-Here is the overview of all files in the JSDoc directory:
-
 ## Files Description
 
 ### Testing
@@ -53,8 +53,9 @@ Here is the overview of all files in the JSDoc directory:
 
 ### Page Designs
 #### add-content.html
-#### add-show.html
+The file consists of both css and html codes for the "add content" subpages. There are three main html conponents: movie/show selections page, add movie page, and add show page. Choosing movie or show in the selection page will display the corresponding html codes. 
 #### movie-show-subpage.html
+The file movie-show-subpage imports corresponding javascript files (expandedMovieCard, expandedShowcard, movie-show-subpage) which implement inner html and inner css for this page.
 #### TestCard.html
 [return to the overview](#Source-Files)
 
@@ -74,6 +75,7 @@ Here is the overview of all files in the JSDoc directory:
 [return to the overview](#Source-Files)
 
 #### index.html
+This file contains both css and html codes for the main page, which established links to subpages and expanded movie card. The code also organize the layout for small movie cards. 
 [return to the overview](#Source-Files)
 
 
