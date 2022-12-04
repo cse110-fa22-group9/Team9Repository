@@ -226,7 +226,7 @@ Creates action listener for the trash button</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line200">line 200</a>
+        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line204">line 204</a>
     </li></ul></dd>
     
 
@@ -413,7 +413,314 @@ booleans are updated depending on if the checkboxes are checked or unchecked
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line288">line 288</a>
+        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line293">line 293</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="data"><span class="type-signature"></span>data<span class="signature">(data)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Called when the .data property is set on this element
+
+For example:
+let expandedMovieCard = document.createElement('expanded-movie-card'); // Calls constructor()
+expandedMovieCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+
+expandedMovieCard and smallMovieCard get data from same data object, smallMovieCard just uses part of the data
+expandedMovieCard theoretically can just take a copy of the data object in the smallMovieCard
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The data to pass into the <expanded-movie-card>, must be of the following format:
+                       {
+                           "movieName" : "string"
+                           "movieFar" : "string"
+                           "movieTime" : "string"
+                           "imgSrc" : "string"
+                           "imgAlt" : "string"
+                           "rating" : number
+                           "review" : "string"
+                           "id" : num representing place in local storage
+                       }</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line165">line 165</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="data"><span class="type-signature"></span>data<span class="signature">(data)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Called when the .data property is set on this element
+
+For example:
+let expandedShowCard = document.createElement('small-show-card'); // Calls constructor()
+expandedShowCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+
+expandedShowCard and smallShowCard get data from same data object, smallShowCard just uses part of the data
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The data to pass into the <expanded-show-card>, must be of the following format:
+                       {
+                           "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
+                           "id" : num representing place in local storage
+                           "imgSrc" : "string"
+                           "imgAlt" : "string"
+                           "movie" : boolean representing whether or not item is a move
+                           "rating" : number
+                           "review" : "string"
+                           "showTitle" : "string"
+                       }</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line243">line 243</a>
     </li></ul></dd>
     
 
@@ -654,7 +961,7 @@ expandedMovieCard and smallMovieCard get data from same data object, smallMovieC
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="smallMovieCard.js.html">smallMovieCard.js</a>, <a href="smallMovieCard.js.html#line200">line 200</a>
+        <a href="smallMovieCard.js.html">smallMovieCard.js</a>, <a href="smallMovieCard.js.html#line202">line 202</a>
     </li></ul></dd>
     
 
@@ -917,7 +1224,7 @@ expandedShowCard and smallShowCard get data from same data object, smallShowCard
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="smallShowCard.js.html">smallShowCard.js</a>, <a href="smallShowCard.js.html#line222">line 222</a>
+        <a href="smallShowCard.js.html">smallShowCard.js</a>, <a href="smallShowCard.js.html#line223">line 223</a>
     </li></ul></dd>
     
 
@@ -1076,7 +1383,7 @@ editFormHandler(0) will fill in the from with the data at local storge has index
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="addContent.js.html">addContent.js</a>, <a href="addContent.js.html#line58">line 58</a>
+        <a href="addContent.js.html">addContent.js</a>, <a href="addContent.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -1106,154 +1413,6 @@ editFormHandler(0) will fill in the from with the data at local storge has index
         
 <div class="param-desc">
     none
-</div>
-
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="episodesWatched"><span class="type-signature"></span>episodesWatched<span class="signature">(episodeArray)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Exports a function that returns the total number of episodes with a watch
-value of true
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>episodeArray</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The 2D boolean array that stores the watch value of all episodes</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="smallShowCard.js.html">smallShowCard.js</a>, <a href="smallShowCard.js.html#line251">line 251</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The number of watched episodes for the given show
 </div>
 
 
@@ -1367,7 +1526,7 @@ value of true
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line269">line 269</a>
+        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line273">line 273</a>
     </li></ul></dd>
     
 
@@ -1549,7 +1708,7 @@ value of true
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line407">line 407</a>
+        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line412">line 412</a>
     </li></ul></dd>
     
 
@@ -1731,7 +1890,7 @@ value of true
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line452">line 452</a>
+        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line457">line 457</a>
     </li></ul></dd>
     
 
@@ -1903,7 +2062,7 @@ Each bit of progress is marked by an image.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line487">line 487</a>
+        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line492">line 492</a>
     </li></ul></dd>
     
 
@@ -2009,7 +2168,7 @@ to edit it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="addContent.js.html">addContent.js</a>, <a href="addContent.js.html#line34">line 34</a>
+        <a href="addContent.js.html">addContent.js</a>, <a href="addContent.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -2110,7 +2269,7 @@ editFormHandler(0) will fill in the from with the data at local storge has index
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="addContent.js.html">addContent.js</a>, <a href="addContent.js.html#line292">line 292</a>
+        <a href="addContent.js.html">addContent.js</a>, <a href="addContent.js.html#line287">line 287</a>
     </li></ul></dd>
     
 
@@ -2135,154 +2294,6 @@ editFormHandler(0) will fill in the from with the data at local storge has index
 
 
 
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="totalepisodeNum"><span class="type-signature"></span>totalepisodeNum<span class="signature">(episodeArray)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Exports a function that returns the total number of episodes stored in the
-episodeArray in data
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>episodeArray</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The 2D boolean array that stores the watch value of all episodes</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="smallShowCard.js.html">smallShowCard.js</a>, <a href="smallShowCard.js.html#line235">line 235</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The number of episodes stored in the episodeArray
-</div>
-
-
-
-    
 
 
 
@@ -2420,7 +2431,7 @@ Then, createActionListeners is called to generate listerners for the buttons cre
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line186">line 186</a>
+        <a href="expandedMovieCard.js.html">expandedMovieCard.js</a>, <a href="expandedMovieCard.js.html#line190">line 190</a>
     </li></ul></dd>
     
 
@@ -2609,7 +2620,7 @@ This function is called everytime a season button is selected
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line268">line 268</a>
+        <a href="expandedShowCard.js.html">expandedShowCard.js</a>, <a href="expandedShowCard.js.html#line273">line 273</a>
     </li></ul></dd>
     
 
@@ -2655,13 +2666,13 @@ This function is called everytime a season button is selected
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="expandedMovieCard.html">expandedMovieCard</a></li><li><a href="expandedShowCard.html">expandedShowCard</a></li><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#editFormHandler">editFormHandler</a></li><li><a href="global.html#episodesWatched">episodesWatched</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initFormHandler">initFormHandler</a></li><li><a href="global.html#totalepisodeNum">totalepisodeNum</a></li><li><a href="global.html#update">update</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li><li><a href="module.exports_module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#editFormHandler">editFormHandler</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initFormHandler">initFormHandler</a></li><li><a href="global.html#update">update</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Dec 04 2022 00:38:47 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Dec 04 2022 06:41:38 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
