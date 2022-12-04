@@ -23,15 +23,15 @@ Here is the overview of the hierarchy of all files in the source directory: \
       - [movie-show-subpage.html](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#movie-show-subpagehtml)
       - [TestCard.html](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#TestCardhtml)
     - scripts/ *(coding files)*
-      - [addContent.js]()
-      - [expandedMovieCard.js]()
-      - [expandedShowCard.js]()
-      - [jestLocalSotrage.js]()
-      - [main.js]()
-      - [movie-show-subpage.js]()
-      - [smallMovieCard.js]()
-      - [smallShowCard.js]()
-      - [tools.js]()
+      - [addContent.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#addcontentjs)
+      - [expandedMovieCard.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#expandedmoviecardjs)
+      - [expandedShowCard.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#expandedshowcardjs)
+      - [jestLocalSotrage.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#jestlocalsotragejs)
+      - [main.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#mainjs)
+      - [movie-show-subpage.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#movie-show-subpagejs)
+      - [smallMovieCard.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#smallmoviecardjs)
+      - [smallShowCard.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#smallshowcardjs)
+      - [tools.js](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#toolsjs)
   - docs/
     - [CardObjects.md]()
   - [index.html]() *(design for the homepage)*
@@ -53,6 +53,20 @@ Here is the overview of all files in the JSDoc directory:
 #### add-show.html
 #### movie-show-subpage.html
 #### TestCard.html
+[return to the overview](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#overview)
+
+### Scripts 
+#### addContent.js
+#### expandedMovieCard.js
+#### expandedShowCard.js
+#### jestLocalSotrage.js
+#### main.js
+#### movie-show-subpage.js
+#### smallMovieCard.js
+#### smallShowCard.js
+#### tools.js
+[return to the overview](https://github.com/cse110-fa22-group9/Team9Repository/edit/main/admin/Team%20Logs/main-documentation.md#overview)
+
 
    
 
