@@ -127,6 +127,12 @@ class expandedMovieCard extends HTMLElement {
                 font-size: 1.75em;
             }
 
+            #commentArea {
+                width: 100%;
+                height: 50%;
+                resize: vertical;
+            }
+
             #progressheader, #slideVal {
                 font-family: 'Oswald', sans-serif;
                 margin-top: 0.3em;
@@ -268,6 +274,10 @@ function CreateActionListeners(data, shadowDom) {
  * @returns {string} string representing the innerHTML of the expandedMovieCard
  */
 function generatedInnerHTML(data){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+
     let innerHTML =
                 `<div id="outerbox">
                     <div class="topmovieheader"> 
@@ -293,7 +303,8 @@ function generatedInnerHTML(data){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea id="commentArea" disabled> ${data.review}</textarea>
                             </div>
                         </div>
                         <div>

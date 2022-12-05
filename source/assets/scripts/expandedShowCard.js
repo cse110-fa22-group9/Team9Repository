@@ -178,6 +178,12 @@ class expandedShowCard extends HTMLElement {
             padding-left: 1em;
         }
 
+        #commentArea {
+            width: 100%;
+            height: 20%;
+            resize: vertical;
+        }
+
         .showBoxChecked{
             background-color: rgb(12, 167, 137);
             width: 6.5em;
@@ -407,6 +413,10 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
  * @returns {string} string representing the innerHTML of the expandedShowCard
  */
 function generatedInnerHTML(data, seasonNumber){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+
     let innerHTML =
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
@@ -432,7 +442,9 @@ function generatedInnerHTML(data, seasonNumber){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea disabled id="commentArea"> ${data.review}</textarea>
+            
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +
@@ -441,7 +453,7 @@ function generatedInnerHTML(data, seasonNumber){
                         `</div>`
                 return innerHTML;
 }
-
+//<div class="comments">Comments: ${data.review}</div>
 
 /**
  * Generates a HTML string for the episodes section
