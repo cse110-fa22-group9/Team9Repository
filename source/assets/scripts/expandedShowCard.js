@@ -44,9 +44,10 @@ export default class expandedShowCard extends HTMLElement {
         #outerbox {
             background-color: rgb(1, 107, 112);
             padding: 0em 2em 1em 2em;
-            overflow-x: scroll;
+            margin: auto;
             resize: none;
-            width: 76em;
+            width: 96.65vw;
+            height: 98.3vh;
         }
 
         #homebutton {
@@ -80,6 +81,7 @@ export default class expandedShowCard extends HTMLElement {
         #innerbox {
             background-color: rgb(17, 151, 157);
             padding: 0.7em 0.7em 0.7em 0.7em;
+            
         }
 
         #showandinfo {
@@ -174,6 +176,12 @@ export default class expandedShowCard extends HTMLElement {
             padding-right: 1em;
             padding-bottom: 3em;
             padding-left: 1em;
+        }
+
+        #commentArea {
+            width: 100%;
+            height: 20%;
+            resize: vertical;
         }
 
         .showBoxChecked{
@@ -409,7 +417,12 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
  * @param {number} seasonNumber - the current selected season 
  * @returns {string} string representing the innerHTML of the expandedShowCard
  */
+
 export function generatedInnerHTML(data, seasonNumber){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+  
     let innerHTML =
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
@@ -435,7 +448,9 @@ export function generatedInnerHTML(data, seasonNumber){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea disabled id="commentArea"> ${data.review}</textarea>
+            
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +
@@ -444,7 +459,7 @@ export function generatedInnerHTML(data, seasonNumber){
                         `</div>`
                 return innerHTML;
 }
-
+//<div class="comments">Comments: ${data.review}</div>
 
 /**
  * Generates a HTML string for the episodes section

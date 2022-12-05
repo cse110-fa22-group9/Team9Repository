@@ -38,9 +38,10 @@ export default class expandedMovieCard extends HTMLElement {
             #outerbox {
                 background-color: rgb(1, 107, 112);
                 padding: 0em 2em 1em 2em;
-                overflow-x: scroll;
+                margin: auto;
                 resize: none;
-                width: 76em;
+                width: 96.65vw;
+                height: 98.3vh;
             }
 
             #homebutton {
@@ -124,6 +125,12 @@ export default class expandedMovieCard extends HTMLElement {
                 font-family: 'Oswald', sans-serif;
                 color: white;
                 font-size: 1.75em;
+            }
+
+            #commentArea {
+                width: 100%;
+                height: 50%;
+                resize: vertical;
             }
 
             #progressheader, #slideVal {
@@ -270,7 +277,12 @@ export function CreateActionListeners(data, shadowDom) {
  * @param {*} data a reference to the movie data object
  * @returns {string} string representing the innerHTML of the expandedMovieCard
  */
+
 export function generatedInnerHTML(data){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+  
     let innerHTML =
                 `<div id="outerbox">
                     <div class="topmovieheader"> 
@@ -296,7 +308,8 @@ export function generatedInnerHTML(data){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea id="commentArea" disabled> ${data.review}</textarea>
                             </div>
                         </div>
                         <div>

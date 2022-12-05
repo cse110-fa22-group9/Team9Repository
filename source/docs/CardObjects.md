@@ -25,6 +25,34 @@ Called when the .data property is set on the smallShowCard element.
 Small show card's data
 >Type: Object
 
+**totalepisodeNum(episodeArray)**
+
+Exports a function that returns the total number of episodes in the show
+
+*Parameters:*
+| Name | Type | Description |
+| ----------- | ----------- | ----------- |
+| episodeArray | Array | A 2D array that contains the watch value of each episode |
+
+*Returns:*
+
+The total number of episodes in the show
+>Type: Number
+
+**episodesWatched(episodeArray)**
+
+Exports a function that returns the number of episodes that the user has checked as "watched"
+
+*Parameters:*
+| Name | Type | Description |
+| ----------- | ----------- | ----------- |
+| episodeArray | Array | A 2D array that contains the watch value of each episode |
+
+*Returns:*
+
+The number of episodes that have been checked as "watched" by the user
+>Type: Number
+
 # Class: smallMovieCard
 A small movie card that previews information about movies on the user's watch list. Displays the movie title, image, and progress made with the movie
 
