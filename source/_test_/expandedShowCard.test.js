@@ -1,6 +1,6 @@
 describe('Test expanded show', () => {
     // the page url to check 
-    let url = 'http://192.168.1.100:5501';
+    let url = 'http://127.0.0.1:5501';
     // First, visit the main page
     beforeAll(async () => {
         //clear local storage before adding anything
@@ -45,6 +45,7 @@ describe('Test expanded show', () => {
       const showCard = await page.$$('expanded-show-card');
       console.log(showCard);
       for (let i = 0; i < showCard.length; i++) {
+        console.log("please for the love of god")
         // Grab the .data property of <product-items> to grab all of the json data stored inside
         data = await showCard[i].getProperty('data');
         console.log(data);
@@ -122,13 +123,21 @@ describe('Test expanded show', () => {
             plainValue = await data.jsonValue();
             // get the value of editlink from shadow root
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
-            let editLink = await shadowRoot.$('#editLink');
-            let editLinkHref = await editLink.getProperty('href');
+            let editLink = await shadowRoot.$('#editbutton');
+            await editLink.click();
+
+            await page.waitForNavigation();
+
+            let editUrl = page.url();
+
+            console.log(editUrl);
             //console.log(editLinkHref.toString());
             // compare if the link is correct
-            if (editLinkHref.toString() != 
-                `JSHandle:${url}/source/assets/pages/add-content.html?ind=${plainValue.id}`) 
+            if (editUrl.toString() != 
+                `${url}/source/assets/pages/add-content.html?ind=${plainValue.id}`) 
             {allAreLinked = false;}
+
+            await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
         }
     
         // Expect allAreLinked to still be true
@@ -186,8 +195,11 @@ describe('Test expanded show', () => {
 
         await page.goto(`${url}/source/index.html`);
 
-        length = await page.evaluate(() => {
+        let length = await page.evaluate(() => {
             let localStorageString = window.localStorage.getItem('shows');
+            if(localStorageString == null){
+                return 0;
+            }
             var localStorageArray = JSON.parse(localStorageString);
             return localStorageArray.length;
         })

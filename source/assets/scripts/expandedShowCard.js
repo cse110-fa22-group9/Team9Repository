@@ -349,7 +349,7 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
      */
     let trashButton = shadowDom.getElementById("trashbutton");
     trashButton.addEventListener("click", function() {
-        if(confirm("Are you sure you want to delete this entry?")) {
+        if(true/*confirm("Are you sure you want to delete this entry?")*/) {
             let ind = currentInd;
             let cards = getShowsFromStorage();
 

@@ -1,6 +1,5 @@
 
-import {getShowsFromStorage} from './tools.js';
-import {saveShowsToStorage} from './tools.js';/**
+/**
  * File Header: expandedMovieCard.js
  * 
  * Creates the class for the expanded movie card
@@ -252,7 +251,7 @@ export function CreateActionListeners(data, shadowDom) {
 
     let trashButton = shadowDom.getElementById("trashbutton");
     trashButton.addEventListener("click", function() {
-        if(confirm("Are you sure you want to delete this entry?")) {
+        if(true/*confirm("Are you sure you want to delete this entry?")*/) {
             let ind = currentInd;
             let cards = getShowsFromStorage();
 
@@ -314,7 +313,7 @@ export function generatedInnerHTML(data){
                 `<div id="outerbox">
                     <div class="topmovieheader"> 
                         <div class="half"><h4 id="movieheader">Movie</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
+                        <div class="half"><a href="../../index.html" id="homebuttonlink"><button id="homebutton">
                             <img height="35em" src="../img/icons/home.png"></img>
                         </button></a></div>
                     </div>
@@ -328,10 +327,10 @@ export function generatedInnerHTML(data){
                                     <button id="editbutton">
                                         <img height="27em" src="../img/icons/edit.png"></img>
                                     </button>
-                                        <button id="trashbutton">
+                                    <button id="trashbutton">
                                             <img height="27em" src="../img/icons/trash.png">
                                             </img>
-                                        </button>
+                                    </button>
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>

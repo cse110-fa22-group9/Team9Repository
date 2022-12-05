@@ -1,6 +1,6 @@
 describe('Test expanded show and movie card', () => {
     // the page url to check 
-    let url = 'http://192.168.1.100:5501';
+    let url = 'http://127.0.0.1:5501';
     // First, visit the main page
     beforeAll(async () => {
         //clear local storage before adding anything
@@ -25,8 +25,8 @@ describe('Test expanded show and movie card', () => {
 
             const json = [
                 {id: 0, imgSrc: "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg", 
-                movie : false, episodeArray: [[false]], imgAlt: "showTest1", showTitle: "showTest1", rating: "0", 
-                review: "testing"}
+                movie : true, movieFar:  "100", movieName: "movieTest1", movieTime: "10", rating: "0", 
+                review: "testing"} 
             ]
         //Adding the movie to local storage
         window.localStorage.setItem(shows, JSON.stringify(json));
@@ -45,6 +45,7 @@ describe('Test expanded show and movie card', () => {
       //console.log(document.querySelector('expanded-movie-card').shadowRoot.querySelector('.title').innerHTML)
       const movieCard = await page.$$('expanded-movie-card');
       for (let i = 0; i < movieCard.length; i++) {
+        console.log("Hey what's up");
         // Grab the .data property of <product-items> to grab all of the json data stored inside
         data = await movieCard[i].getProperty('data');
         console.log(data);
@@ -89,7 +90,7 @@ describe('Test expanded show and movie card', () => {
             // check the showCard 
             let shadowRoot = await movieCard[i].getProperty('shadowRoot');
             // get the value of expanedlink from shadow root
-            let expandedLink = await shadowRoot.$('#testhomebutton');
+            let expandedLink = await shadowRoot.$('#homebuttonlink'); 
             let expandedLinkHref = await expandedLink.getProperty('href');
             //console.log(expandedLinkHref.toString());
             // compare if the link is correct
@@ -114,19 +115,29 @@ describe('Test expanded show and movie card', () => {
         // Query select all of the <expanded-movie-card> elements
         const showCard = await page.$$('expanded-movie-card');
         for (let i = 0; i < showCard.length; i++) {
+            console.log("Worked here");
             // Grab the .data property of <small-movie-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
             // Convert that property to JSON
             plainValue = await data.jsonValue();
             // get the value of editlink from shadow root
             let shadowRoot = await showCard[i].getProperty('shadowRoot');
-            let editLink = await shadowRoot.$('#editLink');
-            let editLinkHref = await editLink.getProperty('href');
+            let editLink = await shadowRoot.$('#editbutton');
+            await editLink.click();
+
+            await page.waitForNavigation();
+
+            let editUrl = page.url();
+
+            console.log(editUrl);
             //console.log(editLinkHref.toString());
             // compare if the link is correct
-            if (editLinkHref.toString() != 
-                `JSHandle:${url}/source/assets/pages/add-content.html?ind=${plainValue.id}`) 
+            if (editUrl.toString() != 
+                `${url}/source/assets/pages/add-content.html?ind=${plainValue.id}`) 
             {allAreLinked = false;}
+
+            await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
+
         }
     
         // Expect allAreLinked to still be true
@@ -136,14 +147,22 @@ describe('Test expanded show and movie card', () => {
     // Make sure all the <small-show-card> elements have correct link to thier edit page
     it('Make sure all the <expanded-movie-card> elements delete button deletes', 
     async () => {
-        console.log('Checking <small-show-card> elements edit link are correct...');
+        console.log('Checking trash button correctly deletes...');
+        await page.goto(`${url}/source/assets/pages/movie-show-subpage.html?ind=0`);
         await page.reload();
         // Start as true, if any don't have data, swap to false
-        let allAreLinked = true;
         let data, plainValue;
         // Query select all of the <small-show-card> elements
-        const showCard = await page.$$('expanded-show-card');
+        const showCard = await page.$$('expanded-movie-card');
+
+        /*page.on('dialog', async dialog => {
+            //get alert message
+            console.log(dialog.message());
+            //accept alert
+            await dialog.accept();
+        });*/
         for (let i = 0; i < showCard.length; i++) {
+            console.log("What?");
             // Grab the .data property of <small-show-card> to grab all of the json data stored inside
             data = await showCard[i].getProperty('data');
             // Convert that property to JSON
@@ -158,8 +177,11 @@ describe('Test expanded show and movie card', () => {
 
         await page.goto(`${url}/source/index.html`);
 
-        length = await page.evaluate(() => {
+        let length = await page.evaluate(() => {
             let localStorageString = window.localStorage.getItem('shows');
+            if (localStorageString == null){
+                return 0;
+            }
             var localStorageArray = JSON.parse(localStorageString);
             return localStorageArray.length;
         })
