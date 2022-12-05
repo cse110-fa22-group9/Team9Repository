@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: expandedShowCard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: expandedShowCard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * File Header: expandedShowCard.js
  * 
  * Creates the class for the expanded show card
@@ -236,7 +264,7 @@ export default class expandedShowCard extends HTMLElement {
      * expandedShowCard and smallShowCard get data from same data object, smallShowCard just uses part of the data
      * 
      * @function
-     * @param {Object} data - The data to pass into the <expanded-show-card>, must be of the following format:
+     * @param {Object} data - The data to pass into the &lt;expanded-show-card>, must be of the following format:
      *                        {
      *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
      *                            "id" : num representing place in local storage
@@ -251,15 +279,11 @@ export default class expandedShowCard extends HTMLElement {
     set data(data) {
         // if no data, return
         if (!data) return;
-        this.json = data;
+        this.json = data; 
         const shadowDom = this.shadowRoot;
         update(data,  1, shadowDom);
 
     }
-    get data(){
-        return this.json
-    }
-
 
     get data(){
         return this.json;
@@ -303,7 +327,7 @@ export function update(data, seasonNumber, shadowDom){
  * 
  */
 function CreateActionListeners(data, seasonNumber, shadowDom){
-    for(let i = 0; i < data.episodeArray.length; i++){
+    for(let i = 0; i &lt; data.episodeArray.length; i++){
         let currNum = i + 1;
         let seasonObject = shadowDom.getElementById(`season_` + (currNum) + `_button`);
         seasonObject.addEventListener('click', () => {
@@ -314,7 +338,7 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
     // get local storge
     let cards = getShowsFromStorage();
 
-    for(let i = 0; i < data.episodeArray[seasonNumber - 1].length; i++){
+    for(let i = 0; i &lt; data.episodeArray[seasonNumber - 1].length; i++){
         let checkboxObject = shadowDom.getElementById(`season_${seasonNumber}_episode_${i+1}_checkbox`);
         checkboxObject.addEventListener('click', () => {
             data.episodeArray[seasonNumber - 1][i] =  !data.episodeArray[seasonNumber - 1][i];
@@ -364,7 +388,7 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
             cards.splice(ind, 1);
 
             //after you splice the cards, you must update the ids for each
-            for(let i = 0; i < cards.length; i++) {
+            for(let i = 0; i &lt; cards.length; i++) {
                 cards[i].id = i;
             }
 
@@ -389,12 +413,12 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
         let episodesChildren = episodesBox.childNodes;
         
         //Loops through all children of episodeDiv and sets them as Checked.
-        for (let i = 0; i < episodesChildren.length; i++) {
+        for (let i = 0; i &lt; episodesChildren.length; i++) {
             /**
              * This if statement guarantees that every element that is accessed is a button
              * AND is a checkbox.
              */
-            if(episodesChildren[i].nodeName == "BUTTON" && 
+            if(episodesChildren[i].nodeName == "BUTTON" &amp;&amp; 
                 episodesChildren[i].classList.contains("showBoxUnchecked")) {
                 episodesChildren[i].classList.remove("showBoxUnchecked");
                 episodesChildren[i].classList.add("showBoxChecked");
@@ -403,7 +427,7 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
         }
 
         //Sets all entries in the array for the current season to true
-        for(let j = 0; j < data.episodeArray[seasonNumber - 1].length; j++) {
+        for(let j = 0; j &lt; data.episodeArray[seasonNumber - 1].length; j++) {
             data.episodeArray[seasonNumber - 1][j] = true;
             //console.log("Episode " + j + " was checked in data.")
         }
@@ -428,44 +452,42 @@ export function generatedInnerHTML(data, seasonNumber){
     }
   
     let innerHTML =
-                `<div id="outerbox">
-                    <div class="toptvshowheader"> 
-                        <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
-                        <div class="half"><a id="testhomebutton" href="../../index.html"><button id="homebutton">
-                            <img height="35em" src="../img/icons/home.png"></img>
-                        </button></a></div>
-                    </div>
-                    <div id="innerbox">
-                        <div id="showandinfo">
-                            <img id="showimage" src=${data.imgSrc} alt=${data.imgAlt} height="240 em">
-                            <div id="info">
-                                <div id="titleandbuttons"> 
-                                    <p class="title">Name: ${data.showTitle}</p>
-                                    <div id="buttons">
-                                    <button id="editbutton">
-                                        <img height="27em" src="../img/icons/edit.png"></img>
-                                    </button>
-                                        <button id="trashbutton">
-                                            <img height="27em" src="../img/icons/trash.png">
-                                            </img>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments:</div>
-                                <textarea disabled id="commentArea"> ${data.review}</textarea>
+                `&lt;div id="outerbox">
+                    &lt;div class="toptvshowheader"> 
+                        &lt;div class="half">&lt;h4 id="tvshowheader">TV Show&lt;/h4>&lt;/div>
+                        &lt;div class="half">&lt;a href="../../index.html">&lt;button id="homebutton">
+                            &lt;img height="35em" src="../img/icons/home.png">&lt;/img>
+                        &lt;/button>&lt;/a>&lt;/div>
+                    &lt;/div>
+                    &lt;div id="innerbox">
+                        &lt;div id="showandinfo">
+                            &lt;img id="showimage" src=${data.imgSrc} alt=${data.imgAlt} height="240 em">
+                            &lt;div id="info">
+                                &lt;div id="titleandbuttons"> 
+                                    &lt;p class="title">Name: ${data.showTitle}&lt;/p>
+                                    &lt;div id="buttons">
+                                    &lt;button id="editbutton">
+                                        &lt;img height="27em" src="../img/icons/edit.png">&lt;/img>
+                                    &lt;/button>
+                                        &lt;button id="trashbutton">
+                                            &lt;img height="27em" src="../img/icons/trash.png">
+                                            &lt;/img>
+                                        &lt;/button>
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div class="rating">Rating: ${data.rating}/5&lt;/div>
+                                &lt;div class="comments">Comments:&lt;/div>
+                                &lt;textarea disabled id="commentArea"> ${data.review}&lt;/textarea>
             
-                            </div>
-                        </div>
-                        <h2 id="progressheader">Progress: </h2>` +
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;h2 id="progressheader">Progress: &lt;/h2>` +
                         generateSeasonsHTML(data.episodeArray, seasonNumber) + 
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
-                        `</div>`
+                        `&lt;/div>`
                 return innerHTML;
-
 }
-//<div class="comments">Comments: ${data.review}</div>
-
+//&lt;div class="comments">Comments: ${data.review}&lt;/div>
 
 /**
  * Generates a HTML string for the episodes section
@@ -476,21 +498,21 @@ export function generatedInnerHTML(data, seasonNumber){
  * @returns a HTML string used to generate the episodes section
  */
  export function generateEpisodesForSeason(episodes, seasonNumber){
-    let s = `<div id="episodesDiv">`;
-    for(let i = 0; i < episodes.length; i++){
+    let s = `&lt;div id="episodesDiv">`;
+    for(let i = 0; i &lt; episodes.length; i++){
         let checked;
         episodes[i] ? checked= "showBoxChecked" : checked = "showBoxUnchecked";
-        s += `<button id="season_${seasonNumber}_episode_${i+1}_checkbox" class="${checked}"> ${i+1} </button>`;
+        s += `&lt;button id="season_${seasonNumber}_episode_${i+1}_checkbox" class="${checked}"> ${i+1} &lt;/button>`;
     }
     s += `
-    <div id="checkAllDiv">
-        <p>Check All</p>
-        <button id="checkAllButton">
-            <img height="16em" src="../img/icons/checkboxicon.png">
-            </img>
-        </button>
-    </div>
-    </div>`;
+    &lt;div id="checkAllDiv">
+        &lt;p>Check All&lt;/p>
+        &lt;button id="checkAllButton">
+            &lt;img height="16em" src="../img/icons/checkboxicon.png">
+            &lt;/img>
+        &lt;/button>
+    &lt;/div>
+    &lt;/div>`;
     return s;
 }
 
@@ -511,13 +533,34 @@ export function generatedInnerHTML(data, seasonNumber){
  * @return a string representing the HTML for progress bars for each season
  */
 export function generateSeasonsHTML(episodes, seasonNumber){
-    let s = `<div id="seasonbuttons">`;
-    for(let i = 0; i < episodes.length; i++){
-        s += `<button id="season_` + (i+1) + `_button" class="${seasonNumber == (i+1) ? "currentSeasonButton" : "seasonButton"}">Season ` + (i+1) + `</button>`;
+    let s = `&lt;div id="seasonbuttons">`;
+    for(let i = 0; i &lt; episodes.length; i++){
+        s += `&lt;button id="season_` + (i+1) + `_button" class="${seasonNumber == (i+1) ? "currentSeasonButton" : "seasonButton"}">Season ` + (i+1) + `&lt;/button>`;
     }
-    s += `</div>`;
+    s += `&lt;/div>`;
     return s;
 }
 
+customElements.define("expanded-show-card", expandedShowCard);</code></pre>
+        </article>
+    </section>
 
-customElements.define("expanded-show-card", expandedShowCard);
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="addContent.html">addContent</a></li></ul><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li><li><a href="module.exports_module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#episodesWatched">episodesWatched</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#totalepisodeNum">totalepisodeNum</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Dec 05 2022 01:58:45 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

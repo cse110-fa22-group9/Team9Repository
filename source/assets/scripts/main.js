@@ -1,5 +1,6 @@
 // main.js
 //importing functions from tools.js
+
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
 
@@ -10,16 +11,16 @@ window.addEventListener('DOMContentLoaded', init);
 // Starts the program, all function calls trace back here
 function init() {
   // Get the recipes from localStorage
-  let recipes = getShowsFromStorage();
+  let content = getShowsFromStorage();
   // Add each recipe to the <main> element
-  addRecipesToDocument(recipes);
+  addContentToDocument(content);
 
 }
 
 
-function addRecipesToDocument(recipes) {
+function addContentToDocument(content) {
   const mainSelector = document.querySelector("main");
-  recipes.forEach(element => {
+  content.forEach(element => {
     if (element['movie']) {
         
         let movieCard = document.createElement('small-movie-card');

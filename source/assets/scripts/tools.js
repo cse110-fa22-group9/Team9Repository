@@ -1,8 +1,10 @@
+
 function getShowsFromStorage() {
     return JSON.parse(localStorage.getItem('shows')) || [];
 }
 
 function saveShowsToStorage(shows){
+    console.log(JSON.stringify(shows));
     localStorage.setItem('shows',JSON.stringify(shows));
 }
 

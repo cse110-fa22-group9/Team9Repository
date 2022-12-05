@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: addContent.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: addContent.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * 
  * Edit or insert a new movie or show to the local storge base on the from at 
  * add-content.html
@@ -83,13 +111,13 @@ function editFormHandler(ind) {
         const totalSeasons = document.getElementById('totalSeasons');
         totalSeasons.value = `${card[ind]['episodeArray'].length}`;
 
-        for(let i = 0; i< card[ind]['episodeArray'].length;  i++){
-            episodeField.innerHTML += `<label for="season${i+1}Episodes"> Episodes in season ${i+1}:
-                                    <input type="number" id="season${i+1}Episodes" name = "episodes" min="0" max="10000" required>
-                                    </label> <br>` ;
+        for(let i = 0; i&lt; card[ind]['episodeArray'].length;  i++){
+            episodeField.innerHTML += `&lt;label for="season${i+1}Episodes"> Episodes in season ${i+1}:
+                                    &lt;input type="number" id="season${i+1}Episodes" name = "episodes" min="0" max="10000" required>
+                                    &lt;/label> &lt;br>` ;
         }
         // fill in number of episode for each season
-        for(let i = 0; i< card[ind]['episodeArray'].length;  i++){
+        for(let i = 0; i&lt; card[ind]['episodeArray'].length;  i++){
             const season = document.getElementById(`season${i+1}Episodes`);
             season.value = card[ind]['episodeArray'][i].length;
         }
@@ -162,11 +190,11 @@ function editFormHandler(ind) {
     seasonsNumber.addEventListener('change',() => {
         console.log("fired");
         episodeField.innerHTML = "";
-        for(let i = 0; i< seasonsNumber.value;  i++){
+        for(let i = 0; i&lt; seasonsNumber.value;  i++){
 
-            episodeField.innerHTML += `<label for="season${i+1}Episodes"> Episodes in season ${i+1}:
-                                    <input type="number" id="season${i+1}Episodes" name = "episodes" required>
-                                    </label> <br>` ;
+            episodeField.innerHTML += `&lt;label for="season${i+1}Episodes"> Episodes in season ${i+1}:
+                                    &lt;input type="number" id="season${i+1}Episodes" name = "episodes" required>
+                                    &lt;/label> &lt;br>` ;
         }
     })
 
@@ -190,17 +218,17 @@ function editFormHandler(ind) {
         let movieObject = {};
         let canSubmit = true;
         for (let [key, value] of formData) {
-            if (key == "movieName" && value == "") {
+            if (key == "movieName" &amp;&amp; value == "") {
                 canSubmit = false;
             }
-            if (key == "imgSrc" && value == "") {
+            if (key == "imgSrc" &amp;&amp; value == "") {
                 console.log("fired");
                 value = './assets/img/icons/bingetracker_logo.png';
             }
-            if (key == "movieTime" && (value == "" || parseInt(value) < 0)) {
+            if (key == "movieTime" &amp;&amp; (value == "" || parseInt(value) &lt; 0)) {
                 canSubmit = false;
             }
-            if (key == "movieFar" && (value == "" || parseInt(value) < 0)) {
+            if (key == "movieFar" &amp;&amp; (value == "" || parseInt(value) &lt; 0)) {
                 canSubmit = false;
             }
             card[ind][key] = value;
@@ -236,28 +264,28 @@ function editFormHandler(ind) {
         for (let [key, value] of formData) {
             console.log("key: " + key);
             console.log("value: " + value);
-            if (key == "showTitle" && value == "") {
+            if (key == "showTitle" &amp;&amp; value == "") {
                 validEpisodes = false;
             }
-            if (key == "imgSrc" && value == "") {
+            if (key == "imgSrc" &amp;&amp; value == "") {
                 value = './assets/img/icons/bingetracker_logo.png';
             }
-            if (key == "episodeArray" && value.length == 0) {
+            if (key == "episodeArray" &amp;&amp; value.length == 0) {
                 validEpisodes = false;
             }
             if(key == "totalSeasons"){
-                if (value == "" || parseInt(value) < 0 || parseInt(value) > 500) {
+                if (value == "" || parseInt(value) &lt; 0 || parseInt(value) > 500) {
                     validEpisodes = false;
                 }
                 continue;
             }
             else if(key == "episodes"){
                 //totalEpisodes += value;
-                if (value < 0) {
+                if (value &lt; 0) {
                     validEpisodes = false;
                 }
                 console.log("value: " + value)
-                for(let i = 0; i < value; i++){
+                for(let i = 0; i &lt; value; i++){
                     toPush.push(false);
                 }
                 if (toPush.length == 0) {
@@ -318,11 +346,11 @@ function initFormHandler() {
      */
     seasonsNumber.addEventListener('change',() => {
         episodeField.innerHTML = "";
-        for(let i = 0; i< seasonsNumber.value;  i++){
+        for(let i = 0; i&lt; seasonsNumber.value;  i++){
 
-            episodeField.innerHTML += `<label for="season${i+1}Episodes"> Episodes in season ${i+1}:
-                                    <input type="number" id="season${i+1}Episodes" name = "episodes" min="0" max="10000" required>
-                                    </label> <br>` ;
+            episodeField.innerHTML += `&lt;label for="season${i+1}Episodes"> Episodes in season ${i+1}:
+                                    &lt;input type="number" id="season${i+1}Episodes" name = "episodes" min="0" max="10000" required>
+                                    &lt;/label> &lt;br>` ;
                                     
             ;
         }
@@ -366,8 +394,8 @@ function initFormHandler() {
         }
         // check the number of character in the input
         if (!(movieObject["movieName"] == "" || movieObject["imgSrc"] == "" ||
-            movieObject["movieTime"] == "" || parseInt(movieObject["movieTime"]) < 0 ||
-            movieObject["movieFar"] == "" || parseInt(movieObject["movieFar"]) < 0)) {
+            movieObject["movieTime"] == "" || parseInt(movieObject["movieTime"]) &lt; 0 ||
+            movieObject["movieFar"] == "" || parseInt(movieObject["movieFar"]) &lt; 0)) {
             saveShowsToStorage(movies);
         }
     }
@@ -403,17 +431,17 @@ function initFormHandler() {
             }
 
             if(key == "totalSeasons"){
-                if (value == "" || parseInt(value) < 0 || parseInt(value) > 500) {
+                if (value == "" || parseInt(value) &lt; 0 || parseInt(value) > 500) {
                     validEpisodes = false;
                 }
                 continue;
             }
             else if(key == "episodes"){
                 //totalEpisodes += value;
-                if (value < 0) {
+                if (value &lt; 0) {
                     validEpisodes = false;
                 }
-                for(let i = 0; i < value; i++){
+                for(let i = 0; i &lt; value; i++){
                     toPush.push(false);
                 }
                 if (toPush.length == 0) {
@@ -438,10 +466,32 @@ function initFormHandler() {
         shows.push(showObject);
         console.log(showObject["episodeArray"]);
         if (!(showObject["showTitle"] == "" || showObject["imgSrc"] == "" ||
-            showObject["episodeArray"].length == 0) && validEpisodes) {
+            showObject["episodeArray"].length == 0) &amp;&amp; validEpisodes) {
             saveShowsToStorage(shows);
         }
     }
 
 
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="addContent.html">addContent</a></li></ul><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li><li><a href="module.exports_module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#episodesWatched">episodesWatched</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#totalepisodeNum">totalepisodeNum</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Dec 05 2022 01:58:45 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

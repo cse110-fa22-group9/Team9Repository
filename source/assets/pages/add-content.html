@@ -5,29 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Link addMovie.js -->
   <script src="../scripts/addContent.js" type="module"></script>
+  <link rel="icon" type="image/x-icon" href="../img/icons/bingetracker_logo.png">
   <title>Add Move From</title>
 
   <style>
+    * {
+      font-family: sans-serif;
+    }
+
     body {
-      background-color: rgb(27, 92, 96);
+      background-color: rgb(17, 151, 157);
+      margin:0px;
+    }
+
+    div.header {
+      background-color:rgb(1, 107, 112);
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
 
     div h2 {
-      margin-top: 0px;
-      margin-left: 0px;
       color: white;
+      font-size: 140%;
+      background-color:rgb(1, 107, 112);
+      margin-left:10px;
     }
-      
+
+    #homebutton {
+      border: 0;
+      background-color: rgb(1, 107, 112);
+      float: right;
+      margin-right: 0.5em;
+      margin-top: 10px;
+    }
+
+    fieldset
+    {
+      max-width:700px;
+      margin-top: 10px;
+      border-color: white;
+      margin-left:10px;
+    }
+
+    label 
+    {
+      margin-left:10px;
+    }
+
+    button {
+      margin-left:10px;
+    }
+
   </style>
 </head>
 <body>
-  <!-- Binge Tracker's sidebar to return to the Watch List Page -->
-  <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <div class="header">
+    <a href="../../index.html">
+      <button id="homebutton">
+        <img height="35em" src="../img/icons/home.png"></img>
+      </button>
+    </a>
+  <!-- Binge Tracker's name -->
      <h2 class="bit-sidebar-heading">Binge Tracker</h2>
-     <!--Changing to index.html from watchlist.html-->
-     <a href="../../index.html" class="bit-sidebar-btn">Watch List</a>
   </div>
-
+  <!--Changing to index.html from watchlist.html-->
+  <br>
   <label for="content" style="color: white;">What content are you adding?</label>
   <select name="content" id="contentSelection" >
     <!-- Add empty default?-->
@@ -47,17 +89,17 @@
       <legend>Movie image:</legend>
       <label for="image-src">
         Source:
-        <input type="text" id="imgSrc-Movie" name="imgSrc" required>
+        <input type="text" id="imgSrc-Movie" name="imgSrc">
       </label>
       </label>
     </fieldset>
     <fieldset>
       <legend>Movie Time Information:</legend>
       <label for="movie-Time">How long is the movie (in minutes)?:
-        <input type="number" id="movieTime" name="movieTime" required>
+        <input type="number" id="movieTime" name="movieTime" min="0" required>
       </label>
       <label for="movie-far">How far you are into the movie (in minutes)?:
-        <input type="number" id="movieFar" name="movieFar" required>
+        <input type="number" id="movieFar" name="movieFar" min="0" required>
       </label>
     </fieldset>
       <fieldset>
@@ -84,8 +126,7 @@
     <fieldset>
       <legend>Reviews:</legend>
       <label for="review">
-        <textarea name="review" id="review-Movie" cols="38" rows="5"
-          required></textarea>
+        <textarea name="review" id="review-Movie" cols="38" rows="5" maxlength = "150"></textarea>
       </label>
     </fieldset>
     <button type="submit" id="movieSubmit">Add Movie to watch list</button>
@@ -105,23 +146,16 @@
       <legend>Show image:</legend>
       <label for="image-src">
         Source:
-        <input type="text" id="imgSrc-Show" name="imgSrc" required>
+        <input type="text" id="imgSrc-Show" name="imgSrc">
       </label>
       </label>
     </fieldset>
     <fieldset>
       <legend>Show episodes Information:</legend>
       <label for="totalSeasons">How many seasons in the show?
-        <input type="number" id="totalSeasons" name="totalSeasons" required>
+        <input type="number" id="totalSeasons" name="totalSeasons" min= "0" max="500" required>
       </label>
       <br>
-      
-      <!--
-      <label for="episodes-Right-Now">How many episodes of the show you've been:
-        <input type=" " id="episodesRightNow" name="episodesRightNow" required>
-      </label>
-      -->
-
     </fieldset>
     <fieldset id="episodeFill">
     
@@ -150,14 +184,10 @@
     <fieldset>
       <legend>Reviews:</legend>
       <label for="review">
-        <textarea name="review" id="review" cols="38" rows="5"
-          required></textarea>
+        <textarea name="review" id="review" cols="38" rows="5" maxlength = "150"></textarea>
       </label>
     </fieldset>
     <button type="submit" id="showSubmit">Add Show to watch list</button>
-    <!--
-    <button type="button" class="danger">Delete this Show from watch list</button>
-    -->
   </form>
 </body>
 </html>

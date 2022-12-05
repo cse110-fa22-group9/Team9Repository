@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: smallShowCard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: smallShowCard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * File Header: smallShowCard.js
  * 
  * Creates the class for the small show card and exports two functions
@@ -165,7 +193,7 @@
      * expandedShowCard and smallShowCard get data from same data object, smallShowCard just uses part of the data
      * 
      * @function
-     * @param {Object} data - The data to pass into the <small-show-card>, must be of the following format:
+     * @param {Object} data - The data to pass into the &lt;small-show-card>, must be of the following format:
      *                        {
      *                            "episodeArray": 2D array of booleans representing episodes per season and whether they have been watched
      *                            "imgSrc" : "string"
@@ -189,28 +217,28 @@
         let watched = episodesWatched(data.episodeArray);
         let total = totalepisodeNum(data.episodeArray);
 
-        article.innerHTML =`<img src="${data['imgSrc']}"
+        article.innerHTML =`&lt;img src="${data['imgSrc']}"
                                   alt="showSrc">
-                            <div class="show-info">
-                              <p class="title">
-                                  <a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}" id="expandedLink">
+                            &lt;div class="show-info">
+                              &lt;p class="title">
+                                  &lt;a href="./assets/pages/movie-show-subpage.html?ind=${data['id']}" id="expandedLink">
                                       ${data['showTitle']}
-                                  </a>
-                              </p>
-                              <div class="rating">
-                                  <img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
-                              </div>
-                              <label for="progress"></label>
-                              <progress id="progress" value="${watched}" max="${total}"> 32% </progress>
-                              <time>${watched} watched / ${total} total</time>
-                              <p class="season"> ${data['episodeArray'].length} Season(s) Total </p>
-                            </div>
+                                  &lt;/a>
+                              &lt;/p>
+                              &lt;div class="rating">
+                                  &lt;img src="./assets/img/icons/${data['rating']}-star.svg" alt="${data['rating']} stars">
+                              &lt;/div>
+                              &lt;label for="progress">&lt;/label>
+                              &lt;progress id="progress" value="${watched}" max="${total}"> 32% &lt;/progress>
+                              &lt;time>${watched} watched / ${total} total&lt;/time>
+                              &lt;p class="season"> ${data['episodeArray'].length} Season(s) Total &lt;/p>
+                            &lt;/div>
                             
-                            <div class="modification">
-                              <a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
-                                <img src="./assets/img/icons/Edit.svg" alt="edit">
-                              </a>
-                            </div>`;                            
+                            &lt;div class="modification">
+                              &lt;a href="./assets/pages/add-content.html?ind=${data['id']}" id="editLink">
+                                &lt;img src="./assets/img/icons/Edit.svg" alt="edit">
+                              &lt;/a>
+                            &lt;/div>`;                            
     }
 
     /**
@@ -234,7 +262,7 @@
  */
 export function totalepisodeNum(episodeArray){
   let sum = 0;
-  for(let i = 0; i < episodeArray.length; i++){
+  for(let i = 0; i &lt; episodeArray.length; i++){
     sum += episodeArray[i].length;
   } 
   return sum;
@@ -250,8 +278,8 @@ export function totalepisodeNum(episodeArray){
  */
 export function episodesWatched(episodeArray){
   let sum = 0;
-  for(let i = 0; i < episodeArray.length; i++){
-    for(let j = 0; j < episodeArray[i].length; j++){
+  for(let i = 0; i &lt; episodeArray.length; i++){
+    for(let j = 0; j &lt; episodeArray[i].length; j++){
       if(episodeArray[i][j]){
         sum += 1;
       }
@@ -260,4 +288,26 @@ export function episodesWatched(episodeArray){
   return sum;
 }
 
-customElements.define("small-show-card", smallShowCard);
+customElements.define("small-show-card", smallShowCard);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="addContent.html">addContent</a></li></ul><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li><li><a href="module.exports_module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateActionListeners">CreateActionListeners</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#episodesWatched">episodesWatched</a></li><li><a href="global.html#generatedInnerHTML">generatedInnerHTML</a></li><li><a href="global.html#generateEpisodesForSeason">generateEpisodesForSeason</a></li><li><a href="global.html#generateSeasonsHTML">generateSeasonsHTML</a></li><li><a href="global.html#totalepisodeNum">totalepisodeNum</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Dec 05 2022 01:58:45 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
