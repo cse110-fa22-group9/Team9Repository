@@ -1,3 +1,5 @@
+# [Binge Tracker](https://cse110-fa22-group9.github.io/Team9Repository/source/index.html) <br>
+
 [Our team page](admin/team.md) <br>
 [Team Video](https://youtu.be/sez--7q8XT4)
 
