@@ -1,9 +1,8 @@
 /**
- * File Header: addContent.js
  * 
  * Edit or insert a new movie or show to the local storge base on the from at 
  * add-content.html
- * 
+ * @namespace addContent
  */
 
 //importing functions from tools.js
@@ -11,6 +10,9 @@
 import {getShowsFromStorage} from './tools.js';
 import {saveShowsToStorage} from './tools.js';
 
+export {editFormHandler}
+export {initFormHandler}
+// export {editMovie}
 
 // Binding initialization function to document listener
 window.addEventListener('DOMContentLoaded', init);
@@ -26,7 +28,8 @@ window.addEventListener('DOMContentLoaded', init);
  * for the movie or show we want edit is 0. Then we will just called editformhandler(0)
  * to edit it.
  * 
- * @return none
+ * @function init
+ * @memberof addContent
  */
 function init() {
     let queryString = window.location.search;
@@ -48,9 +51,9 @@ function init() {
  * For example:
  * editFormHandler(0) will fill in the from with the data at local storge has index 0
  * 
- * 
- * @param ind - The index value for the Movie or Show
- * @return none
+ * @function editFormHandler
+ * @memberof addContent
+ * @param {number} ind - The index value for the Movie or Show
  */
 function editFormHandler(ind) {
     // get element form html
@@ -157,6 +160,7 @@ function editFormHandler(ind) {
     // Once the season number is changed number inputs for the amount of episodes
     // appear based on the inputted number of seasons
     seasonsNumber.addEventListener('change',() => {
+        console.log("fired");
         episodeField.innerHTML = "";
         for(let i = 0; i< seasonsNumber.value;  i++){
 
@@ -178,7 +182,8 @@ function editFormHandler(ind) {
     /**
      * Update the edit data to local storge with the corresponding index.
      * 
-     * @return None
+     * @function editMovie
+     * @memberof addContent
      */
     function editMovie() {
         const formData = new FormData(formSelectorMovie);
@@ -208,9 +213,6 @@ function editFormHandler(ind) {
             movieObject["movie"] = true;
             saveShowsToStorage(card);
         }
-        //movieObject["movie"] = true; 
-        // update local storage
-       // saveShowsToStorage(card);
     }
     
     /**
@@ -222,7 +224,8 @@ function editFormHandler(ind) {
      * values which will represent unwatched episodes, and these are pushed to 
      * episode array to create a 2D array.
      * 
-     * @return None
+     * @function editShow
+     * @memberof addContent
      */
     function editShow() {
         const formData = new FormData(formSelectorShow);
@@ -253,6 +256,7 @@ function editFormHandler(ind) {
                 if (value < 0) {
                     validEpisodes = false;
                 }
+                console.log("value: " + value)
                 for(let i = 0; i < value; i++){
                     toPush.push(false);
                 }
@@ -273,8 +277,6 @@ function editFormHandler(ind) {
             // update local storage
             saveShowsToStorage(card);
         }
-
-        //window.location. = "http://127.0.0.1:5501/source/index.html";
     }
 
 
@@ -286,6 +288,8 @@ function editFormHandler(ind) {
  * 
  * For example:
  * editFormHandler(0) will fill in the from with the data at local storge has index 0
+ * @function initFormHandler
+ * @memberof addContent
  */
 function initFormHandler() {
 
@@ -335,25 +339,11 @@ function initFormHandler() {
     /**
      * The function to create a movie object if that is the current form being
      * submitted
+     * 
+     * @function insertMovie
+     * @memberof addContent
      */
     function insertMovie() {
-        /*
-        function checkMovieImage(url) {
-            try {
-                const res = fetch(url).then((response) => {
-                    if (!response.ok) {
-                        return null;
-                    }
-                });
-                const buff = res.blob();
-
-                return buff.type.startsWith('image/');
-            }
-            catch (error) {
-                return null;
-            }
-        }
-        */
         const formData = new FormData(formSelectorMovie);
         let movieObject = {};
         for (let [key, value] of formData) {
@@ -362,7 +352,6 @@ function initFormHandler() {
                     value = './assets/img/icons/bingetracker_logo.png';
                 }
             }
-            
             movieObject[key] = value;
         }
         if(!(Object.keys(movieObject).includes('rating'))){
@@ -394,72 +383,25 @@ function initFormHandler() {
      * Small objects still need to be created from this currently
      * 
      * Once the objects are created, you are taken to the homepage
+     * @function insertShow
+     * @memberof addContent
      */
     function insertShow() {
-        /*
-        function checkShowImage(url) {
-            try {
-                const res = fetch(url).then((response) => {
-                    if (!response.ok) {
-                        return null;
-                    }
-                });
-                const buff = res.blob();
-
-                return buff.type.startsWith('image/');
-            }
-            catch (error) {
-                return null;
-            }
-            /*
-            try {
-                var checkRes = true;
-                const res = fetch(url).then((response) => {
-                    console.log("Response thing: " + response.ok);
-                    if (!response.ok) {
-                        checkRes = false;
-                        return null;
-                    }
-                }).catch((error) => {
-                    checkRes = false;
-                    console.log("Catching the error: " + checkRes);
-                    return null;
-                });
-                console.log("Res result: " + res);
-                console.log("Checking res: " + checkRes);
-                if (checkRes == false) {
-                    console.log("Here?");
-                    return null;
-                }
-                console.log("Does this work?" + res.blob());
-                function validImage(imageURL) {
-                    console.log(imageURL);
-                    console.log(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageURL));
-                    return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageURL);
-                }
-                console.log("Hello");
-                return buff.type.startsWith('image/') || validImage(url);
-            }
-            catch (error) {
-                console.log(error);
-                console.log("Error2106");
-                return null;
-            }
-        }*/
         const formData = new FormData(formSelectorShow);
         let episodeArray = [];
         let toPush = [];
         let showObject = {};
         let validEpisodes = true;
-        //let smallShowObject = {};
         for (let [key, value] of formData) {
             console.log("key: " + key);
             console.log("value: " + value);
+            
             if (key == 'imgSrc') {
                 if (value == "") {
                     value = './assets/img/icons/bingetracker_logo.png';
                 }
             }
+
             if(key == "totalSeasons"){
                 if (value == "" || parseInt(value) < 0 || parseInt(value) > 500) {
                     validEpisodes = false;
@@ -499,7 +441,6 @@ function initFormHandler() {
             showObject["episodeArray"].length == 0) && validEpisodes) {
             saveShowsToStorage(shows);
         }
-        //window.location. = "http://127.0.0.1:5501/source/index.html";
     }
 
 
