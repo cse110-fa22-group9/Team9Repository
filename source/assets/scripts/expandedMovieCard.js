@@ -141,6 +141,32 @@ export default class expandedMovieCard extends HTMLElement {
                 font-weight: normal;
                 font-size: 1.75em;
             }
+
+            input[type="range"]{
+                margin: auto;
+                -webkit-appearance: none;
+                position: relative;
+                overflow: hidden;
+                height: 2%;
+                width: 100%;
+                cursor: pointer;
+                border-radius: 0;
+                border: 2px solid #999;
+            }
+
+            ::-webkit-slider-runnable-track{
+                background: white;
+            }
+
+            ::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 20px;
+                height: 40px;
+                background: (17, 151, 157);
+                
+                box-shadow: -1000px 0 0 1000px rgb(30, 235, 54);
+                border: 2px solid #999;
+            }
             `;
         shadow.append(article);
         shadow.append(style);
