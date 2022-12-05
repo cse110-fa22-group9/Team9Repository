@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binge Tracker</title>
+
+    <link rel="icon" type="image/x-icon" href="./assets/img/icons/bingetracker_logo.png">
+    
+    <!-- Recipe Card Custom Element -->
+    <script src="./assets/scripts/smallMovieCard.js" type="module"></script>
+    <script src="./assets/scripts/smallShowCard.js" type="module"></script>
+
+    <!-- Main Stylesheets & Scripts -->
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <script src="./assets/scripts/main.js" type="module"></script>
+    <style>
+
+        * {
+            font-family: sans-serif;
+        }
+         
+        main {
+            transition: margin-left .5s;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h1{
+            position: center;
+            left: 40%;
+            top:0px;
+        }
+
+        a {
+            left: 100px;
+            top: 10px;
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: rgb(17, 151, 157);
+            margin: 0px;
+            padding: 0px;
+        }
+
+        div.links a{
+            margin-left: 15px !important;
+            margin-top: 20px;
+            color: white;
+            font-size: 50px;
+            text-decoration: none;
+            line-height: 20%;
+        }
+
+        #trashbutton{
+            margin-left: 10px !important;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        div.header {
+            background-color:rgb(1, 107, 112);
+            font-size: 100%;
+            padding-top: 0.5px;
+            padding-bottom: 0.5px;
+        }
+
+        div h1 {
+            margin-left: 15px;
+        }
+
+        .menu {
+            margin-left: 15px !important;
+            height: 60%;
+            object-fit: contain;
+            width: 30px;
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(202deg) brightness(104%) contrast(104%);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: white;">Watch List</h1>
+    </div>
+
+    <div class="links">
+        <!-- Access to the add movie and add show pages -->
+        <a href="./assets/pages/add-content.html">+</a>
+        <!-- Access to the delete movie and add show pages -->
+        <img height="27em" id="trashbutton" src="./assets/img/icons/DeleteAllTrash.png"></img>
+    </div>
+         <!-- Actual Content for Watch List Page will be in this main tag (movie cards, etc)-->
+    <main>
+        <!-- Add all movie cards here -->
+    </main>
+
+    <script>
+        let deleteAll = document.getElementById("trashbutton");
+        deleteAll.addEventListener('click', () => {
+            if(confirm("This will delete all your saved movies and shows, continue?")){
+                window.localStorage.clear();
+                location.reload();
+            }
+            else{
+                return;
+            }
+        })
+
+        function openNav() {
+        document.getElementById("sidebar").style.width = "250px";
+        document.getElementById("open_sidebar").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("open_sidebar").style.marginLeft= "0";
+        }
+    </script>
+
+</body>
