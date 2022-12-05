@@ -1,7 +1,7 @@
 # Team 9 (T9) Meeting Minutes
 
 #### Meeting Type:
-Retrospective Meeting, Sprint 2
+Retrospective Meeting, Sprint 3
 
 #### Meeting Attendants:
 * Pranav Puttaparthi
