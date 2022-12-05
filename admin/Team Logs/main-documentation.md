@@ -63,7 +63,7 @@ The file movie-show-subpage imports corresponding javascript files (expandedMovi
 #### addContent.js
 #### expandedMovieCard.js
 #### expandedShowCard.js
-#### jestLocalSotrage.js
+#### jestLocalStorage.js
 #### main.js
 #### movie-show-subpage.js
 #### smallMovieCard.js
