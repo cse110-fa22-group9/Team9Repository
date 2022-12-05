@@ -71,9 +71,6 @@ The file movie-show-subpage imports corresponding javascript files (expandedMovi
 #### tools.js
 [return to the overview](#Source-Files)
 
-#### CardObjects.md
-[return to the overview](#Source-Files)
-
 #### index.html
 This file contains both css and html codes for the main page, which established links to subpages and expanded movie card. The code also organize the layout for small movie cards. 
 [return to the overview](#Source-Files)
