@@ -454,7 +454,6 @@ export function generatedInnerHTML(data, seasonNumber){
                                 <div class="rating">Rating: ${data.rating}/5</div>
                                 <div class="comments">Comments:</div>
                                 <textarea disabled id="commentArea"> ${data.review}</textarea>
-            
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +

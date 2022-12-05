@@ -66,7 +66,7 @@ describe("Validator", () => {
         expect(HTMLString).toStrictEqual(`<div id="outerbox">
                     <div class="topmovieheader"> 
                         <div class="half"><h4 id="movieheader">Movie</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
+                        <div class="half"><a href="../../index.html" id="homebuttonlink"><button id="homebutton">
                             <img height="35em" src="../img/icons/home.png"></img>
                         </button></a></div>
                     </div>
@@ -80,14 +80,15 @@ describe("Validator", () => {
                                     <button id="editbutton">
                                         <img height="27em" src="../img/icons/edit.png"></img>
                                     </button>
-                                        <button id="trashbutton">
+                                    <button id="trashbutton">
                                             <img height="27em" src="../img/icons/trash.png">
                                             </img>
-                                        </button>
+                                    </button>
                                     </div>
                                 </div>
                                 <div class="rating">Rating: 0/5</div>
-                                <div class="comments">Comments: testing4</div>
+                                <div class="comments">Comments:</div>
+                                <textarea id="commentArea" disabled> testing4</textarea>
                             </div>
                         </div>
                         <div>

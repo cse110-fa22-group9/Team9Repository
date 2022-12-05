@@ -44,7 +44,7 @@ describe("Validator", () => {
         expect(HTMLString).toStrictEqual(`<div id="outerbox">
                     <div class="toptvshowheader"> 
                         <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
+                        <div class="half"><a id="testhomebutton" href="../../index.html"><button id="homebutton">
                             <img height="35em" src="../img/icons/home.png"></img>
                         </button></a></div>
                     </div>
@@ -65,7 +65,8 @@ describe("Validator", () => {
                                     </div>
                                 </div>
                                 <div class="rating">Rating: 2/5</div>
-                                <div class="comments">Comments: testing1</div>
+                                <div class="comments">Comments:</div>
+                                <textarea disabled id="commentArea"> testing1</textarea>
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2><div id="seasonbuttons"><button id="season_1_button" class="currentSeasonButton">Season 1</button><button id="season_2_button" class="seasonButton">Season 2</button></div><div id="episodesDiv"><button id="season_1_episode_1_checkbox" class="showBoxUnchecked"> 1 </button><button id="season_1_episode_2_checkbox" class="showBoxUnchecked"> 2 </button><button id="season_1_episode_3_checkbox" class="showBoxUnchecked"> 3 </button>
