@@ -251,11 +251,15 @@ export default class expandedShowCard extends HTMLElement {
     set data(data) {
         // if no data, return
         if (!data) return;
-        this.json = data; 
+        this.json = data;
         const shadowDom = this.shadowRoot;
         update(data,  1, shadowDom);
 
     }
+    get data(){
+        return this.json
+    }
+
 
     get data(){
         return this.json;
@@ -427,7 +431,7 @@ export function generatedInnerHTML(data, seasonNumber){
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
                         <div class="half"><h4 id="tvshowheader">TV Show</h4></div>
-                        <div class="half"><a href="../../index.html"><button id="homebutton">
+                        <div class="half"><a id="testhomebutton" href="../../index.html"><button id="homebutton">
                             <img height="35em" src="../img/icons/home.png"></img>
                         </button></a></div>
                     </div>
@@ -458,8 +462,10 @@ export function generatedInnerHTML(data, seasonNumber){
                         generateEpisodesForSeason(data.episodeArray[seasonNumber-1] ,seasonNumber) +
                         `</div>`
                 return innerHTML;
+
 }
 //<div class="comments">Comments: ${data.review}</div>
+
 
 /**
  * Generates a HTML string for the episodes section
@@ -512,5 +518,6 @@ export function generateSeasonsHTML(episodes, seasonNumber){
     s += `</div>`;
     return s;
 }
+
 
 customElements.define("expanded-show-card", expandedShowCard);

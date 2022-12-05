@@ -1,4 +1,6 @@
-/**
+
+import {getShowsFromStorage} from './tools.js';
+import {saveShowsToStorage} from './tools.js';/**
  * File Header: expandedMovieCard.js
  * 
  * Creates the class for the expanded movie card
@@ -201,7 +203,6 @@ export default class expandedMovieCard extends HTMLElement {
         this.json = data; 
         const shadowDom = this.shadowRoot;
         update(data, shadowDom);
-
     }
     get data() {
         return this.json;
