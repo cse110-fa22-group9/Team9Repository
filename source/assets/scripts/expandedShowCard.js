@@ -27,7 +27,7 @@ import {saveShowsToStorage} from './tools.js';
 //this variable is used to get the current card's id
 var currentInd;
 
-class expandedShowCard extends HTMLElement {
+export default class expandedShowCard extends HTMLElement {
     /**
      * Construct a expandedShowCard element
      * @constructor
@@ -251,9 +251,14 @@ class expandedShowCard extends HTMLElement {
     set data(data) {
         // if no data, return
         if (!data) return;
+        this.json = data; 
         const shadowDom = this.shadowRoot;
         update(data,  1, shadowDom);
 
+    }
+
+    get data(){
+        return this.json;
     }
 
 }
@@ -273,7 +278,7 @@ class expandedShowCard extends HTMLElement {
  * @param {*} shadowDom - shadowDOM associated with current object
  */
 
-function update(data, seasonNumber, shadowDom){
+export function update(data, seasonNumber, shadowDom){
     let article = shadowDom.querySelector('article');
     article.innerHTML = generatedInnerHTML(data, seasonNumber);
     CreateActionListeners(data, seasonNumber, shadowDom);
@@ -412,11 +417,12 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
  * @param {number} seasonNumber - the current selected season 
  * @returns {string} string representing the innerHTML of the expandedShowCard
  */
-function generatedInnerHTML(data, seasonNumber){
+
+export function generatedInnerHTML(data, seasonNumber){
     if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
         data.imgSrc = "../img/icons/bingetracker_logo.png";
     }
-
+  
     let innerHTML =
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
@@ -463,7 +469,7 @@ function generatedInnerHTML(data, seasonNumber){
  * @param {number} seasonNumber - the current selected season
  * @returns a HTML string used to generate the episodes section
  */
- function generateEpisodesForSeason(episodes, seasonNumber){
+ export function generateEpisodesForSeason(episodes, seasonNumber){
     let s = `<div id="episodesDiv">`;
     for(let i = 0; i < episodes.length; i++){
         let checked;
@@ -498,7 +504,7 @@ function generatedInnerHTML(data, seasonNumber){
  * @param {number} seasonNumber - the current selected season
  * @return a string representing the HTML for progress bars for each season
  */
-function generateSeasonsHTML(episodes, seasonNumber){
+export function generateSeasonsHTML(episodes, seasonNumber){
     let s = `<div id="seasonbuttons">`;
     for(let i = 0; i < episodes.length; i++){
         s += `<button id="season_` + (i+1) + `_button" class="${seasonNumber == (i+1) ? "currentSeasonButton" : "seasonButton"}">Season ` + (i+1) + `</button>`;

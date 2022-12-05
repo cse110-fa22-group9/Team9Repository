@@ -22,7 +22,7 @@ import {saveShowsToStorage} from './tools.js';
 //this variable is used to get the current card's id
 var currentInd;
 
-class expandedMovieCard extends HTMLElement {
+export default class expandedMovieCard extends HTMLElement {
     /**
      * Construct a expandedMovieCard element
      * @constructor
@@ -172,9 +172,13 @@ class expandedMovieCard extends HTMLElement {
      set data(data) {
         // if no data, return
         if (!data) return;
+        this.json = data; 
         const shadowDom = this.shadowRoot;
         update(data, shadowDom);
 
+    }
+    get data() {
+        return this.json;
     }
 }
 
@@ -190,7 +194,7 @@ class expandedMovieCard extends HTMLElement {
  * Then, createActionListeners is called to generate listerners for the buttons created
  * 
  */
-function update(data, shadowDom){
+export function update(data, shadowDom){
     let article = shadowDom.querySelector('article');
     article.innerHTML = generatedInnerHTML(data);
     CreateActionListeners(data, shadowDom);
@@ -204,7 +208,7 @@ function update(data, shadowDom){
  * 
  * Creates action listener for the trash button
  */
-function CreateActionListeners(data, shadowDom) {
+export function CreateActionListeners(data, shadowDom) {
     /**
      * Sets action listener for the trash button, which lets you delete only
      * the current entry
@@ -273,11 +277,12 @@ function CreateActionListeners(data, shadowDom) {
  * @param {*} data a reference to the movie data object
  * @returns {string} string representing the innerHTML of the expandedMovieCard
  */
-function generatedInnerHTML(data){
+
+export function generatedInnerHTML(data){
     if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
         data.imgSrc = "../img/icons/bingetracker_logo.png";
     }
-
+  
     let innerHTML =
                 `<div id="outerbox">
                     <div class="topmovieheader"> 
@@ -314,6 +319,7 @@ function generatedInnerHTML(data){
                         </div>
                 </div>`
                 return innerHTML;
+    
 }
 
 customElements.define("expanded-movie-card", expandedMovieCard);
