@@ -30,7 +30,7 @@ Things already implemented
       - test 9: Make sure all the <small-show-card> elements have correct link to thier edit page
       - test 10: clean the local storge after test is done(should always pass)
     - addContent.test.js -- This file E2E tests the add-content feature, to check whether shows and movies added by a user via the form are properly saved into localStorage.
-    - tools.unit.test.js -- This file unit tests each function in tools.js, all of which are functions that directly deal with localStorage. This file tests whether content is properly saved to localStorage, whether content is successfully retrievable from localStorage, and whether the ID is properly updated.
+    - tools-unit.test.js -- This file unit tests each function in tools.js, all of which are functions that directly deal with localStorage. This file tests whether content is properly saved to localStorage, whether content is successfully retrievable from localStorage, and whether the ID is properly updated.
     - smallMovieCard-unit.test.js This test file is used to unit test the correctness of the smallMovieCard.js class. It will create an movieCard Object and sent the data in and out for that object to test if the set data() and get data() function working correctly.
       - setData() and get data() test 1 - 5: set different data to the movieCard Object and see if the data out is correct
     - smallShowCard-unit.test.js This test file is used to unit test the correctness of the smallShowCard.js class. It will create an showCard Object and sent the data in and out for that object to test if the set data() and get data. It will also test the correctness of the function totalepisodeNum() and episodesWatched().
