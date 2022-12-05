@@ -38,9 +38,10 @@ class expandedMovieCard extends HTMLElement {
             #outerbox {
                 background-color: rgb(1, 107, 112);
                 padding: 0em 2em 1em 2em;
-                overflow-x: scroll;
+                margin: auto;
                 resize: none;
-                width: 76em;
+                width: 96.65vw;
+                height: 98.3vh;
             }
 
             #homebutton {
