@@ -189,13 +189,13 @@ function editFormHandler(ind) {
         const formData = new FormData(formSelectorMovie);
         let movieObject = {};
         let canSubmit = true;
-        for (const [key, value] of formData) {
-            card[ind][key] = value;
+        for (let [key, value] of formData) {
             if (key == "movieName" && value == "") {
                 canSubmit = false;
             }
             if (key == "imgSrc" && value == "") {
-                canSubmit = false;
+                console.log("fired");
+                value = './assets/img/icons/bingetracker_logo.png';
             }
             if (key == "movieTime" && (value == "" || parseInt(value) < 0)) {
                 canSubmit = false;
@@ -203,11 +203,13 @@ function editFormHandler(ind) {
             if (key == "movieFar" && (value == "" || parseInt(value) < 0)) {
                 canSubmit = false;
             }
+            card[ind][key] = value;
         }
         if (parseInt(card[ind]["movieFar"]) > parseInt(card[ind]["movieTime"])) {
             card[ind]["movieFar"] = card[ind]["movieTime"];
         }
         if (canSubmit) {
+            console.log("fired2");
             movieObject["movie"] = true;
             saveShowsToStorage(card);
         }
@@ -231,14 +233,14 @@ function editFormHandler(ind) {
         let episodeArray = [];
         let toPush = [];
         //let smallShowObject = {};
-        for (const [key, value] of formData) {
-            //console.log("key: " + key);
-            //console.log("value: " + value);
+        for (let [key, value] of formData) {
+            console.log("key: " + key);
+            console.log("value: " + value);
             if (key == "showTitle" && value == "") {
                 validEpisodes = false;
             }
             if (key == "imgSrc" && value == "") {
-                validEpisodes = false;
+                value = './assets/img/icons/bingetracker_logo.png';
             }
             if (key == "episodeArray" && value.length == 0) {
                 validEpisodes = false;
@@ -267,6 +269,7 @@ function editFormHandler(ind) {
             }
             card[ind][key] = value;
         }
+        console.log(validEpisodes);
         if (validEpisodes) {
         // update the imgAlt and showTitle
             card[ind]["imgAlt"] = card[ind]["showTitle"];
@@ -344,6 +347,11 @@ function initFormHandler() {
         const formData = new FormData(formSelectorMovie);
         let movieObject = {};
         for (let [key, value] of formData) {
+            if (key == 'imgSrc') {
+                if (value == "") {
+                    value = './assets/img/icons/bingetracker_logo.png';
+                }
+            }
             movieObject[key] = value;
         }
         if(!(Object.keys(movieObject).includes('rating'))){
@@ -387,6 +395,13 @@ function initFormHandler() {
         for (let [key, value] of formData) {
             console.log("key: " + key);
             console.log("value: " + value);
+            
+            if (key == 'imgSrc') {
+                if (value == "") {
+                    value = './assets/img/icons/bingetracker_logo.png';
+                }
+            }
+
             if(key == "totalSeasons"){
                 if (value == "" || parseInt(value) < 0 || parseInt(value) > 500) {
                     validEpisodes = false;

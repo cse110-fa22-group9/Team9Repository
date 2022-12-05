@@ -27,7 +27,7 @@ import {saveShowsToStorage} from './tools.js';
 //this variable is used to get the current card's id
 var currentInd;
 
-class expandedShowCard extends HTMLElement {
+export default class expandedShowCard extends HTMLElement {
     /**
      * Construct a expandedShowCard element
      * @constructor
@@ -44,9 +44,10 @@ class expandedShowCard extends HTMLElement {
         #outerbox {
             background-color: rgb(1, 107, 112);
             padding: 0em 2em 1em 2em;
-            overflow-x: scroll;
+            margin: auto;
             resize: none;
-            width: 76em;
+            width: 96.65vw;
+            height: 98.3vh;
         }
 
         #homebutton {
@@ -80,6 +81,7 @@ class expandedShowCard extends HTMLElement {
         #innerbox {
             background-color: rgb(17, 151, 157);
             padding: 0.7em 0.7em 0.7em 0.7em;
+            
         }
 
         #showandinfo {
@@ -176,6 +178,12 @@ class expandedShowCard extends HTMLElement {
             padding-left: 1em;
         }
 
+        #commentArea {
+            width: 100%;
+            height: 20%;
+            resize: vertical;
+        }
+
         .showBoxChecked{
             background-color: rgb(12, 167, 137);
             width: 6.5em;
@@ -243,9 +251,14 @@ class expandedShowCard extends HTMLElement {
     set data(data) {
         // if no data, return
         if (!data) return;
+        this.json = data; 
         const shadowDom = this.shadowRoot;
         update(data,  1, shadowDom);
 
+    }
+
+    get data(){
+        return this.json;
     }
 
 }
@@ -265,7 +278,7 @@ class expandedShowCard extends HTMLElement {
  * @param {*} shadowDom - shadowDOM associated with current object
  */
 
-function update(data, seasonNumber, shadowDom){
+export function update(data, seasonNumber, shadowDom){
     let article = shadowDom.querySelector('article');
     article.innerHTML = generatedInnerHTML(data, seasonNumber);
     CreateActionListeners(data, seasonNumber, shadowDom);
@@ -404,7 +417,12 @@ function CreateActionListeners(data, seasonNumber, shadowDom){
  * @param {number} seasonNumber - the current selected season 
  * @returns {string} string representing the innerHTML of the expandedShowCard
  */
-function generatedInnerHTML(data, seasonNumber){
+
+export function generatedInnerHTML(data, seasonNumber){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+  
     let innerHTML =
                 `<div id="outerbox">
                     <div class="toptvshowheader"> 
@@ -430,7 +448,9 @@ function generatedInnerHTML(data, seasonNumber){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea disabled id="commentArea"> ${data.review}</textarea>
+            
                             </div>
                         </div>
                         <h2 id="progressheader">Progress: </h2>` +
@@ -439,7 +459,7 @@ function generatedInnerHTML(data, seasonNumber){
                         `</div>`
                 return innerHTML;
 }
-
+//<div class="comments">Comments: ${data.review}</div>
 
 /**
  * Generates a HTML string for the episodes section
@@ -449,7 +469,7 @@ function generatedInnerHTML(data, seasonNumber){
  * @param {number} seasonNumber - the current selected season
  * @returns a HTML string used to generate the episodes section
  */
- function generateEpisodesForSeason(episodes, seasonNumber){
+ export function generateEpisodesForSeason(episodes, seasonNumber){
     let s = `<div id="episodesDiv">`;
     for(let i = 0; i < episodes.length; i++){
         let checked;
@@ -484,7 +504,7 @@ function generatedInnerHTML(data, seasonNumber){
  * @param {number} seasonNumber - the current selected season
  * @return a string representing the HTML for progress bars for each season
  */
-function generateSeasonsHTML(episodes, seasonNumber){
+export function generateSeasonsHTML(episodes, seasonNumber){
     let s = `<div id="seasonbuttons">`;
     for(let i = 0; i < episodes.length; i++){
         s += `<button id="season_` + (i+1) + `_button" class="${seasonNumber == (i+1) ? "currentSeasonButton" : "seasonButton"}">Season ` + (i+1) + `</button>`;

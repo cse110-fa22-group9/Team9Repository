@@ -22,7 +22,7 @@ import {saveShowsToStorage} from './tools.js';
 //this variable is used to get the current card's id
 var currentInd;
 
-class expandedMovieCard extends HTMLElement {
+export default class expandedMovieCard extends HTMLElement {
     /**
      * Construct a expandedMovieCard element
      * @constructor
@@ -38,9 +38,10 @@ class expandedMovieCard extends HTMLElement {
             #outerbox {
                 background-color: rgb(1, 107, 112);
                 padding: 0em 2em 1em 2em;
-                overflow-x: scroll;
+                margin: auto;
                 resize: none;
-                width: 76em;
+                width: 96.65vw;
+                height: 98.3vh;
             }
 
             #homebutton {
@@ -126,6 +127,12 @@ class expandedMovieCard extends HTMLElement {
                 font-size: 1.75em;
             }
 
+            #commentArea {
+                width: 100%;
+                height: 50%;
+                resize: vertical;
+            }
+
             #progressheader, #slideVal {
                 font-family: 'Oswald', sans-serif;
                 margin-top: 0.3em;
@@ -133,6 +140,32 @@ class expandedMovieCard extends HTMLElement {
                 color: white;
                 font-weight: normal;
                 font-size: 1.75em;
+            }
+
+            input[type="range"]{
+                margin: auto;
+                -webkit-appearance: none;
+                position: relative;
+                overflow: hidden;
+                height: 2%;
+                width: 100%;
+                cursor: pointer;
+                border-radius: 0;
+                border: 2px solid #999;
+            }
+
+            ::-webkit-slider-runnable-track{
+                background: white;
+            }
+
+            ::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 20px;
+                height: 40px;
+                background: (17, 151, 157);
+                
+                box-shadow: -1000px 0 0 1000px rgb(30, 235, 54);
+                border: 2px solid #999;
             }
             `;
         shadow.append(article);
@@ -165,9 +198,13 @@ class expandedMovieCard extends HTMLElement {
      set data(data) {
         // if no data, return
         if (!data) return;
+        this.json = data; 
         const shadowDom = this.shadowRoot;
         update(data, shadowDom);
 
+    }
+    get data() {
+        return this.json;
     }
 }
 
@@ -183,7 +220,7 @@ class expandedMovieCard extends HTMLElement {
  * Then, createActionListeners is called to generate listerners for the buttons created
  * 
  */
-function update(data, shadowDom){
+export function update(data, shadowDom){
     let article = shadowDom.querySelector('article');
     article.innerHTML = generatedInnerHTML(data);
     CreateActionListeners(data, shadowDom);
@@ -197,7 +234,7 @@ function update(data, shadowDom){
  * 
  * Creates action listener for the trash button
  */
-function CreateActionListeners(data, shadowDom) {
+export function CreateActionListeners(data, shadowDom) {
     /**
      * Sets action listener for the trash button, which lets you delete only
      * the current entry
@@ -266,7 +303,12 @@ function CreateActionListeners(data, shadowDom) {
  * @param {*} data a reference to the movie data object
  * @returns {string} string representing the innerHTML of the expandedMovieCard
  */
-function generatedInnerHTML(data){
+
+export function generatedInnerHTML(data){
+    if(data.imgSrc == "./assets/img/icons/bingetracker_logo.png"){
+        data.imgSrc = "../img/icons/bingetracker_logo.png";
+    }
+  
     let innerHTML =
                 `<div id="outerbox">
                     <div class="topmovieheader"> 
@@ -292,7 +334,8 @@ function generatedInnerHTML(data){
                                     </div>
                                 </div>
                                 <div class="rating">Rating: ${data.rating}/5</div>
-                                <div class="comments">Comments: ${data.review}</div>
+                                <div class="comments">Comments:</div>
+                                <textarea id="commentArea" disabled> ${data.review}</textarea>
                             </div>
                         </div>
                         <div>
@@ -302,6 +345,7 @@ function generatedInnerHTML(data){
                         </div>
                 </div>`
                 return innerHTML;
+    
 }
 
 customElements.define("expanded-movie-card", expandedMovieCard);
