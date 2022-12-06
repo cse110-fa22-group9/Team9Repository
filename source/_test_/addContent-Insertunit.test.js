@@ -153,53 +153,6 @@ test('Insert Functionality for Movie', () => {
     review.value = "This was good!";
     name.value = "The Batman";
     src.value = "RandomSite";
-  /*
-    initFormHandler();
-
-    let button = document.getElementById("movieSubmit");
-    button.click();
-
-    const checking = getShowsFromStorage();
-    const compareData = {id: 0, imgSrc: "RandomSite", 
-        movie : true, movieFar:  "40", movieName: "The Batman", movieTime: "50", rating: "1", 
-        review: "This was good!"};
-
-    expect(checking[0]).toStrictEqual(compareData);
-
-    name.value = "";
-    button.click();
-    expect(getShowsFromStorage().length).toBe(1);
-    name.value = "The Batman";
-
-    watched.value = "";
-    button.click();
-    expect(getShowsFromStorage().length).toBe(1);
-    watched.value = "40";
-
-    runTime.value = "";
-    button.click();
-    expect(getShowsFromStorage().length).toBe(1);
-    runTime.value = "50";
-
-    watched.value = "-10";
-    button.click();
-    expect(getShowsFromStorage().length).toBe(1);
-    watched.value = "40";
-
-    runTime.value = "-10";
-    button.click();
-    expect(getShowsFromStorage().length).toBe(1);
-    runTime.value = "50";
-
-    watched.value = "100";
-    button.click();
-
-    let checking2 = getShowsFromStorage();
-    let compareData2 = {id: 1, imgSrc: "RandomSite", 
-        movie : true, movieFar:  "50", movieName: "The Batman", movieTime: "50", rating: "1", 
-        review: "This was good!"};
-
-    expect(checking2[1]).toStrictEqual(compareData2);*/
 
     localStorage.clear();
 })
@@ -381,37 +334,4 @@ test("Insert Functionality of Show", () => {
 
     expect(episodes1again.value).toBe("2");
     expect(episodes2.value).toBe("1");
-    
-    /*initFormHandler();
-    //Clicking the edit button
-    let button = document.getElementById("showSubmit");
-    button.click();
-
-    let checking5 = getShowsFromStorage();
-
-    let compareData1 = {id: 0, imgSrc: "newShowWebsite", 
-    movie : false, episodeArray: [[false, false], [false]], imgAlt: "newShowTest1", showTitle: "newShowTest1", rating: "4", 
-    review: "review1"};
-    //Checking that testData1 was updated with the correct values
-    expect(checking5[0]).toStrictEqual(compareData1);
-
-    name.value = "";
-    button.click();
-
-    expect(getShowsFromStorage().length).toBe(1);
-    name.value = "newShowTest1"
-    
-    //checking that local storage doesn't update if given a negative season number
-    totalSeasons.value = "-10";
-    button.click();
-    const checking2 = getShowsFromStorage();
-    expect(checking2.length).toBe(1);
-    totalSeasons.value = "2";
-    
-    //Checkign that local storage doesn't update if given a blank runTime
-    episodes1again.value = "-5"
-    button.click();
-    const checking3 = getShowsFromStorage();
-    expect(checking3.length).toBe(1);
-    episodes1again.value = "2";*/
 })

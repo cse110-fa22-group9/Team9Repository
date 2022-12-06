@@ -195,49 +195,6 @@ test('Edit Functionality for Movie', () => {
     
     review.value = "review1";
     expect(review.value).toBe("review1");
-    /*
-    //Clicking the edit button
-    let button = document.getElementById("movieSubmit");
-    button.click();
-    
-
-    const checking = getShowsFromStorage();
-
-    const compareData = {id: 0, imgSrc: "newWebsite", 
-        movie : true, movieFar:  "4", movieName: "newMovieTest1", movieTime: "300", rating: "3", 
-        review: "review1"};
-
-    //Checking that testData1 was updated with the correct values
-    expect(checking[0]).toStrictEqual(compareData);
-
-    //Checking that local storage doesn't update if show doesn't have a name
-    name.value = "";
-    button.click();
-
-    const checking1 = getShowsFromStorage();
-    expect(checking1[0]).toStrictEqual(compareData);
-    name.value = "newMovieTest1"
-    
-    //checking that local storage doesn't update if given a negative watch time
-    watched.value = "-10";
-    button.click();
-    const checking2 = getShowsFromStorage();
-    expect(checking2[0]).toStrictEqual(compareData);
-    watched.value = "50"
-    
-    //Checkign that local storage doesn't update if given a blank runTime
-    runTime.value = "";
-    button.click();
-    const checking3 = getShowsFromStorage();
-    expect(checking3[0]).toStrictEqual(compareData);
-
-    runTime.value = "25"
-    
-    //Checking that watched will update to the runTime if higher then runTime
-    button.click();
-    const checking4 = getShowsFromStorage();
-    //console.log(checking4[0]);
-    expect(checking4[0]['movieFar']).toBe("25");*/
 
     localStorage.clear();
 }) 
@@ -449,44 +406,6 @@ test('Edit Functionality for Show', () => {
 
     expect(episodes1again.value).toBe("2");
     expect(episodes2.value).toBe("1");
-    /*
-    //Clicking the edit button
-    let button = document.getElementById("showSubmit");
-    button.click();
-    
-    let checking5 = getShowsFromStorage();
-
-    const compareData = {id: 0, imgSrc: "newShowWebsite", 
-    movie : false, episodeArray: [[false, false], [false]], imgAlt: "newShowTest1", showTitle: "newShowTest1", rating: "4", 
-    review: "review1"};
-
-    //console.log(checking5[0]);
-    //Checking that testData1 was updated with the correct values
-    expect(checking5[0]).toStrictEqual(compareData);
-
-    //Checking that local storage doesn't update if show doesn't have a name
-    name.value = "";
-    button.click();
-
-    const checking1 = getShowsFromStorage();
-    expect(checking1[0]).toStrictEqual(compareData);
-    name.value = "newShowTest1"
-    
-    //checking that local storage doesn't update if given a negative season number
-    totalSeasons.value = "-10";
-    button.click();
-    const checking2 = getShowsFromStorage();
-    expect(checking2[0]).toStrictEqual(compareData);
-    totalSeasons.value = "2";
-    
-    //Checkign that local storage doesn't update if given a blank runTime
-    episodes1again.value = "-5"
-    button.click();
-    const checking3 = getShowsFromStorage();
-    expect(checking3[0]).toStrictEqual(compareData);
-    episodes1again.value = "2";*/
-
-
     
 }) 
 
