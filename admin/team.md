@@ -22,55 +22,55 @@
 
 # Getting to know us: 
 ## Aedan Bailey
-![AedanBailey](/admin/TeamPicture/AedanBailey.jpg)
+![AedanBailey](../admin/TeamPicture/AedanBailey.jpg)
   - Role: Team Lead
   - Favourite quote: "It’s a magical world Hobbes"
   - Self-introduction: Hi! My name is Aedan and I’m one of the team leads for team 9. I love to snowboard and code!
   - [GitHub Page](https://github.com/B3DAN)
 ## Pranav Puttaparthi
-![PranavPuttaparthi](/admin/TeamPicture/PranavPuttaparthi_ID.jpg)
+![PranavPuttaparthi](../admin/TeamPicture/PranavPuttaparthi_ID.jpg)
   - Role: Team Lead
   - Favourite quote: "No matter how far you push your feelings down, they’ll always come back somehow. And what you do with those feelings that will be your truth"
   - Self-introduction: Hi, my name is Pranav Puttaparthi! I'm an aspiring novelist with an immense fanaticism for stories, chicken sandwiches, and gaming of all genres!
   - [GitHub Page](https://github.com/pranav-puttaparthi)
 ## Cindy Wang
-![CindyWang](/admin/TeamPicture/Cindy%20Wang.jpg)
+![CindyWang](../admin/TeamPicture/Cindy%20Wang.jpg)
   - Role: Planner
   - Favourite quote: "Tomorrow is another day"
   - Self-introduction: Hi I am Cindy, and I am a third year math-cs student. I love painting, reading, and hiking. 
   - [GitHub Page](https://github.com/xiw013)
 ## Ruihan Zeng
-![RuihanZeng](/admin/TeamPicture/RuihanZeng.png)
+![RuihanZeng](../admin/TeamPicture/RuihanZeng.png)
   - Role: Designer
   - Favourite quote: "There are no bugs, just complementary features"
   - Self-introduction: Hi my name is Ruihan.  You can find me sleeping in the library from time to time.  When I'm not sleeping, you can find me desperately trying to complete my homework or cramming for a midterm.
   - [GitHub Page](https://github.com/r3zeng)
 ## Chenfei Yan
-![ChenfeiYan](/admin/TeamPicture/Chenfei.jpg)
+![ChenfeiYan](../admin/TeamPicture/Chenfei.jpg)
   - Role: Developer
   - Favourite quote: "what's past is prologue"
   - Self-introduction: Hi, I am from China, Shanghai. I am a third year student major in CS at UCSD. I like plaing vido game, swimming and coding. My favourite game is League of Legends and Apex.
   - [GitHub Page](https://github.com/Lanmei0914)
 ## Jackie Sun
-![Jackie Sun](/admin/TeamPicture/JackieSun.jpg)
+![Jackie Sun](../admin/TeamPicture/JackieSun.jpg)
   - Role: Developer
   - Favourite quote: "Krusty Krab is unfair"
   - Self-introduction: 
   - [GitHub Page](https://github.com/JackieJSun)
 ## Anish Rajeshkumar
-![AnishRajeshkumar](/admin/TeamPicture/AnishRajeshkumar.jpg)
+![AnishRajeshkumar](../admin/TeamPicture/AnishRajeshkumar.jpg)
   - Role: Developer
   - Favourite quote: "Play more, work less"
   - Self-introduction: Hello my name is Anish Rajeshkumar and I am a driven and fun individual who seeks to learn new things. In my free time I like playing the video game Super Smash bros. and I like to hike.
   - [GitHub Page](https://github.com/anishrajeshkumar2002) 
 ## Ann Luong
-![AnnLuong](/admin/TeamPicture/AnnLuong.jpg)
+![AnnLuong](../admin/TeamPicture/AnnLuong.jpg)
   - Role: Developer
   - Favourite quote: "No thoughts, head empty, just vibes"
   - Self-introduction: Hi! My name's Ann Luong. I'm one of the developers for Team 9. I'm a 4th year CS major. I like to watch TV, sleep, and play games.
   - [GitHub Page](https://github.com/hoangann23)
 ## Yiju(Ray) Li
-<img src="/admin/TeamPicture/ray-li.jpg" width=25% height=25%>
+<img src="../admin/TeamPicture/ray-li.jpg" width=25% height=25%>
 
   - Role: Developer
   - Favourite quote: "To Infinity and Beyond!"
