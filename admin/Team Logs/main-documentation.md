@@ -64,6 +64,7 @@ The file movie-show-subpage imports corresponding javascript files (expandedMovi
 #### expandedMovieCard.js
 #### expandedShowCard.js
 #### jestLocalStorage.js
+Document that houses the localStorage used by Jest, for the sake of proper unit testing of functions that use localStorage.
 #### main.js
 #### movie-show-subpage.js
 #### smallMovieCard.js
