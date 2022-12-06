@@ -66,6 +66,7 @@ Document that houses the localStorage used by Jest, for the sake of proper unit 
 #### main.js
 Document that get all the data from localStorage and create small show or movie card base on the data.
 #### movie-show-subpage.js
+Document that starts the function calls to generate the expanded cards
 #### smallMovieCard.js
 #### smallShowCard.js
 #### tools.js
