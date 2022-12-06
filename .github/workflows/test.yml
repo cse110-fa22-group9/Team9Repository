@@ -23,7 +23,12 @@ jobs:
           npm run test-E2E ./source/_test_/smallCard.test.js
           npm run test-E2E ./source/_test_/tools-unit.test.js
           npm run test-E2E ./source/_test_/addContent.test.js
+          npm run test-E2E ./source/_test_/addContent.test.js
+          npm run test-E2E ./source/_test_/expandedMovieCard.test.js
+          npm run test-E2E ./source/_test_/expandedShowCard.test.js
           npm run test-unit ./source/_test_/smallShowCard-unit.test.js
           npm run test-unit ./source/_test_/smallMovieCard-unit.test.js
+          npm run test-unit ./source/_test_/expandedMovieCard-unit.test.js
+          npm run test-unit ./source/_test_/expandedShowCard-unit.test.js
         env:
           CI: true
