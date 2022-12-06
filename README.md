@@ -1,7 +1,7 @@
 
 
 # Team Information
-[Our main page](https://cse110-fa22-group9.github.io/) <br>
+[Our main page](https://cse110-fa22-group9.github.io/Team9Repository/) <br>
 [Our team page](https://cse110-fa22-group9.github.io/Team9Repository/admin/team.html) <br>
 [Team Video](https://youtu.be/sez--7q8XT4)
 
