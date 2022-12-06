@@ -1,4 +1,4 @@
-[phase1 Drawio](/admin/cipipeline/phase1.drawio.png)
+![phase1 Drawio](/admin/cipipeline/phase1.drawio.png)
 
 Things already implemented
   - linting and code style enforcement (lint.yml)
