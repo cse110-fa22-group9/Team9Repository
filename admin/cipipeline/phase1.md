@@ -1,5 +1,7 @@
 ![phase1 Drawio](./phase1.drawio.png)
 
+[Demonstration of the pipeline](./phase1.mp4)
+
 Things already implemented
   - linting and code style enforcement (lint.yml)
     - Check at github action called Lint Code Base
