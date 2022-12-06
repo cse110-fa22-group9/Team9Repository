@@ -12,9 +12,8 @@ Things already implemented
     - Created at Github branches
     - Add the protection rules for main branch
     - Every merge request to branch need review and approved by another teammate in Team9
-  - CI.yml
-    - Check the code quality for html file's at github action called CI
-    - Maybe Update later to check more
+  - HTMLCheck.yml
+    - Check the code quality for html file's at github action called HTMLCheck
 
   - unit test via automation (test.yml)
     - smallCard.test.js. Thistest file is used to E2E test the correctness of the small show and movie card. It will first clear and insert 3 movie data and 3 show data to the localstorge. Dring the testing, it will test serverl things to make sure the small movie and show card is create by main.js, smallMoviecard.js, and smallShowcard.js correctly to the main.html.
@@ -40,10 +39,3 @@ Things already implemented
 
 - documentation generation via automation (JSDoc.yml)
   - This github action is used to generate an JSDoc automatically through JSDoc command. The output for JSDoc will at the folder called JSDoc. After each time we commite an change. This github action will run and generate all the JSDoc from the path ./source to ./JSDoc.
-
-
-Things planning to implemented
-  - unit tests via automation
-    - planning implemented before the checkpoint 2 with study of the lab 8
-  - documentation generation via automation 
-    -  planning implemented before the checkpoint 2 with study of the lab 8
