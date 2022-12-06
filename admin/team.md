@@ -1,6 +1,6 @@
 # Welcome to our team page!
 ## We are Team Nine (T9) !!!
-![TeamBrand](/admin/Branding/Team%209%20logo.jpg)
+![TeamBrand](../admin/Branding/Team%209%20logo.jpg)
 - Hi, welcome to team 9, Since there are nine people in our group and we are group number 9 for CSE 110. So our team called T9!
 ![TeamPicture](../admin/TeamPicture/teamPicture.jpg)
 - Team Name: T9
