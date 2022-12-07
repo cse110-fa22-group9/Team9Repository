@@ -60,7 +60,9 @@ The file movie-show-subpage imports corresponding javascript files (expandedMovi
 ### Scripts 
 #### addContent.js
 #### expandedMovieCard.js
+The file contains both inner html, css, and javascripts for designing and styling of the expanded movie card when click on the movie's name. The expanded movie card include rating, comments, and movable progress bar to keep track of how much we have already watched.  
 #### expandedShowCard.js
+The file contains both inner html, css, and javascripts for designing and styling of the expanded show card when click on the show's name. The expanded show card include rating, comments, and clickable check boxes for each episode to track the number of expisodes watched. 
 #### jestLocalStorage.js
 Document that houses the localStorage used by Jest, for the sake of proper unit testing of functions that use localStorage.
 #### main.js
@@ -69,7 +71,6 @@ Document that get all the data from localStorage and create small show or movie 
 Document that starts the function calls to generate the expanded cards
 #### smallMovieCard.js
 #### smallShowCard.js
-Document that contains the functions that generate the small show card objects
 #### tools.js
 [return to the overview](#Source-Files)
 
