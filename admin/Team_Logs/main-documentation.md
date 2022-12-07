@@ -70,7 +70,9 @@ Document that get all the data from localStorage and create small show or movie 
 #### movie-show-subpage.js
 Document that starts the function calls to generate the expanded cards
 #### smallMovieCard.js
+The file contains both inner html, css, and javascripts for designing and styling of the small movie cards that appear on the home page. The small movie card displays the show title and image, the rating, and how much progress the user has made into the show.  
 #### smallShowCard.js
+The file contains both inner html, css, and javascripts for designing and styling of the small show cards that appear on the home page. The small show card displays the show title and image, the rating, and how much progress the user has made into the show.  
 #### tools.js
 [return to the overview](#Source-Files)
 
