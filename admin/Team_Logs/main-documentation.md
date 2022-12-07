@@ -69,6 +69,7 @@ Document that get all the data from localStorage and create small show or movie 
 Document that starts the function calls to generate the expanded cards
 #### smallMovieCard.js
 #### smallShowCard.js
+Document that contains the functions that generate the small show card objects
 #### tools.js
 [return to the overview](#Source-Files)
 
