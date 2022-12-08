@@ -61,6 +61,7 @@ The file movie-show-subpage imports corresponding javascript files (expandedMovi
 
 ### Scripts 
 #### addContent.js
+Add Content is our handler for addContent.html and for our editing system. Add content looks for if there is an incoming ID it should load, or if this is a completely new creation. Then based on which form is selected, it will create a show or movie as long as none of the information is unexpected or bad data. 
 #### expandedMovieCard.js
 The file contains both inner html, css, and javascripts for designing and styling of the expanded movie card when click on the movie's name. The expanded movie card include rating, comments, and movable progress bar to keep track of how much we have already watched.  
 #### expandedShowCard.js
