@@ -30,4 +30,4 @@ Creation of our large documentation to fill in
 Fixing a few small visual pieces and items in javascript
 
 Meeting End Time:
-10:35 PM
+10:35 AM
