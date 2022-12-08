@@ -77,6 +77,7 @@ The file contains both inner html, css, and javascripts for designing and stylin
 #### smallShowCard.js
 The file contains both inner html, css, and javascripts for designing and styling of the small show cards that appear on the home page. The small show card displays the show title and image, the rating, and how much progress the user has made into the show.  
 #### tools.js
+The file contains commonly used functions for loading, saving and getting the id of an element from local storage.  Main purpose of this file to to prevent redundent code bloat in other files
 [return to the overview](#Source-Files)
 
 #### index.html
