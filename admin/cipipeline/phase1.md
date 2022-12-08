@@ -38,6 +38,26 @@ Things already implemented
       - totalepisodeNum() test 1 - 5: input different 2D array and see if the output is the total number of length for that 2D array
       - episodesWatched() test 1 - 5: input different 2D array and see if the output is the total number of true value inside the 2D array
       - setData() and get data() test 1 - 5: set different data to the movieCard Object and see if the data out is correct
-
+      - expandedMovieCard-unit.test.js This files tests every function in expandedMovieCard.js and ensures it spits the correct output given test input
+      - expandedShowCard-unit.test.js This files tests every function in expandedMovieCard.js and ensures it spits the correct output given test input
+      - expandedMovieCard.test.js This test file is used to E2E test the correctness of the expanded movie card. It will first clear and insert 3 movie data to the localstorge. Dring the testing, it will test serveral things to make sure the expanded movie is create by main.js and expandedMoviecard.js correctly to the main.html.
+           - before the test: clean the local storge
+      - test 1: Add all the data to local storge (should always pass)
+      - test 2: Check to make sure that all <expanded-movie-card> elements have loaded
+      - test 3: Check to make sure that all <expanded-movie-card> elements have data in them
+      - test 4: Make sure all the <expanded-movie-card> elements have correct link to thier home page when the home button is clicked
+      - test 5: Make sure all the <expanded-movie-card> elements have correct link to thier edit page when the edit button is clicked
+      - test 6: Make sure all the <expanded-movie-card> elements can get deleted correctly when the delete button is clicked
+      - test 7: clean the local storge after test is done(should always pass)
+        - expandedShowCard.test.js This test file is used to E2E test the correctness of the expanded show card. It will first clear and insert 3 show data to the localstorge. Dring the testing, it will test serveral things to make sure the expanded show is create by main.js and expandedShowcard.js correctly to the main.html.
+           - before the test: clean the local storge
+      - test 1: Add all the data to local storge (should always pass)
+      - test 2: Check to make sure that all <expanded-show-card> elements have loaded
+      - test 3: Check to make sure that all <expanded-show-card> elements have data in them
+      - test 4: Make sure all the <expanded-show-card> elements have correct link to thier home page when the home button is clicked
+      - test 5: Make sure all the <expanded-show-card> elements have correct link to thier edit page when the edit button is clicked
+      - test 5: Make sure all the <expanded-show-card> elements can cprrectly mark the correct season when clicked
+      - test 5: Make sure all the <expanded-show-card> elements can get deleted correctly when the delete button is clicked
+      - test 6: clean the local storge after test is done(should always pass)
 - documentation generation via automation (JSDoc.yml)
   - This github action is used to generate an JSDoc automatically through JSDoc command. The output for JSDoc will at the folder called JSDoc. After each time we commite an change. This github action will run and generate all the JSDoc from the path ./source to ./JSDoc.
