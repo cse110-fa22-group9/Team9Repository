@@ -47,6 +47,8 @@ Here is the overview of the hierarchy of all files in the source directory: \
 #### smallMovieCard-unit.test.js
 #### smallShowCard-unit.test.js
 #### tools-unit.test.js
+#### expandedMovieCard.test.js
+This file consists of E2E tests for every every functionality in the expandedMoviecard.js and tests to esnure that all data shows gets stored in local storage properly and that all data shows up properly on the webpage as well. I
 [return to the Source Files](#Source-Files)
 
 ### Page Designs
