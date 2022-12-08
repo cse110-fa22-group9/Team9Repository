@@ -57,7 +57,7 @@ Things already implemented
       - test 4: Make sure all the <expanded-show-card> elements have correct link to thier home page when the home button is clicked
       - test 5: Make sure all the <expanded-show-card> elements have correct link to thier edit page when the edit button is clicked
       - test 5: Make sure all the <expanded-show-card> elements can cprrectly mark the correct season when clicked
-      - test 5: Make sure all the <expanded-show-card> elements can get deleted correctly when the delete button is clicked
-      - test 6: clean the local storge after test is done(should always pass)
+      - test 6: Make sure all the <expanded-show-card> elements can get deleted correctly when the delete button is clicked
+      - test 7: clean the local storge after test is done(should always pass)
 - documentation generation via automation (JSDoc.yml)
   - This github action is used to generate an JSDoc automatically through JSDoc command. The output for JSDoc will at the folder called JSDoc. After each time we commite an change. This github action will run and generate all the JSDoc from the path ./source to ./JSDoc.
